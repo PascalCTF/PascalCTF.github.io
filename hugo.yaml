@@ -58,7 +58,7 @@ params:
     enabled: true  # needs to be explicitly set
     title: PascalCTF
     subtitle: "PascalCTF is a Capture The Flag (CTF) competition organized by the team Paolo."
-    imageUrl: "/logo.png"
+    imageUrl: "/logo.svg"
     imageWidth: 250
     imageHeight: 250
     # imageTitle: "PascalCTF"
