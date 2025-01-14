@@ -16,12 +16,13 @@ params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: PascalCTF
   description: "PascalCTF is a Capture The Flag (CTF) competition organized by the team Paolo."
-  keywords: [Blog, CTF, Capture The Flag, Paolo, PascalCTF]
+  keywords: ["Blog", "CTF", "Capture The Flag", "Paolo", "PascalCTF"]
   # author: PascalCTF
   # images: ["<link or path of image for opengraph, twitter-cards>"]
   DateFormat: "January 2, 2006"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
+  contentDir: "content"
 
   ShowReadingTime: true
   ShowShareButtons: true
