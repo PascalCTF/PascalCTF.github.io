@@ -69,8 +69,6 @@ params:
       url: "https://ctftime.org/team/263145"
     - name: github
       url: "https://github.com/PascalCTF"
-    - name: discord
-      url: "https://discord.com/invite/5rbB4CFeAd"
 
   # analytics:
   #   google:
