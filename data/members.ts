@@ -1,0 +1,49 @@
+export const members = [
+  {
+    name: "Alex",
+    role: "admin",
+    description: "Reverse engineering specialist with expertise in malware analysis",
+    avatar: "/placeholder.svg?height=80&width=80",
+    social: {
+      website: "https://alex.example.com",
+      email: "alex@blaisone.team",
+      twitter: "https://twitter.com/alex",
+      github: "https://github.com/alex",
+      linkedin: "https://linkedin.com/in/alex",
+    },
+  },
+  {
+    name: "Jordan",
+    role: "admin",
+    description: "Web security researcher and CTF challenge creator",
+    avatar: "/placeholder.svg?height=80&width=80",
+    social: {
+      email: "jordan@blaisone.team",
+      twitter: "https://twitter.com/jordan",
+      github: "https://github.com/jordan",
+      discord: "jordan#1234",
+    },
+  },
+  {
+    name: "Casey",
+    role: "member",
+    description: "Cryptography enthusiast and blockchain security auditor",
+    avatar: "/placeholder.svg?height=80&width=80",
+    social: {
+      website: "https://casey.dev",
+      github: "https://github.com/casey",
+      linkedin: "https://linkedin.com/in/casey",
+    },
+  },
+  {
+    name: "Riley",
+    role: "member",
+    description: "Binary exploitation and pwn challenge solver",
+    avatar: "/placeholder.svg?height=80&width=80",
+    social: {
+      twitter: "https://twitter.com/riley",
+      github: "https://github.com/riley",
+      discord: "riley#5678",
+    },
+  },
+]

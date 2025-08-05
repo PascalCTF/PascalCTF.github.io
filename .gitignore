@@ -1,28 +1,27 @@
-# Compiled Object files, Static and Dynamic libs (Shared Objects)
-*.o
-*.a
-*.so
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Folders
-_obj
-_test
+# dependencies
+/node_modules
 
-# Architecture specific extensions/prefixes
-*.[568vq]
-[568vq].out
+# next.js
+/.next/
+/out/
 
-*.cgo1.go
-*.cgo2.c
-_cgo_defun.c
-_cgo_gotypes.go
-_cgo_export.*
+# production
+/build
 
-_testmain.go
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
 
-*.exe
-*.test
+# env files
+.env*
 
-/public
-.DS_Store
-.hugo_build.lock
-resources/_gen/
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

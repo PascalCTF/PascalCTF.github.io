@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Buffer Overflow - HackTheBox Challenge",
+    "author": "Alex",
+    "date": "12/15/2024",
+    "tags": ["pwn", "binary"],
+    "description": "A detailed analysis of a classic buffer overflow vulnerability and exploitation techniques",
+    "image": "/placeholder.svg?height=120&width=200",
+    "slug": "buffer-overflow-hackthebox"
+  },
+  {
+    "title": "RSA Cryptanalysis - PicoCTF 2024",
+    "author": "Casey",
+    "date": "11/28/2024",
+    "tags": ["crypto", "rsa"],
+    "description": "Breaking weak RSA implementation using mathematical attacks and factorization",
+    "image": "/placeholder.svg?height=120&width=200",
+    "slug": "rsa-cryptanalysis-picoctf"
+  },
+  {
+    "title": "SQL Injection to RCE - Custom Challenge",
+    "author": "Jordan",
+    "date": "11/10/2024",
+    "tags": ["web", "sqli", "rce"],
+    "description": "Escalating SQL injection to remote code execution through advanced techniques",
+    "image": "/placeholder.svg?height=120&width=200",
+    "slug": "sqli-to-rce-custom"
+  }
+]
