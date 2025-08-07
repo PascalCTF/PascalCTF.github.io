@@ -1,8 +1,10 @@
 import { SponsorCard } from "@/components/sponsor-card"
 import { Navigation } from "@/components/navigation"
-import { sponsors } from "@/data/sponsors"
+import { sponsors_by_year } from "@/data/sponsors"
 
 export default function SponsorsPage() {
+  const years = Object.keys(sponsors_by_year).sort((a, b) => Number(b) - Number(a))
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <Navigation />
@@ -14,13 +16,17 @@ export default function SponsorsPage() {
           sponsor us, please reach out via email at [email protected].
         </p>
 
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">2024</h2>
+        {years.map((year) => (
+          <div key={year}>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">{year}</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {sponsors.map((sponsor, index) => (
-            <SponsorCard key={index} sponsor={sponsor} />
-          ))}
-        </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+              {sponsors_by_year[year].map((sponsor, index) => (
+                <SponsorCard key={index} sponsor={sponsor} />
+              ))}
+            </div>
+          </div>
+        ))}
       </main>
     </div>
   )

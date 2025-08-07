@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { ThemeSwitcher } from "./theme-switcher"
 
@@ -7,7 +8,13 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center">
-            <div className="w-6 h-6 bg-red-600 rounded-sm mr-2"></div>
+            <Image
+              src="/logo.svg"
+              alt="Blaisone Logo"
+              width={40}
+              height={40}
+              className="mr-2"
+            />
             <span className="font-medium text-gray-900 dark:text-white">Blaisone</span>
           </Link>
           <div className="flex items-center space-x-8">

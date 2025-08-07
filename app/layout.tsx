@@ -7,7 +7,10 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Blaisone CTF Team",
-  description: "PascalCTF is a Capture The Flag (CTF) competition organized by the team Blaisone."
+  description: "PascalCTF is a Capture The Flag (CTF) competition organized by the team Blaisone.",
+  icons: {
+    icon: "/logo.svg",
+  },
 }
 
 export default function RootLayout({

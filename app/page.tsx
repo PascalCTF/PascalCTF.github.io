@@ -11,10 +11,10 @@ export default function HomePage() {
           <div className="mb-8">
             <div className="w-48 h-48 mx-auto mb-6 bg-blue-500 rounded-full flex items-center justify-center">
               <Image
-                src="/placeholder.svg?height=120&width=120"
+                src="/logo.svg?height=2400&width=240"
                 alt="Blaisone CTF Team Logo"
-                width={120}
-                height={120}
+                width={240}
+                height={240}
                 className="rounded-full"
               />
             </div>

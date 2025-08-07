@@ -1,36 +1,22 @@
-export const sponsors = [
-  {
-    name: "CyberSec Corp",
-    logo: "/placeholder.svg?height=100&width=200",
-    social: {
-      website: "https://cyberseccorp.com",
-      twitter: "https://twitter.com/cyberseccorp",
-      linkedin: "https://linkedin.com/company/cyberseccorp",
-    },
-  },
-  {
-    name: "SecureNet",
-    logo: "/placeholder.svg?height=100&width=200",
-    social: {
-      website: "https://securenet.com",
-      twitter: "https://twitter.com/securenet",
-    },
-  },
-  {
-    name: "ThreatGuard",
-    logo: "/placeholder.svg?height=100&width=200",
-    social: {
-      website: "https://threatguard.io",
-      linkedin: "https://linkedin.com/company/threatguard",
-    },
-  },
-  {
-    name: "PenTest Pro",
-    logo: "/placeholder.svg?height=100&width=200",
-    social: {
-      website: "https://pentestpro.com",
-      twitter: "https://twitter.com/pentestpro",
-      linkedin: "https://linkedin.com/company/pentestpro",
-    },
-  },
-]
+export const sponsors_by_year: Record<string, {
+  name: string
+  logo: string
+  social: {
+    website: string
+    twitter?: string
+    linkedin?: string
+  }
+}[]> = {
+  "2024": [
+    {
+      name: "Cyberloop",
+      logo: "/sponsors/cyberloop.svg?height=100&width=200",
+      social: {
+        website: "https://cyberloop.it/",
+        twitter: "https://twitter.com/CyberloopC",
+        linkedin: "https://www.linkedin.com/company/cyberloop/",
+      },
+    }
+  ],
+  "2025": [],
+}
