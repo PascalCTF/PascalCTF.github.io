@@ -24,7 +24,7 @@ This repository is configured for automatic deployment to GitHub Pages:
 
 2. **Automatic Deployment**:
    - Every push to the `main` branch triggers a deployment
-   - The site will be available at `https://[username].github.io/[repository-name]`
+   - The site will be available at `https://pascalctf.github.io/`
 
 3. **Manual Deployment**:
    - Go to the "Actions" tab in your repository
@@ -34,14 +34,14 @@ This repository is configured for automatic deployment to GitHub Pages:
 ### Local Development
 
 1. Install dependencies:
-   \`\`\`bash
+   ```bash
    npm install
-   \`\`\`
+   ```
 
 2. Run the development server:
-   \`\`\`bash
+   ```bash
    npm run dev
-   \`\`\`
+   ```
 
 3. Open [http://localhost:3000](http://localhost:3000) in your browser
 
@@ -49,15 +49,15 @@ This repository is configured for automatic deployment to GitHub Pages:
 
 To create a static export:
 
-\`\`\`bash
+```bash
 npm run build
-\`\`\`
+```
 
 This will generate a static site in the `out` directory.
 
 ## Project Structure
 
-\`\`\`
+```
 ├── .github/workflows/
 │   └── deploy.yml           # GitHub Actions deployment workflow
 ├── app/
@@ -77,7 +77,7 @@ This will generate a static site in the `out` directory.
 │   ├── sponsors.ts         # Sponsors data
 │   └── writeups.ts         # Writeups data
 └── next.config.mjs         # Next.js configuration with static export
-\`\`\`
+```
 
 ## Content Management
 
@@ -85,7 +85,7 @@ This will generate a static site in the `out` directory.
 
 Edit `data/members.ts` to add new team members:
 
-\`\`\`typescript
+```typescript
 {
   name: "New Member",
   role: "member", // or "admin"
@@ -100,13 +100,13 @@ Edit `data/members.ts` to add new team members:
     discord: "member#1234"
   }
 }
-\`\`\`
+```
 
 ### Adding Sponsors
 
 Edit `data/sponsors.ts` to add new sponsors:
 
-\`\`\`typescript
+```typescript
 {
   name: "Sponsor Name",
   logo: "/path/to/logo.png",
@@ -116,13 +116,13 @@ Edit `data/sponsors.ts` to add new sponsors:
     linkedin: "https://linkedin.com/company/sponsor"
   }
 }
-\`\`\`
+```
 
 ### Adding Writeups
 
 Edit `data/writeups.ts` to add new writeups:
 
-\`\`\`typescript
+```typescript
 {
   title: "Challenge Name - Competition",
   author: "Author Name",
@@ -132,7 +132,7 @@ Edit `data/writeups.ts` to add new writeups:
   image: "/path/to/preview.jpg",
   slug: "url-friendly-slug"
 }
-\`\`\`
+```
 
 ## Theme System
 
