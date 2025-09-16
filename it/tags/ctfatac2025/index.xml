@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ctfatac2025 on Website</title>
+    <link>https://pascalctf.github.io/it/tags/ctfatac2025/</link>
+    <description>Recent content in Ctfatac2025 on Website</description>
+    <generator>Hugo -- 0.150.0</generator>
+    <language>it</language>
+    <lastBuildDate>Tue, 16 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://pascalctf.github.io/it/tags/ctfatac2025/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CTF@AC 2025</title>
+      <link>https://pascalctf.github.io/it/ctf/ctfatac/</link>
+      <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/ctf/ctfatac/</guid>
+      <description>Alcune writeup della ctf CTF@AC edizione 2025.</description>
+    </item>
+  </channel>
+</rss>
