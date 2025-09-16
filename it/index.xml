@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Website</title>
+    <link>https://pascalctf.github.io/it/</link>
+    <description>Recent content on Website</description>
+    <generator>Hugo -- 0.150.0</generator>
+    <language>it</language>
+    <lastBuildDate>Fri, 22 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://pascalctf.github.io/it/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>scriptCTF 2025</title>
+      <link>https://pascalctf.github.io/it/ctf/scriptctf2025/</link>
+      <pubDate>Fri, 22 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/ctf/scriptctf2025/</guid>
+      <description>Tutti i writeup di scriptCTF 2025</description>
+    </item>
+    <item>
+      <title>Email Harvester 🕵</title>
+      <link>https://pascalctf.github.io/it/projects/emailharvester/</link>
+      <pubDate>Sat, 26 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/projects/emailharvester/</guid>
+      <description>Uno strumento che raccoglie gli indirizzi email legati al dominio di un’azienda e verifica se l’organizzazione ha subito violazioni di dati in passato.</description>
+    </item>
+    <item>
+      <title>Test di Suricata 🛡</title>
+      <link>https://pascalctf.github.io/it/projects/suricata/</link>
+      <pubDate>Sat, 26 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/projects/suricata/</guid>
+      <description>Un ambiente pronto per eseguire Suricata in modalità IDS (e, se necessario, IPS) per proteggere una rete industriale simulata.</description>
+    </item>
+    <item>
+      <title>Competizioni 🏆</title>
+      <link>https://pascalctf.github.io/it/competitions/</link>
+      <pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/competitions/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pascal CTF Beginner 2025</title>
+      <link>https://pascalctf.github.io/it/ctf/pascalctf2025/</link>
+      <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/ctf/pascalctf2025/</guid>
+      <description>Alcune writeups della pascalCTF Beginner ctf 2025.</description>
+    </item>
+  </channel>
+</rss>
