@@ -403,7 +403,7 @@ p.interactive()
 La vulnerabilità è evidente se conosci i format string bug.
 Nel codice decompilato (vedi immagine), il programma chiama `printf()` **senza** specificare una format string, tipo `%s`:
 
-![Decompiled code showing vulnerable printf](image-1.png)
+![Decompiled code showing vulnerable printf](/images/fini.png)
 
 Questo significa che l’input dell’utente viene passato direttamente a `printf`, permettendoci di controllare la format string e di leakare valori dallo stack o scrivere in memoria arbitraria.
 
@@ -630,7 +630,25 @@ CTF{2944cec0c0f401a5fa538933a2f6210c279fbfc8548ca8ab912b493d03d2f5bf}
 
 ### Ironevil
 
-TODO
+#### La challenge
+
+Il binario fornito nella challenge, chiamato `ironveil`, è un eseguibile ELF 64-bit PIE compilato per Linux e collegato a un loader NixOS. Poiché il percorso dell’interprete indicato nel binario punta a una posizione non standard, il programma non può essere eseguito direttamente su un sistema tipico. È per questo che, lanciandolo da shell, compare l’errore “cannot execute: required file not found.” In pratica, la soluzione è specificare manualmente il loader del sistema, di solito `/lib64/ld-linux-x86-64.so.2`, per poter eseguire il programma.
+
+Il codice decompilato mostra che, prima di qualsiasi operazione di cifratura, il programma dedica molto tempo all’inizializzazione. Imposta gestori di segnali, esegue controlli con `poll` sui descrittori di file e interagisce con `/dev/null`. Inoltre interroga attributi dei thread, come indirizzo e dimensione dello stack, e li riallinea con precisione. Queste procedure sono tipiche di binari resi più resistenti a tecniche di debugging o all’esecuzione in sandbox. Una volta completata l’inizializzazione, però, la logica si riduce a un comportamento piuttosto semplice: il programma si aspetta un file come input e produce un output cifrato con il suffisso `.encrypted`.
+
+La routine di cifratura è basata su una macchina virtuale personalizzata. Questa VM interpreta trentadue opcode per generare uno stream di byte che funge da chiave. Lo stream viene poi applicato al file in input con un’operazione di XOR byte per byte. Ogni byte di plaintext viene combinato con il corrispondente byte della chiave e il risultato viene scritto su disco. Il dettaglio cruciale è che la VM è deterministica: lo stesso binario produce sempre lo stesso keystream. Non esiste alcun seed casuale, nonce o variazione per file. Ciò significa che la trasformazione è semplicemente `ciphertext = plaintext ⊕ key`. Applicare la trasformazione due volte con la stessa chiave la annulla, perché `(P ⊕ K) ⊕ K = P`.
+
+#### La soluzione
+
+La challenge ci metteva a disposizione soltanto il binario e un file già cifrato, `flag.txt.encrypted`. La soluzione pensata dagli autori probabilmente era quella di invertire la VM, studiarne le trentadue istruzioni e rigenerare lo stream di chiave per decifrare manualmente il ciphertext. Tuttavia, la natura deterministica dell’algoritmo offriva una via molto più semplice. Dando in pasto al programma il file già cifrato, lo stesso keystream veniva applicato di nuovo. Di conseguenza, la doppia cifratura si annullava e restituiva il plaintext originale.
+
+Eseguendo il binario tramite il loader di sistema con il file cifrato come input veniva generato un nuovo file, `flag.txt.encrypted.encrypted`. Aprendolo si poteva vedere immediatamente la flag in chiaro all’inizio del file. Il resto conteneva byte spazzatura, coerenti con l’operazione XOR che prosegue oltre la flag su dati inutilizzati o irrilevanti. Ma la presenza della flag completa all’inizio era sufficiente per risolvere la challenge.
+
+#### Note finali
+
+La debolezza di sicurezza qui risiede proprio nel riutilizzo di uno stream di chiave statico. Nella crittografia reale, i cifrari a flusso sono sicuri solo se ogni cifratura usa un nonce o un vettore di inizializzazione univoco, così da garantire che lo stream non si ripeta mai. In assenza di questa misura, il cifrario si riduce a un insicuro “many-time pad”, in cui l’uso ripetuto dello stesso keystream porta inevitabilmente a perdite di informazione. In questo caso, la falla era talmente grave che una semplice doppia esecuzione del binario invertiva la trasformazione ed esponeva direttamente la flag in chiaro.
+
+La challenge quindi poteva essere risolta in pochi secondi senza comprendere affatto il funzionamento della macchina virtuale, semplicemente ri-cifrando il ciphertext fornito. Il risultato inatteso ma valido è stato il recupero della flag:
 
 ### Pixel Gate
 

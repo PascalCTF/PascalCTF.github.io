@@ -387,7 +387,7 @@ p.interactive()
 The vulnerability is easy to spot if you are familiar with format string bugs.  
 In the decompiled code (see image below), the program calls `printf()` **without** specifying a format string, like `%s`:
 
-![Decompiled code showing vulnerable printf](image-1.png)
+![Decompiled code showing vulnerable printf](/images/fini.png)
 
 This means user input is passed directly to `printf`, allowing us to control the format string and leak stack values or write to arbitrary memory.
 
@@ -769,13 +769,31 @@ With `k1, k2` fixed, decoding and assembling `a + permuted_rest + suffix` yields
 CTF{2944cec0c0f401a5fa538933a2f6210c279fbfc8548ca8ab912b493d03d2f5bf}
 ```
 
+### Ironevil
+
+#### The challenge
+
+The binary provided in the challenge, named `ironveil`, is an ELF 64-bit PIE executable built for Linux and linked against a NixOS loader. Because the interpreter path in the binary points to a non-standard location, it cannot run directly on a typical system. This is why invoking it from the shell results in the error “cannot execute: required file not found.” In practice, the solution is to manually specify the system’s own loader, usually `/lib64/ld-linux-x86-64.so.2`, in order to run the program.
+
+The decompiled code shows that before any encryption takes place, the program spends considerable effort on initialization. It sets up signal handlers, performs poll checks on file descriptors, and interacts with `/dev/null`. It also queries thread attributes such as stack address and size, and aligns them carefully. These routines are typical of binaries hardened against debugging or sandbox analysis. However, once initialization completes, the logic converges on a relatively simple behavior: it expects a single file as input and produces an encrypted output with a `.encrypted` suffix.
+
+The encryption routine is based on a custom virtual machine. This VM interprets thirty-two opcodes to derive a keystream of bytes. The keystream is then applied to the input file through a byte-by-byte XOR operation. Every plaintext byte is combined with the corresponding keystream byte, and the result is written to disk. The crucial detail is that the VM is deterministic: the same binary always produces the same keystream. There is no random seed, nonce, or per-file variation. This means the transformation is simply `ciphertext = plaintext ⊕ key`. Applying the transformation twice with the same key cancels it out, because `(P ⊕ K) ⊕ K = P`.
+
+#### Solution
+
+The challenge gave us only the binary and an already encrypted file named `flag.txt.encrypted`. The intended solution might have been to reverse the VM, study its thirty-two instructions, and regenerate the keystream in order to manually decrypt the ciphertext. However, the determinism of the algorithm offered a much simpler path. By feeding the already encrypted file back into the program, the same keystream was applied again. As a result, the double encryption inverted itself and produced the original plaintext.
+
+Running the binary through the system loader with the encrypted flag as input created a new file named `flag.txt.encrypted.encrypted`. Opening this file immediately revealed the flag in cleartext at the beginning of the file. The remainder of the file contained garbage, which is consistent with the XOR operation continuing past the flag content into unused or irrelevant data. But the presence of the complete flag string at the start was enough to solve the challenge.
+
+#### Final notes
+
+The security weakness here is exactly the reuse of a static keystream. In real cryptography, stream ciphers are only secure when each encryption uses a unique nonce or initialization vector, ensuring that the keystream never repeats. Without that safeguard, the cipher degenerates into a vulnerable “many-time pad,” where multiple uses of the same keystream inevitably leak information. In this case, the leakage was so severe that a simple double invocation of the binary inverted the transformation and exposed the plaintext flag directly.
+
+The challenge therefore could be solved in seconds without understanding the virtual machine at all, simply by re-encrypting the provided ciphertext. The unintended but valid outcome was the recovery of the flag:
+
 ### Pixel Gate
 
 This challenge shipped with a stripped Go binary (`challenge`) and a helper script `gen.py`. The binary expects a very specifically crafted PNG file and prints its contents only if all internal validations succeed. By reversing the RISC-V64 Go build we found a deliberately narrow, hand-rolled PNG parser whose constraints are mirrored exactly by the generator script.
-
-### Ironevil
-
-TODO
 
 #### The algorithm
 
