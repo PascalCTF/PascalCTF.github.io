@@ -109,8 +109,8 @@
   "keywords": [
     "ctfatac", "ctf", "binary", "crypto", "web", "ctfatac2025"
   ],
-  "articleBody": "Ecco la traduzione in italiano, mantenendo invariati termini tecnici e nomi di programmi/codice.\nCTF@AC 2025 Web 🌐 money Analisi La challenge espone una dashboard minimale che supporta plugin di terze parti. Quando carichiamo un plugin, la piattaforma ci permette anche di scaricare quelli esistenti (incluso l’ufficiale flag.plugin).\nExploit Dopo aver scaricato flag.plugin, notiamo che è cifrato. Il file server.py contiene sia la chiave sia la funzione per decifrarlo, quindi possiamo decifrarlo in locale usando decrypt_file.\nKEY = b\"SECRET_KEY!123456XXXXXXXXXXXXXXX\" def decrypt_file(input_path, output_path, key): with open(input_path, \"rb\") as f: data = f.read() iv = data[:16] ciphertext = data[16:] cipher = AES.new(key, AES.MODE_CBC, iv) plaintext = unpad(cipher.decrypt(ciphertext), AES.block_size) with open(output_path, \"wb\") as f: f.write(plaintext) Il init.py del flag.plugin decifrato contiene il seguente codice:\nimport json, sqlite3, pathlib, time, uuid import os plugin_dir = pathlib.Path(__file__).resolve().parent manifest_path = plugin_dir / \"plugin_manifest.json\" name, version = \"Widget\", \"1.0.0\" if manifest_path.exists(): try: m = json.loads(manifest_path.read_text()) name = m.get(\"name\", name) version = m.get(\"version\", version) except Exception: pass thumb = thumb = f''' ",
-  "wordCount" : "5596",
+  "articleBody": "CTF@AC 2025 Web 🌐 money Analisi La challenge espone una dashboard minimale che supporta plugin di terze parti. Quando carichiamo un plugin, la piattaforma ci permette anche di scaricare quelli esistenti (incluso l’ufficiale flag.plugin).\nExploit Dopo aver scaricato flag.plugin, notiamo che è cifrato. Il file server.py contiene sia la chiave sia la funzione per decifrarlo, quindi possiamo decifrarlo in locale usando decrypt_file.\nKEY = b\"SECRET_KEY!123456XXXXXXXXXXXXXXX\" def decrypt_file(input_path, output_path, key): with open(input_path, \"rb\") as f: data = f.read() iv = data[:16] ciphertext = data[16:] cipher = AES.new(key, AES.MODE_CBC, iv) plaintext = unpad(cipher.decrypt(ciphertext), AES.block_size) with open(output_path, \"wb\") as f: f.write(plaintext) Il init.py del flag.plugin decifrato contiene il seguente codice:\nimport json, sqlite3, pathlib, time, uuid import os plugin_dir = pathlib.Path(__file__).resolve().parent manifest_path = plugin_dir / \"plugin_manifest.json\" name, version = \"Widget\", \"1.0.0\" if manifest_path.exists(): try: m = json.loads(manifest_path.read_text()) name = m.get(\"name\", name) version = m.get(\"version\", version) except Exception: pass thumb = thumb = f''' ",
+  "wordCount" : "5583",
   "inLanguage": "it",
   "image":"https://opengraph.githubassets.com/eccdc445364e4f9dcbece7bb7f178f0756be13a48717c78ec94bf78c35861b9a/PascalCTF/PascalCTF.github.io","datePublished": "2025-09-16T00:00:00Z",
   "dateModified": "2025-09-16T00:00:00Z",
@@ -211,7 +211,7 @@
     <div class="post-description">
       Alcune writeup della ctf CTF@AC edizione 2025.
     </div>
-    <div class="post-meta"><span title='2025-09-16 00:00:00 +0000 UTC'>settembre 16, 2025</span>&nbsp;·&nbsp;27 minuti&nbsp;·&nbsp;5596 parole&nbsp;·&nbsp;Paolo&nbsp;|&nbsp;Traduzioni:
+    <div class="post-meta"><span title='2025-09-16 00:00:00 +0000 UTC'>settembre 16, 2025</span>&nbsp;·&nbsp;27 minuti&nbsp;·&nbsp;5583 parole&nbsp;·&nbsp;Paolo&nbsp;|&nbsp;Traduzioni:
 <ul class="i18n_list">
     <li>
         <a href="https://pascalctf.github.io/en/ctf/ctfatac/">🇬🇧 En</a>
@@ -287,9 +287,7 @@
     </details>
 </div>
 
-  <div class="post-content"><p>Ecco la traduzione in italiano, mantenendo invariati termini tecnici e nomi di programmi/codice.</p>
-<hr>
-<h1 id="ctfac-2025">CTF@AC 2025<a hidden class="anchor" aria-hidden="true" href="#ctfac-2025">#</a></h1>
+  <div class="post-content"><h1 id="ctfac-2025">CTF@AC 2025<a hidden class="anchor" aria-hidden="true" href="#ctfac-2025">#</a></h1>
 <p><img alt="ctf at ac logo" loading="lazy" src="/images/ctf@ac.png"></p>
 <h2 id="web-">Web 🌐<a hidden class="anchor" aria-hidden="true" href="#web-">#</a></h2>
 <h3 id="money">money<a hidden class="anchor" aria-hidden="true" href="#money">#</a></h3>
