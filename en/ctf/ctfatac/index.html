@@ -573,7 +573,7 @@ For more details, see <a href="https://ir0nstone.gitbook.io/notes/binexp/stack/r
 <h4 id="finding-the-vulnerability">Finding the Vulnerability<a hidden class="anchor" aria-hidden="true" href="#finding-the-vulnerability">#</a></h4>
 <p>The vulnerability is easy to spot if you are familiar with format string bugs.<br>
 In the decompiled code (see image below), the program calls <code>printf()</code> <strong>without</strong> specifying a format string, like <code>%s</code>:</p>
-<p><img alt="Decompiled code showing vulnerable printf" loading="lazy" src="image-1.png"></p>
+<p><img alt="Decompiled code showing vulnerable printf" loading="lazy" src="/images/fini.png"></p>
 <p>This means user input is passed directly to <code>printf</code>, allowing us to control the format string and leak stack values or write to arbitrary memory.</p>
 <p>Additionally, the program provides a feature that lets us write any value to any address—this will be useful for exploitation.</p>
 <h4 id="exploiting-the-vulnerability">Exploiting the Vulnerability<a hidden class="anchor" aria-hidden="true" href="#exploiting-the-vulnerability">#</a></h4>

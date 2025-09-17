@@ -573,7 +573,7 @@ Per maggiori dettagli, vedi <a href="https://ir0nstone.gitbook.io/notes/binexp/s
 <h4 id="individuare-la-vulnerabilità">Individuare la vulnerabilità<a hidden class="anchor" aria-hidden="true" href="#individuare-la-vulnerabilità">#</a></h4>
 <p>La vulnerabilità è evidente se conosci i format string bug.
 Nel codice decompilato (vedi immagine), il programma chiama <code>printf()</code> <strong>senza</strong> specificare una format string, tipo <code>%s</code>:</p>
-<p><img alt="Decompiled code showing vulnerable printf" loading="lazy" src="image-1.png"></p>
+<p><img alt="Decompiled code showing vulnerable printf" loading="lazy" src="/images/fini.png"></p>
 <p>Questo significa che l’input dell’utente viene passato direttamente a <code>printf</code>, permettendoci di controllare la format string e di leakare valori dallo stack o scrivere in memoria arbitraria.</p>
 <p>Inoltre, il programma offre una funzionalità che permette di scrivere qualsiasi valore in qualunque indirizzo—utile per l’exploit.</p>
 <h4 id="sfruttare-la-vulnerabilità">Sfruttare la vulnerabilità<a hidden class="anchor" aria-hidden="true" href="#sfruttare-la-vulnerabilità">#</a></h4>
