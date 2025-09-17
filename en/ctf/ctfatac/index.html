@@ -110,7 +110,7 @@
     "ctfatac", "ctf", "binary", "crypto", "web", "ctfatac2025"
   ],
   "articleBody": "CTF@AC 2025 Web 🌐 money Analysis The challenge exposes a minimal dashboard that supports third‑party plugins. When we upload a plugin, the platform also lets us download any existing ones (including the official flag.plugin).\nExploit After downloading flag.plugin, we notice it’s encrypted. The server.py file contains both the key and the function to decrypt it, so we can locally decrypt it using decrypt_file.\nKEY = b\"SECRET_KEY!123456XXXXXXXXXXXXXXX\" def decrypt_file(input_path, output_path, key): with open(input_path, \"rb\") as f: data = f.read() iv = data[:16] ciphertext = data[16:] cipher = AES.new(key, AES.MODE_CBC, iv) plaintext = unpad(cipher.decrypt(ciphertext), AES.block_size) with open(output_path, \"wb\") as f: f.write(plaintext) The decrypted flag.plugin init.py contains the following code:\nimport json, sqlite3, pathlib, time, uuid import os plugin_dir = pathlib.Path(__file__).resolve().parent manifest_path = plugin_dir / \"plugin_manifest.json\" name, version = \"Widget\", \"1.0.0\" if manifest_path.exists(): try: m = json.loads(manifest_path.read_text()) name = m.get(\"name\", name) version = m.get(\"version\", version) except Exception: pass thumb = thumb = f''' ",
-  "wordCount" : "6997",
+  "wordCount" : "7545",
   "inLanguage": "en",
   "image":"https://opengraph.githubassets.com/eccdc445364e4f9dcbece7bb7f178f0756be13a48717c78ec94bf78c35861b9a/PascalCTF/PascalCTF.github.io","datePublished": "2025-09-16T00:00:00Z",
   "dateModified": "2025-09-16T00:00:00Z",
@@ -211,7 +211,7 @@
     <div class="post-description">
       Some writeups of the CTF@AC ctf 2025 edition.
     </div>
-    <div class="post-meta"><span title='2025-09-16 00:00:00 +0000 UTC'>September 16, 2025</span>&nbsp;·&nbsp;33 min&nbsp;·&nbsp;6997 words&nbsp;·&nbsp;Paolo&nbsp;|&nbsp;Translations:
+    <div class="post-meta"><span title='2025-09-16 00:00:00 +0000 UTC'>September 16, 2025</span>&nbsp;·&nbsp;36 min&nbsp;·&nbsp;7545 words&nbsp;·&nbsp;Paolo&nbsp;|&nbsp;Translations:
 <ul class="i18n_list">
     <li>
         <a href="https://pascalctf.github.io/it/ctf/ctfatac/">🇮🇹 It</a>
@@ -245,8 +245,8 @@
     <li><a href="#reverse-engineering-">Reverse engineering ⚙️</a>
       <ul>
         <li><a href="#pythonese">Pythonese</a></li>
-        <li><a href="#pixel-gate">Pixel Gate</a></li>
         <li><a href="#ironevil">Ironevil</a></li>
+        <li><a href="#pixel-gate">Pixel Gate</a></li>
       </ul>
     </li>
     <li><a href="#cryptography-">Cryptography 🔑</a>
@@ -881,13 +881,22 @@ This way, when <code>printf</code> is called again, it will actually call <code>
 <p>With <code>k1, k2</code> fixed, decoding and assembling <code>a + permuted_rest + suffix</code> yields the full flag string. Any input whose first 6 digits satisfy those constraints makes the program print the flag (e.g., <code>110583...</code> the remaining digits don’t matter).</p>
 <h4 id="flag">Flag<a hidden class="anchor" aria-hidden="true" href="#flag">#</a></h4>
 <pre tabindex="0"><code>CTF{2944cec0c0f401a5fa538933a2f6210c279fbfc8548ca8ab912b493d03d2f5bf}
-</code></pre><h3 id="pixel-gate">Pixel Gate<a hidden class="anchor" aria-hidden="true" href="#pixel-gate">#</a></h3>
+</code></pre><h3 id="ironevil">Ironevil<a hidden class="anchor" aria-hidden="true" href="#ironevil">#</a></h3>
+<h4 id="the-challenge">The challenge<a hidden class="anchor" aria-hidden="true" href="#the-challenge">#</a></h4>
+<p>The binary provided in the challenge, named <code>ironveil</code>, is an ELF 64-bit PIE executable built for Linux and linked against a NixOS loader. Because the interpreter path in the binary points to a non-standard location, it cannot run directly on a typical system. This is why invoking it from the shell results in the error “cannot execute: required file not found.” In practice, the solution is to manually specify the system’s own loader, usually <code>/lib64/ld-linux-x86-64.so.2</code>, in order to run the program.</p>
+<p>The decompiled code shows that before any encryption takes place, the program spends considerable effort on initialization. It sets up signal handlers, performs poll checks on file descriptors, and interacts with <code>/dev/null</code>. It also queries thread attributes such as stack address and size, and aligns them carefully. These routines are typical of binaries hardened against debugging or sandbox analysis. However, once initialization completes, the logic converges on a relatively simple behavior: it expects a single file as input and produces an encrypted output with a <code>.encrypted</code> suffix.</p>
+<p>The encryption routine is based on a custom virtual machine. This VM interprets thirty-two opcodes to derive a keystream of bytes. The keystream is then applied to the input file through a byte-by-byte XOR operation. Every plaintext byte is combined with the corresponding keystream byte, and the result is written to disk. The crucial detail is that the VM is deterministic: the same binary always produces the same keystream. There is no random seed, nonce, or per-file variation. This means the transformation is simply <code>ciphertext = plaintext ⊕ key</code>. Applying the transformation twice with the same key cancels it out, because <code>(P ⊕ K) ⊕ K = P</code>.</p>
+<h4 id="solution-1">Solution<a hidden class="anchor" aria-hidden="true" href="#solution-1">#</a></h4>
+<p>The challenge gave us only the binary and an already encrypted file named <code>flag.txt.encrypted</code>. The intended solution might have been to reverse the VM, study its thirty-two instructions, and regenerate the keystream in order to manually decrypt the ciphertext. However, the determinism of the algorithm offered a much simpler path. By feeding the already encrypted file back into the program, the same keystream was applied again. As a result, the double encryption inverted itself and produced the original plaintext.</p>
+<p>Running the binary through the system loader with the encrypted flag as input created a new file named <code>flag.txt.encrypted.encrypted</code>. Opening this file immediately revealed the flag in cleartext at the beginning of the file. The remainder of the file contained garbage, which is consistent with the XOR operation continuing past the flag content into unused or irrelevant data. But the presence of the complete flag string at the start was enough to solve the challenge.</p>
+<h4 id="final-notes">Final notes<a hidden class="anchor" aria-hidden="true" href="#final-notes">#</a></h4>
+<p>The security weakness here is exactly the reuse of a static keystream. In real cryptography, stream ciphers are only secure when each encryption uses a unique nonce or initialization vector, ensuring that the keystream never repeats. Without that safeguard, the cipher degenerates into a vulnerable “many-time pad,” where multiple uses of the same keystream inevitably leak information. In this case, the leakage was so severe that a simple double invocation of the binary inverted the transformation and exposed the plaintext flag directly.</p>
+<p>The challenge therefore could be solved in seconds without understanding the virtual machine at all, simply by re-encrypting the provided ciphertext. The unintended but valid outcome was the recovery of the flag:</p>
+<h3 id="pixel-gate">Pixel Gate<a hidden class="anchor" aria-hidden="true" href="#pixel-gate">#</a></h3>
 <p>This challenge shipped with a stripped Go binary (<code>challenge</code>) and a helper script <code>gen.py</code>. The binary expects a very specifically crafted PNG file and prints its contents only if all internal validations succeed. By reversing the RISC-V64 Go build we found a deliberately narrow, hand-rolled PNG parser whose constraints are mirrored exactly by the generator script.</p>
-<h3 id="ironevil">Ironevil<a hidden class="anchor" aria-hidden="true" href="#ironevil">#</a></h3>
-<p>TODO</p>
 <h4 id="the-algorithm">The algorithm<a hidden class="anchor" aria-hidden="true" href="#the-algorithm">#</a></h4>
 <p>The file must begin with the standard 8-byte PNG signature. Immediately following, an <code>IHDR</code> chunk is required whose 13-byte payload encodes width 1337, height 1, bit depth 8 and color type 2 (truecolor) while compression, filter and interlace bytes are all zero. (The code path tolerated color type 6 as an alternative, yet the provided script sticks to 2, keeping things simpler.) Every chunk undergoes a normal PNG CRC32 verification computed over the concatenation of its 4-byte type and data. After <code>IHDR</code>, the program expects a <code>tEXt</code> chunk whose data splits on the first NUL: a 15‑byte key followed by a 17‑byte value. These bytes are compared verbatim against embedded constants: key <code>6ee494848e978ea</code> and value <code>d50bc687e6e14f8f8</code>. A custom ancillary chunk named <code>raRE</code> must also appear, carrying an 18‑byte payload equal (as raw ASCII, not decoded) to <code>2b6b2c6ba2912d219d</code>. At least one <code>IDAT</code> chunk is required but its contents are never decompressed; an empty data field is accepted because only its presence and CRC are considered. Finally an <code>IEND</code> chunk must terminate the stream. Internally the parser maintains flags for signature validity, successful <code>IHDR</code>, matching text key/value, correct <code>raRE</code> payload, having seen one or more <code>IDAT</code> chunks, and encountering <code>IEND</code>. Only if all become true does the program reopen the file and dump its raw bytes to stdout.</p>
-<h4 id="solution-1">Solution<a hidden class="anchor" aria-hidden="true" href="#solution-1">#</a></h4>
+<h4 id="solution-2">Solution<a hidden class="anchor" aria-hidden="true" href="#solution-2">#</a></h4>
 <p>Reconstructing a passing file therefore reduces to a linear assembly: emit the PNG signature, construct the exact <code>IHDR</code>, forge the <code>tEXt</code> bytes as key + NUL + value, append the fixed <code>raRE</code> payload, include an empty <code>IDAT</code>, and close with <code>IEND</code>, ensuring each chunk’s crc32(type||data) matches the stored checksum. The order used by the helper—IHDR → tEXt → raRE → IDAT → IEND—satisfies all dependencies and keeps the image minimal.</p>
 <p>The helper <code>gen.py</code> automates these steps and writes <code>pass.png</code>:</p>
 <h5 id="python-png-generator">Python PNG generator<a hidden class="anchor" aria-hidden="true" href="#python-png-generator">#</a></h5>
@@ -920,7 +929,7 @@ This way, when <code>printf</code> is called again, it will actually call <code>
 </span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;pass.png&#34;</span><span class="p">,</span> <span class="s2">&#34;wb&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Wrote pass.png (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes)&#34;</span><span class="p">)</span>
-</span></span></code></pre></div><h4 id="final-notes">Final notes<a hidden class="anchor" aria-hidden="true" href="#final-notes">#</a></h4>
+</span></span></code></pre></div><h4 id="final-notes-1">Final notes<a hidden class="anchor" aria-hidden="true" href="#final-notes-1">#</a></h4>
 <p>The strings that resemble hexadecimal are never interpreted—comparison occurs over their literal ASCII bytes. Allowing color type 6 would not add value here, so color type 2 keeps palette and alpha concerns away. Because no decompression takes place, an empty <code>IDAT</code> suffices. Any deviation—incorrect length, altered constant, missing chunk, or CRC mismatch—causes an early abort before output. The result is a deliberately tiny, deterministic PNG acting as a gate token.</p>
 <h2 id="cryptography-">Cryptography 🔑<a hidden class="anchor" aria-hidden="true" href="#cryptography-">#</a></h2>
 <h3 id="repeated-rsa">Repeated RSA<a hidden class="anchor" aria-hidden="true" href="#repeated-rsa">#</a></h3>
@@ -1027,7 +1036,7 @@ $$<p>(If you’re skeptical about the sample points, the quickest sanity check i
 </span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span> <span class="o">^</span> <span class="n">c</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">body</span><span class="p">(</span><span class="n">P1</span><span class="p">),</span> <span class="n">body</span><span class="p">(</span><span class="n">P2</span><span class="p">),</span> <span class="n">body</span><span class="p">(</span><span class="n">P3</span><span class="p">)))</span>
 </span></span><span class="line"><span class="cl"><span class="n">flag</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-16-be&#39;</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\x00\x01</span><span class="s1">&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
-</span></span></code></pre></div><h4 id="solution-2">Solution<a hidden class="anchor" aria-hidden="true" href="#solution-2">#</a></h4>
+</span></span></code></pre></div><h4 id="solution-3">Solution<a hidden class="anchor" aria-hidden="true" href="#solution-3">#</a></h4>
 <p>By XORing the three share bodies and decoding the result as <strong>UTF-16BE</strong>, then reversing the string, we get:</p>
 <pre tabindex="0"><code>ctf{d6b72529c6177d8f648ae85f624a24d6f1edce5ca29bd7cc0b888e117a123892}
 </code></pre><p>That’s the whole trick: treat the first two bytes as metadata, use the Shamir hint to try XOR (valid for $x\in{1,2,3}$ over GF($2^8$)), and recognize the reversed UTF-16BE output.</p>
@@ -1165,7 +1174,7 @@ If you’ve never used it before, this is a great excuse to try it out and see h
 </span></span><span class="line"><span class="cl">    <span class="n">ciphertext</span> <span class="o">=</span> <span class="n">cipher</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">padded_data</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">iv</span> <span class="o">+</span> <span class="n">ciphertext</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
-</span></span></code></pre></div><h4 id="solution-3">Solution<a hidden class="anchor" aria-hidden="true" href="#solution-3">#</a></h4>
+</span></span></code></pre></div><h4 id="solution-4">Solution<a hidden class="anchor" aria-hidden="true" href="#solution-4">#</a></h4>
 <p>To solve this challenge, we reasoned that in order to obtain the key it was necessary to have access to the Discord channel and, while exploring the CTF server, we noticed the <code>spam</code> channel where participants occasionally sent exactly 5 messages.</p>
 <p>We then confirmed that the ID matched, and we simply contacted the service to have it encrypt the flag with a key we generated ourselves.</p>
 <h3 id="disco-rave">Disco Rave<a hidden class="anchor" aria-hidden="true" href="#disco-rave">#</a></h3>
@@ -1195,7 +1204,7 @@ If you’ve never used it before, this is a great excuse to try it out and see h
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">concatenated</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">all_data</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&#34;utf-8&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">concatenated</span>
-</span></span></code></pre></div><h4 id="solution-4">Solution<a hidden class="anchor" aria-hidden="true" href="#solution-4">#</a></h4>
+</span></span></code></pre></div><h4 id="solution-5">Solution<a hidden class="anchor" aria-hidden="true" href="#solution-5">#</a></h4>
 <p>By following the same procedure as in <code>Disco Dance</code>, it is possible to obtain the flag by decrypting it with the AES key derived from our own Discord messages.</p>
 <h2 id="forensics-">Forensics 🤖<a hidden class="anchor" aria-hidden="true" href="#forensics-">#</a></h2>
 <h3 id="unknown-traffic-1">Unknown Traffic 1<a hidden class="anchor" aria-hidden="true" href="#unknown-traffic-1">#</a></h3>

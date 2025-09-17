@@ -162,7 +162,7 @@ Exploit Dopo aver scaricato flag.plugin, notiamo che è cifrato. Il file server.
 KEY = b&#34;SECRET_KEY!123456XXXXXXXXXXXXXXX&#34; def decrypt_file(input_path, output_path, key): with open(input_path, &#34;rb&#34;) as f: data = f.read() iv = data[:16] ciphertext = data[16:] cipher = AES.new(key, AES.MODE_CBC, iv) plaintext = unpad(cipher.decrypt(ciphertext), AES.block_size) with open(output_path, &#34;wb&#34;) as f: f.write(plaintext) Il init.py del flag.plugin decifrato contiene il seguente codice:
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-09-16 00:00:00 +0000 UTC'>settembre 16, 2025</span>&nbsp;·&nbsp;27 minuti&nbsp;·&nbsp;5583 parole&nbsp;·&nbsp;Paolo</footer>
+  <footer class="entry-footer"><span title='2025-09-16 00:00:00 +0000 UTC'>settembre 16, 2025</span>&nbsp;·&nbsp;29 minuti&nbsp;·&nbsp;6161 parole&nbsp;·&nbsp;Paolo</footer>
   <a class="entry-link" aria-label="post link to CTF@AC 2025" href="https://pascalctf.github.io/it/ctf/ctfatac/"></a>
 </article>
     </main>
