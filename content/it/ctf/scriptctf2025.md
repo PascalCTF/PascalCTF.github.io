@@ -30,8 +30,8 @@ cover:
     relative: false # when using page bundles set this to true
     hidden: true # only hide on current single page
 editPost:
-    URL: "[https://github.com/PascalCTF/PascalCTF.github.io/blob/main/content/en](https://github.com/PascalCTF/PascalCTF.github.io/blob/main/content/en)"
-    Text: "Suggerisci modifiche" # edit text
+    URL: "https://github.com/PascalCTF/PascalCTF.github.io/blob/main/content/it"
+    Text: "Suggerisci Modifiche" # edit text
     appendFilePath: true # to append file path to Edit link
 ---
 

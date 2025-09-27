@@ -31,7 +31,7 @@ cover:
     hidden: true # only hide on current single page
 editPost:
     URL: "https://github.com/PascalCTF/PascalCTF.github.io/blob/main/content/it"
-    Text: "Suggerisci modifiche" # edit text
+    Text: "Suggerisci Modifiche" # edit text
     appendFilePath: true # to append file path to Edit link
 ---
 

@@ -1,0 +1,12 @@
+years:
+  - year: 2025
+  - year: 2024
+    items:
+      - name: Cyberloop
+        url: https://cyberloop.it
+        logo: 
+          dark: /images/sponsors/cyberloop-dark.svg
+          light: /images/sponsors/cyberloop-light.svg
+        links:
+          site: https://cyberloop.it
+          linkedin: https://linkedin.com/company/cyberloop

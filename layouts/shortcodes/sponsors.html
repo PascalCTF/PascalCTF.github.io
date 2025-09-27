@@ -1,0 +1,66 @@
+{{/* Shortcode: sponsors
+Usage: {{< sponsors >}}
+Renders a responsive grid of sponsors grouped by year using data/<lang>/sponsors.yaml
+*/}}
+
+{{ $lang := .Page.Lang }}
+{{ $data := index site.Data "sponsors" }}
+{{ if not $data }}
+  <p>No sponsors data found for language {{ $lang }}.</p>
+{{ else }}
+  {{ range $year := $data.years }}
+    <h2 style="margin-top:2rem">{{ $year.year }}</h2>
+    <div class="sponsor-grid">
+      {{ range $item := $year.items }}
+        <div class="sponsor-card">
+          {{ if $item.url }}
+            <a class="sponsor-main" href="{{ $item.url }}" target="_blank" rel="noopener">
+              {{ with $item.logo }}
+                {{ $s := newScratch }}
+                {{ with .light }}{{ $s.Set "light" . }}{{ end }}
+                {{ with .dark }}{{ $s.Set "dark" . }}{{ end }}
+                {{ $lightLogo := $s.Get "light" }}
+                {{ $darkLogo := $s.Get "dark" }}
+                {{ if or $lightLogo $darkLogo }}
+                  <img class="logo-light" loading="lazy" alt="{{ $item.name }}" src="{{ or $lightLogo $darkLogo }}" onerror="this.style.display='none'" />
+                  <img class="logo-dark" loading="lazy" alt="{{ $item.name }}" src="{{ or $darkLogo $lightLogo }}" onerror="this.style.display='none'" />
+                {{ else }}
+                  <img loading="lazy" alt="{{ $item.name }}" src="{{ . }}" onerror="this.style.display='none'" />
+                {{ end }}
+              {{ end }}
+              <div class="sponsor-name">{{ $item.name }}</div>
+            </a>
+          {{ else }}
+            <div class="sponsor-main">
+              {{ with $item.logo }}
+                {{ $s := newScratch }}
+                {{ with .light }}{{ $s.Set "light" . }}{{ end }}
+                {{ with .dark }}{{ $s.Set "dark" . }}{{ end }}
+                {{ $lightLogo := $s.Get "light" }}
+                {{ $darkLogo := $s.Get "dark" }}
+                {{ if or $lightLogo $darkLogo }}
+                  <img class="logo-light" loading="lazy" alt="{{ $item.name }}" src="{{ or $lightLogo $darkLogo }}" onerror="this.style.display='none'" />
+                  <img class="logo-dark" loading="lazy" alt="{{ $item.name }}" src="{{ or $darkLogo $lightLogo }}" onerror="this.style.display='none'" />
+                {{ else }}
+                  <img loading="lazy" alt="{{ $item.name }}" src="{{ . }}" onerror="this.style.display='none'" />
+                {{ end }}
+              {{ end }}
+              <div class="sponsor-name">{{ $item.name }}</div>
+            </div>
+          {{ end }}
+          {{ with $item.links }}
+            <div class="sponsor-links">
+              {{ range $k, $v := . }}
+                {{ $key := (lower $k) }}
+                {{ $icon := (cond (or (eq $key "website") (eq $key "sito")) "link" (cond (or (eq $key "twitter") (eq $key "x")) (cond (in (lower $v) "x.com") "x" "twitter") (cond (eq $key "linkedin") "linkedin" $key))) }}
+                <a href="{{ $v }}" target="_blank" rel="noopener" aria-label="{{ $k }}" title="{{ $k }}">
+                  {{ partial "svg.html" (dict "name" $icon) }}
+                </a>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+{{ end }}

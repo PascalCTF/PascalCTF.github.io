@@ -1,0 +1,71 @@
+.sponsor-grid {
+    display: grid;
+    gap: 1rem;
+    align-items: stretch
+}
+
+.sponsor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--theme);
+    color: var(--entry);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.sponsor-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .25rem;
+    text-decoration: none;
+    color: inherit;
+    width: 100%
+}
+
+.sponsor-card img {
+    max-width: 100%;
+    max-height: 10rem;
+    object-fit: contain;
+    filter: var(--img-filter, none)
+}
+
+.sponsor-name {
+    margin-top: .5rem;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 2.5rem;
+}
+
+.sponsor-links {
+    display: flex;
+    gap: .5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+.sponsor-links a {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    padding: .5rem .5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.6rem
+}
+
+.sponsor-links a svg {
+    width: 1em;
+    height: 1em;
+    display: block
+}
+
+/* Light/Dark logo switching */
+.sponsor-card img.logo-dark { display: none; }
+.dark .sponsor-card img.logo-light { display: none; }
+.dark .sponsor-card img.logo-dark { display: block; }

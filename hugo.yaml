@@ -1,5 +1,5 @@
 baseURL: "https://pascalctf.github.io/"
-title: Website
+title: Paolo
 theme: PaperMod
 
 enableRobotsTXT: true
@@ -32,7 +32,7 @@ languages:
   it:
     languageName: ":it: It"
     weight: 2
-    title: Website
+    title: Paolo
     contentDir: content/it
 
     params:
@@ -52,6 +52,8 @@ languages:
             url: ctf/
           - name: "\U0001F3C6 Competizioni"
             url: competitions/
+          - name: "\U0001F680 Sponsors"
+            url: sponsors/
     menu:
       main:
         - identifier: progetti
@@ -66,10 +68,14 @@ languages:
           name: "\U0001F3C6 Competizioni"
           url: competitions/
           weight: 30
+        - identifier: sponsors
+          name: "\U0001F680 Sponsors"
+          url: sponsors/
+          weight: 40
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: Website
+  title: Paolo
   description: "Team Paolo's website."
   keywords: [Paolo, Portfolio, PaperMod]
   author: ["AlBovo", "Cryingfreeman74", "ZazaMan"] # multiple authors
@@ -128,6 +134,8 @@ params:
         url: ctf/
       - name: "\U0001F3C6 Competitions"
         url: competitions/
+      - name: "\U0001F680 Sponsors"
+        url: sponsors/
 
   # # home-info mode
   # homeInfoParams:
@@ -185,6 +193,10 @@ menu:
       name: "\U0001F3C6 Competitions"
       url: competitions/
       weight: 30
+    - identifier: sponsorsà
+      name: "\U0001F680 Sponsors"
+      url: sponsors/
+      weight: 40
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
