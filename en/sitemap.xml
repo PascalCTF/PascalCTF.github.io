@@ -2,6 +2,100 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://pascalctf.github.io/en/tags/ctfs/</loc>
+    <lastmod>2025-09-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://pascalctf.github.io/it/tags/ctfs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://pascalctf.github.io/en/tags/ctfs/"
+                />
+  </url><url>
+    <loc>https://pascalctf.github.io/en/tags/cyberchallenge/</loc>
+    <lastmod>2025-09-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://pascalctf.github.io/it/tags/cyberchallenge/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://pascalctf.github.io/en/tags/cyberchallenge/"
+                />
+  </url><url>
+    <loc>https://pascalctf.github.io/en/tags/cybersec/</loc>
+    <lastmod>2025-09-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://pascalctf.github.io/it/tags/cybersec/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://pascalctf.github.io/en/tags/cybersec/"
+                />
+  </url><url>
+    <loc>https://pascalctf.github.io/en/tags/highschool/</loc>
+    <lastmod>2025-09-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pascalctf.github.io/en/tags/olicyber/</loc>
+    <lastmod>2025-09-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://pascalctf.github.io/it/tags/olicyber/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://pascalctf.github.io/en/tags/olicyber/"
+                />
+  </url><url>
+    <loc>https://pascalctf.github.io/en/</loc>
+    <lastmod>2025-09-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://pascalctf.github.io/it/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://pascalctf.github.io/en/"
+                />
+  </url><url>
+    <loc>https://pascalctf.github.io/en/sponsors/</loc>
+    <lastmod>2025-09-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://pascalctf.github.io/it/sponsors/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://pascalctf.github.io/en/sponsors/"
+                />
+  </url><url>
+    <loc>https://pascalctf.github.io/en/tags/</loc>
+    <lastmod>2025-09-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://pascalctf.github.io/it/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://pascalctf.github.io/en/tags/"
+                />
+  </url><url>
     <loc>https://pascalctf.github.io/en/tags/binary/</loc>
     <lastmod>2025-09-16T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -93,19 +187,6 @@
                 href="https://pascalctf.github.io/en/tags/ctfatac2025/"
                 />
   </url><url>
-    <loc>https://pascalctf.github.io/en/tags/</loc>
-    <lastmod>2025-09-16T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://pascalctf.github.io/it/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://pascalctf.github.io/en/tags/"
-                />
-  </url><url>
     <loc>https://pascalctf.github.io/en/tags/web/</loc>
     <lastmod>2025-09-16T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -117,19 +198,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://pascalctf.github.io/en/tags/web/"
-                />
-  </url><url>
-    <loc>https://pascalctf.github.io/en/</loc>
-    <lastmod>2025-09-16T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://pascalctf.github.io/it/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://pascalctf.github.io/en/"
                 />
   </url><url>
     <loc>https://pascalctf.github.io/en/tags/osint/</loc>
@@ -364,51 +432,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://pascalctf.github.io/en/competitions/"
-                />
-  </url><url>
-    <loc>https://pascalctf.github.io/en/tags/ctfs/</loc>
-    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://pascalctf.github.io/en/tags/cyberchallenge/</loc>
-    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://pascalctf.github.io/it/tags/cyberchallenge/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://pascalctf.github.io/en/tags/cyberchallenge/"
-                />
-  </url><url>
-    <loc>https://pascalctf.github.io/en/tags/cybersec/</loc>
-    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://pascalctf.github.io/it/tags/cybersec/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://pascalctf.github.io/en/tags/cybersec/"
-                />
-  </url><url>
-    <loc>https://pascalctf.github.io/en/tags/highschool/</loc>
-    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://pascalctf.github.io/en/tags/olicyber/</loc>
-    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://pascalctf.github.io/it/tags/olicyber/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://pascalctf.github.io/en/tags/olicyber/"
                 />
   </url><url>
     <loc>https://pascalctf.github.io/en/ctf/pascalctf2025/</loc>

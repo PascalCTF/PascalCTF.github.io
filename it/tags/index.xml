@@ -1,13 +1,48 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on Website</title>
+    <title>Tags on Paolo</title>
     <link>https://pascalctf.github.io/it/tags/</link>
-    <description>Recent content in Tags on Website</description>
+    <description>Recent content in Tags on Paolo</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>it</language>
-    <lastBuildDate>Tue, 16 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://pascalctf.github.io/it/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ctfs</title>
+      <link>https://pascalctf.github.io/it/tags/ctfs/</link>
+      <pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/tags/ctfs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cyberchallenge</title>
+      <link>https://pascalctf.github.io/it/tags/cyberchallenge/</link>
+      <pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/tags/cyberchallenge/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cybersec</title>
+      <link>https://pascalctf.github.io/it/tags/cybersec/</link>
+      <pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/tags/cybersec/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Olicyber</title>
+      <link>https://pascalctf.github.io/it/tags/olicyber/</link>
+      <pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/tags/olicyber/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Superiori</title>
+      <link>https://pascalctf.github.io/it/tags/superiori/</link>
+      <pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/tags/superiori/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Binary</title>
       <link>https://pascalctf.github.io/it/tags/binary/</link>
@@ -139,48 +174,6 @@
       <link>https://pascalctf.github.io/it/tags/suricata/</link>
       <pubDate>Sat, 26 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://pascalctf.github.io/it/tags/suricata/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Cyberchallenge</title>
-      <link>https://pascalctf.github.io/it/tags/cyberchallenge/</link>
-      <pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>https://pascalctf.github.io/it/tags/cyberchallenge/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Cybersec</title>
-      <link>https://pascalctf.github.io/it/tags/cybersec/</link>
-      <pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>https://pascalctf.github.io/it/tags/cybersec/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Oii</title>
-      <link>https://pascalctf.github.io/it/tags/oii/</link>
-      <pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>https://pascalctf.github.io/it/tags/oii/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Olicyber</title>
-      <link>https://pascalctf.github.io/it/tags/olicyber/</link>
-      <pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>https://pascalctf.github.io/it/tags/olicyber/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Programmazione</title>
-      <link>https://pascalctf.github.io/it/tags/programmazione/</link>
-      <pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>https://pascalctf.github.io/it/tags/programmazione/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Superiori</title>
-      <link>https://pascalctf.github.io/it/tags/superiori/</link>
-      <pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>https://pascalctf.github.io/it/tags/superiori/</guid>
       <description></description>
     </item>
     <item>
