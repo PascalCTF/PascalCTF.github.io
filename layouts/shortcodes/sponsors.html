@@ -52,9 +52,8 @@ Renders a responsive grid of sponsors grouped by year using data/<lang>/sponsors
             <div class="sponsor-links">
               {{ range $k, $v := . }}
                 {{ $key := (lower $k) }}
-                {{ $icon := (cond (or (eq $key "website") (eq $key "sito")) "link" (cond (or (eq $key "twitter") (eq $key "x")) (cond (in (lower $v) "x.com") "x" "twitter") (cond (eq $key "linkedin") "linkedin" $key))) }}
                 <a href="{{ $v }}" target="_blank" rel="noopener" aria-label="{{ $k }}" title="{{ $k }}">
-                  {{ partial "svg.html" (dict "name" $icon) }}
+                  {{ partial "svg.html" (dict "name" $key) }}
                 </a>
               {{ end }}
             </div>
