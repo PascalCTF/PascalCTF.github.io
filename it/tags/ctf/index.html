@@ -175,17 +175,33 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">CTF@AC 2025
+    <h2 class="entry-hint-parent">Finali CTF@AC 2025
     </h2>
   </header>
   <div class="entry-content">
-    <p>CTF@AC 2025 Web 🌐 money Analisi La challenge espone una dashboard minimale che supporta plugin di terze parti. Quando carichiamo un plugin, la piattaforma ci permette anche di scaricare quelli esistenti (incluso l’ufficiale flag.plugin).
+    <p> Finali CTF@AC 2025 Abbiamo (Paolo) partecipato a questo CTF a Timișoara da ven 07 nov. 2025, 16:00 CET a dom 09 nov. 2025, 10:00 CET, arrivando secondi assoluti 🥳.
+Anche se era la nostra prima esperienza CTF in un contesto internazionale, ci siamo davvero divertiti a risolvere queste challenge.
+I componenti del team che hanno partecipato:
+Marco Balducci (@Cryingfreeman74) Alan Davide Bovo (@Hecker404) Enea Maroncelli (@Zazaman) Web 🌐 Silicon Dioxide Analisi Questa challenge forniva il codice sorgente di un’applicazione web Node.js progettata per scrivere e condividere codice JavaScript “sandboxato” per modificare un canvas. C’erano sia un frontend sia un backend che gestivano l’esecuzione del JavaScript.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-11-09 00:00:00 +0000 UTC'>novembre 9, 2025</span>&nbsp;·&nbsp;46 minuti&nbsp;·&nbsp;9794 parole&nbsp;·&nbsp;Paolo</footer>
+  <a class="entry-link" aria-label="post link to Finali CTF@AC 2025" href="https://pascalctf.github.io/it/ctf/ctfatac2025_finals/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">CTF@AC 2025 Qualifiche
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>CTF@AC 2025 Qualifiche Web 🌐 money Analisi La challenge espone una dashboard minimale che supporta plugin di terze parti. Quando carichiamo un plugin, la piattaforma ci permette anche di scaricare quelli esistenti (incluso l’ufficiale flag.plugin).
 Exploit Dopo aver scaricato flag.plugin, notiamo che è cifrato. Il file server.py contiene sia la chiave sia la funzione per decifrarlo, quindi possiamo decifrarlo in locale usando decrypt_file.
 KEY = b&#34;SECRET_KEY!123456XXXXXXXXXXXXXXX&#34; def decrypt_file(input_path, output_path, key): with open(input_path, &#34;rb&#34;) as f: data = f.read() iv = data[:16] ciphertext = data[16:] cipher = AES.new(key, AES.MODE_CBC, iv) plaintext = unpad(cipher.decrypt(ciphertext), AES.block_size) with open(output_path, &#34;wb&#34;) as f: f.write(plaintext) Il init.py del flag.plugin decifrato contiene il seguente codice:
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-09-16 00:00:00 +0000 UTC'>settembre 16, 2025</span>&nbsp;·&nbsp;29 minuti&nbsp;·&nbsp;6161 parole&nbsp;·&nbsp;Paolo</footer>
-  <a class="entry-link" aria-label="post link to CTF@AC 2025" href="https://pascalctf.github.io/it/ctf/ctfatac/"></a>
+  <footer class="entry-footer"><span title='2025-09-16 00:00:00 +0000 UTC'>settembre 16, 2025</span>&nbsp;·&nbsp;29 minuti&nbsp;·&nbsp;6162 parole&nbsp;·&nbsp;Paolo</footer>
+  <a class="entry-link" aria-label="post link to CTF@AC 2025 Qualifiche" href="https://pascalctf.github.io/it/ctf/ctfatac2025_quals/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 

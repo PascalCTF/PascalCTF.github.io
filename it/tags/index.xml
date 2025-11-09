@@ -6,8 +6,50 @@
     <description>Recent content in Tags on Paolo</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>it</language>
-    <lastBuildDate>Sat, 27 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://pascalctf.github.io/it/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Binary</title>
+      <link>https://pascalctf.github.io/it/tags/binary/</link>
+      <pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/tags/binary/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Crypto</title>
+      <link>https://pascalctf.github.io/it/tags/crypto/</link>
+      <pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/tags/crypto/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ctf</title>
+      <link>https://pascalctf.github.io/it/tags/ctf/</link>
+      <pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/tags/ctf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ctfatac</title>
+      <link>https://pascalctf.github.io/it/tags/ctfatac/</link>
+      <pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/tags/ctfatac/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ctfatac2025</title>
+      <link>https://pascalctf.github.io/it/tags/ctfatac2025/</link>
+      <pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/tags/ctfatac2025/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web</title>
+      <link>https://pascalctf.github.io/it/tags/web/</link>
+      <pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/tags/web/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Ctfs</title>
       <link>https://pascalctf.github.io/it/tags/ctfs/</link>
@@ -41,48 +83,6 @@
       <link>https://pascalctf.github.io/it/tags/superiori/</link>
       <pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate>
       <guid>https://pascalctf.github.io/it/tags/superiori/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Binary</title>
-      <link>https://pascalctf.github.io/it/tags/binary/</link>
-      <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://pascalctf.github.io/it/tags/binary/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Crypto</title>
-      <link>https://pascalctf.github.io/it/tags/crypto/</link>
-      <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://pascalctf.github.io/it/tags/crypto/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ctf</title>
-      <link>https://pascalctf.github.io/it/tags/ctf/</link>
-      <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://pascalctf.github.io/it/tags/ctf/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ctfatac</title>
-      <link>https://pascalctf.github.io/it/tags/ctfatac/</link>
-      <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://pascalctf.github.io/it/tags/ctfatac/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ctfatac2025</title>
-      <link>https://pascalctf.github.io/it/tags/ctfatac2025/</link>
-      <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://pascalctf.github.io/it/tags/ctfatac2025/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Web</title>
-      <link>https://pascalctf.github.io/it/tags/web/</link>
-      <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://pascalctf.github.io/it/tags/web/</guid>
       <description></description>
     </item>
     <item>

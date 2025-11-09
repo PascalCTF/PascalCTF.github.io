@@ -6,8 +6,15 @@
     <description>Recent content on Paolo</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>it</language>
-    <lastBuildDate>Sat, 27 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://pascalctf.github.io/it/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Finali CTF@AC 2025</title>
+      <link>https://pascalctf.github.io/it/ctf/ctfatac2025_finals/</link>
+      <pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/ctf/ctfatac2025_finals/</guid>
+      <description>Tutti i writeup della finale di CTF@AC, edizione 2025.</description>
+    </item>
     <item>
       <title>Sponsors 🚀</title>
       <link>https://pascalctf.github.io/it/sponsors/</link>
@@ -74,11 +81,11 @@
     &lt;/div&gt;</description>
     </item>
     <item>
-      <title>CTF@AC 2025</title>
-      <link>https://pascalctf.github.io/it/ctf/ctfatac/</link>
+      <title>CTF@AC 2025 Qualifiche</title>
+      <link>https://pascalctf.github.io/it/ctf/ctfatac2025_quals/</link>
       <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://pascalctf.github.io/it/ctf/ctfatac/</guid>
-      <description>Alcune writeup della ctf CTF@AC edizione 2025.</description>
+      <guid>https://pascalctf.github.io/it/ctf/ctfatac2025_quals/</guid>
+      <description>Alcune writeup delle qualifiche alla ctf CTF@AC edizione 2025.</description>
     </item>
     <item>
       <title>scriptCTF 2025</title>

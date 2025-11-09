@@ -175,17 +175,32 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">CTF@AC 2025
+    <h2 class="entry-hint-parent">CTF@AC 2025 Finals
     </h2>
   </header>
   <div class="entry-content">
-    <p>CTF@AC 2025 Web 🌐 money Analysis The challenge exposes a minimal dashboard that supports third‑party plugins. When we upload a plugin, the platform also lets us download any existing ones (including the official flag.plugin).
+    <p>CTF@AC 2025 Finals We (Paolo) partecipated this CTF in Timișoara from Fri, 07 Nov. 2025, 16:00 CET until Sun, 09 Nov. 2025, 10:00 CET arriving 2nd overall 🥳.
+Even though it was our first experience as a CTF in an international contest we managed to have real fun while solving these challenges.
+Team components that partecipated:
+Marco Balducci (@Cryingfreeman74) Alan Davide Bovo (@Hecker404) Enea Maroncelli (@Zazaman) ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-11-09 00:00:00 +0000 UTC'>November 9, 2025</span>&nbsp;·&nbsp;47 min&nbsp;·&nbsp;9950 words&nbsp;·&nbsp;Paolo</footer>
+  <a class="entry-link" aria-label="post link to CTF@AC 2025 Finals" href="https://pascalctf.github.io/en/ctf/ctfatac2025_finals/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">CTF@AC 2025 Quals
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>CTF@AC 2025 Quals Web 🌐 money Analysis The challenge exposes a minimal dashboard that supports third‑party plugins. When we upload a plugin, the platform also lets us download any existing ones (including the official flag.plugin).
 Exploit After downloading flag.plugin, we notice it’s encrypted. The server.py file contains both the key and the function to decrypt it, so we can locally decrypt it using decrypt_file.
 KEY = b&#34;SECRET_KEY!123456XXXXXXXXXXXXXXX&#34; def decrypt_file(input_path, output_path, key): with open(input_path, &#34;rb&#34;) as f: data = f.read() iv = data[:16] ciphertext = data[16:] cipher = AES.new(key, AES.MODE_CBC, iv) plaintext = unpad(cipher.decrypt(ciphertext), AES.block_size) with open(output_path, &#34;wb&#34;) as f: f.write(plaintext) The decrypted flag.plugin init.py contains the following code:
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-09-16 00:00:00 +0000 UTC'>September 16, 2025</span>&nbsp;·&nbsp;36 min&nbsp;·&nbsp;7545 words&nbsp;·&nbsp;Paolo</footer>
-  <a class="entry-link" aria-label="post link to CTF@AC 2025" href="https://pascalctf.github.io/en/ctf/ctfatac/"></a>
+  <footer class="entry-footer"><span title='2025-09-16 00:00:00 +0000 UTC'>September 16, 2025</span>&nbsp;·&nbsp;36 min&nbsp;·&nbsp;7546 words&nbsp;·&nbsp;Paolo</footer>
+  <a class="entry-link" aria-label="post link to CTF@AC 2025 Quals" href="https://pascalctf.github.io/en/ctf/ctfatac2025_quals/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
