@@ -30,6 +30,135 @@
     &lt;h2 style=&#34;margin-top:2rem&#34;&gt;2025&lt;/h2&gt;
     &lt;div class=&#34;sponsor-grid&#34;&gt;
       
+        &lt;div class=&#34;sponsor-card&#34;&gt;
+          
+            &lt;a class=&#34;sponsor-main&#34; href=&#34;https://maggioli.it&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+              
+                
+                
+                
+                
+                
+                
+                  &lt;img class=&#34;logo-light&#34; loading=&#34;lazy&#34; alt=&#34;Maggioli&#34; src=&#34;https://pascalctf.github.io/images/sponsors/maggioli-light.svg&#34; onerror=&#34;this.style.display=&#39;none&#39;&#34; /&gt;
+                  &lt;img class=&#34;logo-dark&#34; loading=&#34;lazy&#34; alt=&#34;Maggioli&#34; src=&#34;https://pascalctf.github.io/images/sponsors/maggioli-dark.svg&#34; onerror=&#34;this.style.display=&#39;none&#39;&#34; /&gt;
+                
+              
+              &lt;div class=&#34;sponsor-name&#34;&gt;Maggioli&lt;/div&gt;
+            &lt;/a&gt;
+          
+          
+            &lt;div class=&#34;sponsor-links&#34;&gt;
+              
+                
+                &lt;a href=&#34;https://www.linkedin.com/company/gruppo-maggioli&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34; aria-label=&#34;linkedin&#34; title=&#34;linkedin&#34;&gt;
+                  &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34;
+    stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;
+    &lt;path d=&#34;M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z&#34;&gt;&lt;/path&gt;
+    &lt;rect x=&#34;2&#34; y=&#34;9&#34; width=&#34;4&#34; height=&#34;12&#34;&gt;&lt;/rect&gt;
+    &lt;circle cx=&#34;4&#34; cy=&#34;4&#34; r=&#34;2&#34;&gt;&lt;/circle&gt;
+&lt;/svg&gt;
+                &lt;/a&gt;
+              
+                
+                &lt;a href=&#34;https://maggioli.it&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34; aria-label=&#34;site&#34; title=&#34;site&#34;&gt;
+                  &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34;
+    stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;
+    &lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34;&gt;&lt;/path&gt;
+    &lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34;&gt;&lt;/path&gt;
+&lt;/svg&gt;
+                &lt;/a&gt;
+              
+            &lt;/div&gt;
+          
+        &lt;/div&gt;
+      
+        &lt;div class=&#34;sponsor-card&#34;&gt;
+          
+            &lt;a class=&#34;sponsor-main&#34; href=&#34;https://vem.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+              
+                
+                
+                
+                
+                
+                
+                  &lt;img class=&#34;logo-light&#34; loading=&#34;lazy&#34; alt=&#34;VEM Sistemi&#34; src=&#34;https://pascalctf.github.io/images/sponsors/vem-light.svg&#34; onerror=&#34;this.style.display=&#39;none&#39;&#34; /&gt;
+                  &lt;img class=&#34;logo-dark&#34; loading=&#34;lazy&#34; alt=&#34;VEM Sistemi&#34; src=&#34;https://pascalctf.github.io/images/sponsors/vem-dark.svg&#34; onerror=&#34;this.style.display=&#39;none&#39;&#34; /&gt;
+                
+              
+              &lt;div class=&#34;sponsor-name&#34;&gt;VEM Sistemi&lt;/div&gt;
+            &lt;/a&gt;
+          
+          
+            &lt;div class=&#34;sponsor-links&#34;&gt;
+              
+                
+                &lt;a href=&#34;https://www.linkedin.com/company/vem-sistemi-spa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34; aria-label=&#34;linkedin&#34; title=&#34;linkedin&#34;&gt;
+                  &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34;
+    stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;
+    &lt;path d=&#34;M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z&#34;&gt;&lt;/path&gt;
+    &lt;rect x=&#34;2&#34; y=&#34;9&#34; width=&#34;4&#34; height=&#34;12&#34;&gt;&lt;/rect&gt;
+    &lt;circle cx=&#34;4&#34; cy=&#34;4&#34; r=&#34;2&#34;&gt;&lt;/circle&gt;
+&lt;/svg&gt;
+                &lt;/a&gt;
+              
+                
+                &lt;a href=&#34;https://vem.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34; aria-label=&#34;site&#34; title=&#34;site&#34;&gt;
+                  &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34;
+    stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;
+    &lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34;&gt;&lt;/path&gt;
+    &lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34;&gt;&lt;/path&gt;
+&lt;/svg&gt;
+                &lt;/a&gt;
+              
+            &lt;/div&gt;
+          
+        &lt;/div&gt;
+      
+        &lt;div class=&#34;sponsor-card&#34;&gt;
+          
+            &lt;a class=&#34;sponsor-main&#34; href=&#34;https://flashstart.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+              
+                
+                
+                
+                
+                
+                
+                  &lt;img class=&#34;logo-light&#34; loading=&#34;lazy&#34; alt=&#34;Flashstart&#34; src=&#34;https://pascalctf.github.io/images/sponsors/flashstart-light.svg&#34; onerror=&#34;this.style.display=&#39;none&#39;&#34; /&gt;
+                  &lt;img class=&#34;logo-dark&#34; loading=&#34;lazy&#34; alt=&#34;Flashstart&#34; src=&#34;https://pascalctf.github.io/images/sponsors/flashstart-dark.svg&#34; onerror=&#34;this.style.display=&#39;none&#39;&#34; /&gt;
+                
+              
+              &lt;div class=&#34;sponsor-name&#34;&gt;Flashstart&lt;/div&gt;
+            &lt;/a&gt;
+          
+          
+            &lt;div class=&#34;sponsor-links&#34;&gt;
+              
+                
+                &lt;a href=&#34;https://linkedin.com/company/flashstart&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34; aria-label=&#34;linkedin&#34; title=&#34;linkedin&#34;&gt;
+                  &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34;
+    stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;
+    &lt;path d=&#34;M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z&#34;&gt;&lt;/path&gt;
+    &lt;rect x=&#34;2&#34; y=&#34;9&#34; width=&#34;4&#34; height=&#34;12&#34;&gt;&lt;/rect&gt;
+    &lt;circle cx=&#34;4&#34; cy=&#34;4&#34; r=&#34;2&#34;&gt;&lt;/circle&gt;
+&lt;/svg&gt;
+                &lt;/a&gt;
+              
+                
+                &lt;a href=&#34;https://flashstart.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34; aria-label=&#34;site&#34; title=&#34;site&#34;&gt;
+                  &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34;
+    stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;
+    &lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34;&gt;&lt;/path&gt;
+    &lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34;&gt;&lt;/path&gt;
+&lt;/svg&gt;
+                &lt;/a&gt;
+              
+            &lt;/div&gt;
+          
+        &lt;/div&gt;
+      
     &lt;/div&gt;
   
     &lt;h2 style=&#34;margin-top:2rem&#34;&gt;2024&lt;/h2&gt;
