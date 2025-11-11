@@ -1,5 +1,30 @@
 years:
   - year: 2025
+    items:
+      - name: Maggioli
+        url: https://maggioli.it
+        logo: 
+          dark: /images/sponsors/maggioli-dark.svg
+          light: /images/sponsors/maggioli-light.svg
+        links:
+          site: https://maggioli.it
+          linkedin: https://www.linkedin.com/company/gruppo-maggioli
+      - name: VEM Sistemi
+        url: https://vem.com/
+        logo: 
+          dark: /images/sponsors/vem-dark.svg
+          light: /images/sponsors/vem-light.svg
+        links:
+          site: https://vem.com/
+          linkedin: https://www.linkedin.com/company/vem-sistemi-spa/
+      - name: Flashstart
+        url: https://flashstart.com
+        logo: 
+          dark: /images/sponsors/flashstart-dark.svg
+          light: /images/sponsors/flashstart-light.svg
+        links:
+          site: https://flashstart.com
+          linkedin: https://linkedin.com/company/flashstart
   - year: 2024
     items:
       - name: Cyberloop

@@ -136,6 +136,8 @@ params:
         url: competitions/
       - name: "\U0001F680 Sponsors"
         url: sponsors/
+      - name: "\U0001F3E0 Wiki"
+        url: https://wiki.pascalctf.it/
 
   # # home-info mode
   # homeInfoParams:
@@ -193,10 +195,14 @@ menu:
       name: "\U0001F3C6 Competitions"
       url: competitions/
       weight: 30
-    - identifier: sponsorsà
+    - identifier: sponsors
       name: "\U0001F680 Sponsors"
       url: sponsors/
       weight: 40
+    - identifier: wiki
+      name: "\U0001F3E0 Wiki"
+      url: https://wiki.pascalctf.it/
+      weight: 50
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
