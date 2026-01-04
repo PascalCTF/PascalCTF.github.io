@@ -12,9 +12,9 @@
 <link rel="canonical" href="https://pascalctf.github.io/en/ctf/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.60a7a0a9923d020b71b53396c3a1eaa79c12b0e020c91cc166667dfe8ed1086c.css" integrity="sha256-YKegqZI9AgtxtTOWw6Hqp5wSsOAgyRzBZmZ9/o7RCGw=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://pascalctf.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://pascalctf.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://pascalctf.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://pascalctf.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://pascalctf.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://pascalctf.github.io/favicon.ico">
+<link rel="apple-touch-icon" href="https://pascalctf.github.io/favicon.ico">
 <link rel="mask-icon" href="https://pascalctf.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
@@ -167,7 +167,7 @@
     <nav class="nav">
         <div class="logo">
             <a href="https://pascalctf.github.io/en/" accesskey="h" title="Home (Alt + H)">
-                <img src="https://pascalctf.github.io/apple-touch-icon.png" alt="" aria-label="logo"
+                <img src="https://pascalctf.github.io/favicon.ico" alt="" aria-label="logo"
                     height="35">Home</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
@@ -481,7 +481,7 @@ If you manually change this value to <code>true</code> and go to the index page 
 <h5 id="pluginc"><code>plugin.c</code><a hidden class="anchor" aria-hidden="true" href="#pluginc">#</a></h5>
 <p>This file is compiled into <code>libcore.so</code> and contains the <code>verify</code> function.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">verify</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">provided</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">ac</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">uc</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">pid</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="kt">uint32_t</span> <span class="n">token</span> <span class="o">=</span> <span class="p">((</span><span class="n">ac</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">uc</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">pid</span> <span class="o">&amp;</span> <span class="mi">255u</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">provided</span> <span class="o">==</span> <span class="n">token</span><span class="p">;</span>
@@ -515,11 +515,11 @@ If you manually change this value to <code>true</code> and go to the index page 
 <p>With the predictable values of <code>ac</code> and <code>uc</code>, we can create a simple program to calculate the required token.</p>
 <p><strong><code>solver.c</code></strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// gcc -o solver solver.c
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;Usage: %s &lt;pid8&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
@@ -648,7 +648,7 @@ This way, when <code>printf</code> is called again, it will actually call <code>
 <p><strong>1. The chat command gate</strong></p>
 <p>In <code>server/game/chat.go</code>, the server inspects incoming chat. When the message is <code>!flag</code>, it reads the player’s current <code>Position</code> and compares it to <code>(69420, 69420, 69420)</code>. If you’re not there, it taunts you with a decoy:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">switch</span><span class="w"> </span><span class="nb">string</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">case</span><span class="w"> </span><span class="s">&#34;!flag&#34;</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">case</span><span class="w"> </span><span class="s">&#34;!flag&#34;</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">int32</span><span class="p">(</span><span class="nx">player</span><span class="p">.</span><span class="nx">Position</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">y</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">int32</span><span class="p">(</span><span class="nx">player</span><span class="p">.</span><span class="nx">Position</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">z</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">int32</span><span class="p">(</span><span class="nx">player</span><span class="p">.</span><span class="nx">Position</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w">
@@ -682,16 +682,16 @@ This way, when <code>printf</code> is called again, it will actually call <code>
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">inputs</span><span class="p">.</span><span class="nx">Position</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">Position</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">inputs</span><span class="p">.</span><span class="nx">Position</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">Position</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">inputs</span><span class="p">.</span><span class="nx">Position</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">Position</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">distance</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">math</span><span class="p">.</span><span class="nf">Sqrt</span><span class="p">(</span><span class="nx">delta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nx">delta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">delta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nx">delta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">delta</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="nx">delta</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="w"> </span><span class="nx">distance</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">distance</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">math</span><span class="p">.</span><span class="nf">Sqrt</span><span class="p">(</span><span class="nx">delta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nx">delta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">delta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nx">delta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">delta</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="nx">delta</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">if</span><span class="w"> </span><span class="nx">distance</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">teleportID</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nf">SendPlayerPosition</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">Position</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">Rotation</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">p</span><span class="p">.</span><span class="nx">teleport</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">TeleportRequest</span><span class="p">{</span><span class="w"> </span><span class="nx">ID</span><span class="p">:</span><span class="w"> </span><span class="nx">teleportID</span><span class="p">,</span><span class="w"> </span><span class="nx">Position</span><span class="p">:</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">Position</span><span class="p">,</span><span class="w"> </span><span class="nx">Rotation</span><span class="p">:</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">Rotation</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">inputs</span><span class="p">.</span><span class="nx">Position</span><span class="p">.</span><span class="nf">IsValid</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">inputs</span><span class="p">.</span><span class="nx">Position</span><span class="p">.</span><span class="nf">IsValid</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">p</span><span class="p">.</span><span class="nx">pos0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">inputs</span><span class="p">.</span><span class="nx">Position</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">p</span><span class="p">.</span><span class="nx">rot0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">inputs</span><span class="p">.</span><span class="nx">Rotation</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">p</span><span class="p">.</span><span class="nx">OnGround</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">inputs</span><span class="p">.</span><span class="nx">OnGround</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p><strong>3. Offline mode</strong></p>
 <p>The included <code>server/config.toml</code> enables offline logins:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">online-mode</span> <span class="p">=</span> <span class="kc">false</span>
@@ -728,7 +728,7 @@ This way, when <code>printf</code> is called again, it will actually call <code>
 </ul>
 <p>Once positioned <strong>exactly</strong> at <code>(69420, 69420, 69420)</code>, the server’s <code>!flag</code> handler takes the <code>else</code> branch and replies with the real flag in chat.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env node
-</span></span></span><span class="line"><span class="cl"><span class="ch"></span><span class="kr">const</span> <span class="nx">mineflayer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mineflayer&#39;</span><span class="p">)</span>
+</span></span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">mineflayer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mineflayer&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">{</span> <span class="nx">Vec3</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;vec3&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">parseArgs</span> <span class="p">()</span> <span class="p">{</span>
@@ -745,7 +745,7 @@ This way, when <code>printf</code> is called again, it will actually call <code>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">TARGET</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vec3</span><span class="p">(</span><span class="mi">69420</span><span class="p">,</span> <span class="mi">69420</span><span class="p">,</span> <span class="mi">69420</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">MAX_STEP</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1">// be conservative: strictly under server&#39;s &gt;100 check
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">stepTowards</span> <span class="p">(</span><span class="nx">cur</span><span class="p">,</span> <span class="nx">dst</span><span class="p">,</span> <span class="nx">maxStep</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">dx</span> <span class="o">=</span> <span class="nx">dst</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">x</span>
 </span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">dy</span> <span class="o">=</span> <span class="nx">dst</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">y</span>
@@ -1346,7 +1346,8 @@ After doing this, even though we didn’t understand what was being said in the 
 <p>Short audio forensics task involving spectral text hidden in an audio channel.</p>
 <h4 id="challenge-description">Challenge description<a hidden class="anchor" aria-hidden="true" href="#challenge-description">#</a></h4>
 <blockquote>
-<p>My 3rd child believes in ghosts. I don&rsquo;t know how to prove they aren&rsquo;t real.</p></blockquote>
+<p>My 3rd child believes in ghosts. I don&rsquo;t know how to prove they aren&rsquo;t real.</p>
+</blockquote>
 <p>“Ghosts” → look for something you don&rsquo;t normally hear but can still be <em>seen</em> (spectrogram).</p>
 <h4 id="provided-file">Provided file<a hidden class="anchor" aria-hidden="true" href="#provided-file">#</a></h4>
 <p><code>output.wav</code></p>
@@ -1362,7 +1363,8 @@ The challenge description suggests that we should visualize the spectrogram of t
 <p>From the image, I noticed the owner’s username started with &ldquo;Leaky_&rdquo;, and there were other players with roles like &ldquo;srwarden&rdquo;, &ldquo;warden&rdquo;, &ldquo;guard&rdquo;, and &ldquo;srguard&rdquo;. Some of the visible player names included PsychNOdelic, ButterInc, Cheese, and Dragon. The server itself had a prison-themed appearance.</p>
 <p>To dig deeper, I used the deep research function of ChatGPT with this prompt:</p>
 <blockquote>
-<p>Can you find a Minecraft server where the owner&rsquo;s name starts with Leaky_ and there are other players with roles like &ldquo;srwarden&rdquo;, &ldquo;warden&rdquo;, &ldquo;guard&rdquo;, &ldquo;srguard&rdquo; and names PsychNOdelic, ButterInc, Cheese, Dragon? The server seems prison-based.</p></blockquote>
+<p>Can you find a Minecraft server where the owner&rsquo;s name starts with Leaky_ and there are other players with roles like &ldquo;srwarden&rdquo;, &ldquo;warden&rdquo;, &ldquo;guard&rdquo;, &ldquo;srguard&rdquo; and names PsychNOdelic, ButterInc, Cheese, Dragon? The server seems prison-based.</p>
+</blockquote>
 <p>After some time, ChatGPT found a server called <strong>play.thepen-mc.net</strong>. On their Discord, I was able to confirm the owner’s full username: <strong>Leaky_Tandos</strong>.</p>
 
 
@@ -1463,7 +1465,7 @@ The challenge description suggests that we should visualize the spectrogram of t
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://pascalctf.github.io/en/">Paolo</a></span> · 
+        <span>&copy; 2026 <a href="https://pascalctf.github.io/en/">Paolo</a></span> · 
 
     <span>
         Powered by

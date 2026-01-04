@@ -12,9 +12,9 @@
 <link rel="canonical" href="https://pascalctf.github.io/en/ctf/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.60a7a0a9923d020b71b53396c3a1eaa79c12b0e020c91cc166667dfe8ed1086c.css" integrity="sha256-YKegqZI9AgtxtTOWw6Hqp5wSsOAgyRzBZmZ9/o7RCGw=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://pascalctf.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://pascalctf.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://pascalctf.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://pascalctf.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://pascalctf.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://pascalctf.github.io/favicon.ico">
+<link rel="apple-touch-icon" href="https://pascalctf.github.io/favicon.ico">
 <link rel="mask-icon" href="https://pascalctf.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
@@ -173,7 +173,7 @@
     <nav class="nav">
         <div class="logo">
             <a href="https://pascalctf.github.io/en/" accesskey="h" title="Home (Alt + H)">
-                <img src="https://pascalctf.github.io/apple-touch-icon.png" alt="" aria-label="logo"
+                <img src="https://pascalctf.github.io/favicon.ico" alt="" aria-label="logo"
                     height="35">Home</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
@@ -325,10 +325,10 @@
 </span></span><span class="line"><span class="cl"><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="o">-</span><span class="n">F</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span> <span class="o">+</span> <span class="n">T</span> <span class="p">(</span><span class="n">with</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
 </span></span></code></pre></div><p>And the initalization of the cell $(0, 0)$ is performed as follows:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// number of [fives, twos] in the prime factorization of cell (0,0)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">auto</span> <span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">divs</span><span class="p">[</span><span class="n">g</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]];</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">auto</span> <span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">divs</span><span class="p">[</span><span class="n">g</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]];</span>
 </span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">q</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">q</span> <span class="o">&lt;=</span> <span class="n">c</span><span class="p">;</span> <span class="n">q</span><span class="o">++</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	 <span class="c1">// it&#39;s possible to get here with `q` fives
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	 <span class="n">dp</span><span class="p">[</span><span class="n">q</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">	 <span class="n">dp</span><span class="p">[</span><span class="n">q</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span>
 </span></span></code></pre></div><p>The solution for cell $(i, j)$ can be computed while calculating <code>dp</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">q</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">q</span> <span class="o">&lt;</span> <span class="n">B</span><span class="p">;</span> <span class="n">q</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="p">...</span>
@@ -368,12 +368,12 @@ If we take a look at the server code that generates the grid:</p>
 The complexity is then $O(2N^{3}\log_{5}(A))$. Plugging in the constraints regarding $A$ and $N$ this practically means about $100^3 * 10 = 10^7$ operations which is fast.</p>
 <h3 id="full-solution">Full solution<a hidden class="anchor" aria-hidden="true" href="#full-solution">#</a></h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="k">constexpr</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="k">constexpr</span> <span class="kt">int</span> <span class="n">MAXV</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="k">constexpr</span> <span class="kt">int</span> <span class="n">B</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">N</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="cp">#define INF (1e9)
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">constexpr</span> <span class="n">array</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">MAXV</span><span class="o">&gt;</span> <span class="n">divs</span> <span class="o">=</span> <span class="p">[]()</span> <span class="k">consteval</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">constexpr</span> <span class="n">array</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">MAXV</span><span class="o">&gt;</span> <span class="n">divs</span> <span class="o">=</span> <span class="p">[]()</span> <span class="k">consteval</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">array</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">MAXV</span><span class="o">&gt;</span> <span class="n">res</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAXV</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
@@ -802,7 +802,7 @@ target room should be a bit lower than 115.</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://pascalctf.github.io/en/">Paolo</a></span> · 
+        <span>&copy; 2026 <a href="https://pascalctf.github.io/en/">Paolo</a></span> · 
 
     <span>
         Powered by

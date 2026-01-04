@@ -12,9 +12,9 @@
 <link rel="canonical" href="https://pascalctf.github.io/it/ctf/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.60a7a0a9923d020b71b53396c3a1eaa79c12b0e020c91cc166667dfe8ed1086c.css" integrity="sha256-YKegqZI9AgtxtTOWw6Hqp5wSsOAgyRzBZmZ9/o7RCGw=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://pascalctf.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://pascalctf.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://pascalctf.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://pascalctf.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://pascalctf.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://pascalctf.github.io/favicon.ico">
+<link rel="apple-touch-icon" href="https://pascalctf.github.io/favicon.ico">
 <link rel="mask-icon" href="https://pascalctf.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
@@ -167,7 +167,7 @@
     <nav class="nav">
         <div class="logo">
             <a href="https://pascalctf.github.io/it/" accesskey="h" title="Home (Alt + H)">
-                <img src="https://pascalctf.github.io/apple-touch-icon.png" alt="" aria-label="logo"
+                <img src="https://pascalctf.github.io/favicon.ico" alt="" aria-label="logo"
                     height="35">Home</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
@@ -305,7 +305,7 @@ Di conseguenza, non è necessario scrivere uno script per risolvere questa chall
 <p><img alt="codice js del server" loading="lazy" src="/images/biscottoCode.png"></p>
 <p>La flag può quindi essere trovata con questo comando:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>curl --cookie <span class="s2">&#34;user=admin&#34;</span> https://biscotto.challs.pascalctf.it/me
+</span></span></span><span class="line"><span class="cl">curl --cookie <span class="s2">&#34;user=admin&#34;</span> https://biscotto.challs.pascalctf.it/me
 </span></span></code></pre></div><p>La vulnerabilità si trova nella funzione <strong>me</strong>, dove il cookie di sessione, non crittografato, viene utilizzato per verificare il nome utente.
 Per ottenere la flag, basta modificare il cookie <strong>user</strong>, impostandolo su admin, e accedere all&rsquo;endpoint per visualizzare la flag.</p>
 <h3 id="euro2024">Euro2024<a hidden class="anchor" aria-hidden="true" href="#euro2024">#</a></h3>
@@ -717,7 +717,7 @@ Possiamo quindi inviare il codice corretto per ottenere la flag.</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://pascalctf.github.io/it/">Paolo</a></span> · 
+        <span>&copy; 2026 <a href="https://pascalctf.github.io/it/">Paolo</a></span> · 
 
     <span>
         Powered by

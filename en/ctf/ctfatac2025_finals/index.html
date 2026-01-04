@@ -12,9 +12,9 @@
 <link rel="canonical" href="https://pascalctf.github.io/en/ctf/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.60a7a0a9923d020b71b53396c3a1eaa79c12b0e020c91cc166667dfe8ed1086c.css" integrity="sha256-YKegqZI9AgtxtTOWw6Hqp5wSsOAgyRzBZmZ9/o7RCGw=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://pascalctf.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://pascalctf.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://pascalctf.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://pascalctf.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://pascalctf.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://pascalctf.github.io/favicon.ico">
+<link rel="apple-touch-icon" href="https://pascalctf.github.io/favicon.ico">
 <link rel="mask-icon" href="https://pascalctf.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
@@ -167,7 +167,7 @@
     <nav class="nav">
         <div class="logo">
             <a href="https://pascalctf.github.io/en/" accesskey="h" title="Home (Alt + H)">
-                <img src="https://pascalctf.github.io/apple-touch-icon.png" alt="" aria-label="logo"
+                <img src="https://pascalctf.github.io/favicon.ico" alt="" aria-label="logo"
                     height="35">Home</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
@@ -593,7 +593,8 @@
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">get_dict</span><span class="p">())</span>
 </span></span></code></pre></div><h5 id="password-brute-force-script">Password Brute-Force Script<a hidden class="anchor" aria-hidden="true" href="#password-brute-force-script">#</a></h5>
 <blockquote>
-<p>N.B.: The lists <code>d</code> and <code>n</code> contained words and dates found in Josh’s chats, which hinted at the password structure.</p></blockquote>
+<p>N.B.: The lists <code>d</code> and <code>n</code> contained words and dates found in Josh’s chats, which hinted at the password structure.</p>
+</blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">base64</span><span class="o">,</span> <span class="nn">itertools</span>
 </span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">cryptography.fernet</span> <span class="kn">import</span> <span class="n">Fernet</span>
 </span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">cryptography.hazmat.primitives</span> <span class="kn">import</span> <span class="n">hashes</span>
@@ -732,9 +733,9 @@ The decompiled function <code>set_name</code> is the following:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">void</span> <span class="kr">__cdecl</span> <span class="nf">set_name</span><span class="p">(</span><span class="n">Player</span> <span class="o">*</span><span class="n">p</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="kt">size_t</span> <span class="n">v1</span><span class="p">;</span> <span class="c1">// rax
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">signed</span> <span class="kr">__int64</span> <span class="n">got</span><span class="p">;</span> <span class="c1">// [rsp+20h] [rbp-10h]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">signed</span> <span class="kr">__int64</span> <span class="n">n</span><span class="p">;</span> <span class="c1">// [rsp+28h] [rbp-8h]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="cl">  <span class="kt">signed</span> <span class="kr">__int64</span> <span class="n">got</span><span class="p">;</span> <span class="c1">// [rsp+20h] [rbp-10h]
+</span></span></span><span class="line"><span class="cl">  <span class="kt">signed</span> <span class="kr">__int64</span> <span class="n">n</span><span class="p">;</span> <span class="c1">// [rsp+28h] [rbp-8h]
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span> <span class="n">board</span><span class="o">-&gt;</span><span class="n">game_over</span> <span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">puts</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">Enter display name length:&#34;</span><span class="p">);</span>
@@ -1672,20 +1673,20 @@ Thus I opened the <a href="https://discord.com/developers/docs/resources/guild">
 <p>The attachment <code>main.wasm</code> is a Minecraft server compiled to WebAssembly (WASM). After joining the server, we can see two available commands: <code>!help</code> and <code>!flag</code>. When running <code>!flag</code>, the server replies with something like: <code>To get the flag, run this command at position UwU</code>. This implies we must find the exact position at which to run <code>!flag</code>, as defined in <code>main.wasm</code>.</p>
 <p>To locate the handler for the command, I searched for a function with <code>chat</code> in its name. I found <code>github.com_go_mc_server_game.__globalChat_.Handle</code>, which at address 0x808c1d77 contains the handler for the <code>!flag</code> command. Analyzing this handler shows that the player&rsquo;s current position must be exactly (35246, 35246, 35246) for the flag to be printed.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// After matching &#34;!flag&#34;
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">X</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nf">truncS</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="n">posX</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">X</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nf">truncS</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="n">posX</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">Y</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nf">truncS</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="n">posY</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">Z</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nf">truncS</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="n">posZ</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// 0x89ae == 35246
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="n">X</span> <span class="o">!=</span> <span class="mh">0x89ae</span><span class="p">)</span> <span class="k">goto</span> <span class="n">fail</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">X</span> <span class="o">!=</span> <span class="mh">0x89ae</span><span class="p">)</span> <span class="k">goto</span> <span class="n">fail</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">Y</span> <span class="o">!=</span> <span class="mh">0x89ae</span><span class="p">)</span> <span class="k">goto</span> <span class="n">fail</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">Z</span> <span class="o">==</span> <span class="mh">0x89ae</span><span class="p">)</span> <span class="k">goto</span> <span class="n">success</span><span class="p">;</span>   <span class="c1">// all three must be 35246
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">else</span> <span class="k">goto</span> <span class="n">fail</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">else</span> <span class="k">goto</span> <span class="n">fail</span><span class="p">;</span>
 </span></span></code></pre></div><h4 id="solution-12">Solution<a hidden class="anchor" aria-hidden="true" href="#solution-12">#</a></h4>
 <p>Knowing this, we need to move to the coordinates (35246, 35246, 35246). To do that, I reused the solution from the Minecraft challenge in the quals and changed the target position.</p>
 <h4 id="script-11">Script<a hidden class="anchor" aria-hidden="true" href="#script-11">#</a></h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env node
-</span></span></span><span class="line"><span class="cl"><span class="ch"></span><span class="kr">const</span> <span class="nx">mineflayer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mineflayer&#39;</span><span class="p">)</span>
+</span></span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">mineflayer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mineflayer&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">{</span> <span class="nx">Vec3</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;vec3&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">parseArgs</span> <span class="p">()</span> <span class="p">{</span>
@@ -1846,7 +1847,8 @@ Thus I opened the <a href="https://discord.com/developers/docs/resources/guild">
 </span></span><span class="line"><span class="cl">  <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">})</span>
 </span></span></code></pre></div><blockquote>
-<p>N.B.: This exploit is practically the same of <a href="https://pascalctf.github.io/en/ctf/ctfatac/#minecrafty"><code>the original Minecrafty</code></a></p></blockquote>
+<p>N.B.: This exploit is practically the same of <a href="https://pascalctf.github.io/en/ctf/ctfatac/#minecrafty"><code>the original Minecrafty</code></a></p>
+</blockquote>
 <h3 id="volatile">Volatile<a hidden class="anchor" aria-hidden="true" href="#volatile">#</a></h3>
 <h4 id="analysis-16">Analysis<a hidden class="anchor" aria-hidden="true" href="#analysis-16">#</a></h4>
 <p>While analyzing the file I understood that this was a binary written in GO where the function <code>main.main</code> at <code>0x5309e0</code> builded an <code>afero.MemMapFs</code> over an embedded file table and reading two paths (<code>unk_5BCEE4</code> -&gt; <code>e/f1</code>, <code>unk_5BCEE8</code> -&gt; <code>e/f2</code>) via <code>github_com_spf13_afero_ReadFile</code>. The table itself is a <code>[]internal/embed/file</code> slice at <code>0x604360</code>, whose header (<code>ptr=0x604378, len=3</code>) points at three entries: directory <code>e/</code>, and files <code>e/f1</code> and <code>e/f2</code>. Each entry stores the Go string pointer/length for both the path and the file data, so dumping the strings at those addresses recovers the payloads. <code>e/f1</code> turned out to be the literal 32-byte ASCII string <code>6b90408b52818c16e4e3fd2e8acb40d6</code>, while <code>e/f2</code> held a 128-byte base64 ciphertext beginning with <code>RLJwwmLd1PETlctb...PlPGI</code>.</p>
@@ -2442,7 +2444,7 @@ According to the flag format CTF{SHA256(lat,lon)}, the flag is:</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://pascalctf.github.io/en/">Paolo</a></span> · 
+        <span>&copy; 2026 <a href="https://pascalctf.github.io/en/">Paolo</a></span> · 
 
     <span>
         Powered by
