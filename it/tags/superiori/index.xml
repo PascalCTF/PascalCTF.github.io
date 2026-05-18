@@ -20,7 +20,28 @@
 
 
   
-    &lt;h2 style=&#34;margin-top:2rem&#34;&gt;2025&lt;/h2&gt;
+
+  
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+  
+
+  
+    
+
+    
+      &lt;h2 class=&#34;sponsor-year-heading&#34;&gt;2025&lt;/h2&gt;
+    
+
     &lt;div class=&#34;sponsor-grid&#34;&gt;
       
         &lt;div class=&#34;sponsor-card&#34;&gt;
@@ -153,8 +174,18 @@
         &lt;/div&gt;
       
     &lt;/div&gt;
+
+    
   
-    &lt;h2 style=&#34;margin-top:2rem&#34;&gt;2024&lt;/h2&gt;
+    
+
+    
+      &lt;details class=&#34;sponsor-year&#34;&gt;
+        &lt;summary class=&#34;sponsor-year-summary&#34;&gt;
+          &lt;span class=&#34;sponsor-year-title&#34;&gt;Sponsor 2024&lt;/span&gt;
+        &lt;/summary&gt;
+    
+
     &lt;div class=&#34;sponsor-grid&#34;&gt;
       
         &lt;div class=&#34;sponsor-card&#34;&gt;
@@ -200,7 +231,10 @@
           
         &lt;/div&gt;
       
-    &lt;/div&gt;</description>
+    &lt;/div&gt;
+
+    
+      &lt;/details&gt;</description>
     </item>
     <item>
       <title>Competizioni 🏆</title>
