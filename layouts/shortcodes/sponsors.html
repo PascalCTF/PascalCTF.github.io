@@ -8,8 +8,32 @@ Renders a responsive grid of sponsors grouped by year using data/<lang>/sponsors
 {{ if not $data }}
   <p>No sponsors data found for language {{ $lang }}.</p>
 {{ else }}
-  {{ range $year := $data.years }}
-    <h2 style="margin-top:2rem">{{ $year.year }}</h2>
+  {{ $years := $data.years }}
+
+  {{ $yearLabel := cond (eq $lang "it") "Sponsor" "Sponsors" }}
+
+  {{/* Find the most recent year (max) */}}
+  {{ $s := newScratch }}
+  {{ $s.Set "maxYear" 0 }}
+  {{ range $y := $years }}
+    {{ if gt (int $y.year) (int ($s.Get "maxYear")) }}
+      {{ $s.Set "maxYear" (int $y.year) }}
+    {{ end }}
+  {{ end }}
+  {{ $maxYear := (int ($s.Get "maxYear")) }}
+
+  {{ range $year := $years }}
+    {{ $isLatest := eq (int $year.year) $maxYear }}
+
+    {{ if $isLatest }}
+      <h2 class="sponsor-year-heading">{{ $year.year }}</h2>
+    {{ else }}
+      <details class="sponsor-year">
+        <summary class="sponsor-year-summary">
+          <span class="sponsor-year-title">{{ $yearLabel }} {{ $year.year }}</span>
+        </summary>
+    {{ end }}
+
     <div class="sponsor-grid">
       {{ range $item := $year.items }}
         <div class="sponsor-card">
@@ -61,5 +85,9 @@ Renders a responsive grid of sponsors grouped by year using data/<lang>/sponsors
         </div>
       {{ end }}
     </div>
+
+    {{ if not $isLatest }}
+      </details>
+    {{ end }}
   {{ end }}
 {{ end }}

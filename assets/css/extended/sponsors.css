@@ -1,7 +1,48 @@
 .sponsor-grid {
     display: grid;
     gap: 1rem;
-    align-items: stretch
+    align-items: stretch;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.sponsor-year-heading {
+    margin-top: 2rem;
+}
+
+.sponsor-year {
+    margin-top: 2rem;
+}
+
+.sponsor-year-summary {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: 0;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.sponsor-year-title {
+    font-size: 1.1em;
+}
+
+.sponsor-year-summary::-webkit-details-marker {
+    display: none;
+}
+
+.sponsor-year-summary::after {
+    content: "▸";
+    color: var(--secondary);
+    transition: transform .15s ease;
+}
+
+.sponsor-year[open] .sponsor-year-summary::after {
+    transform: rotate(90deg);
+}
+
+.sponsor-year > .sponsor-grid {
+    margin-top: 1rem;
 }
 
 .sponsor-card {
@@ -9,10 +50,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: var(--theme);
-    color: var(--entry);
-    border-radius: 12px;
-    padding: 1rem;
+    background: transparent;
+    color: var(--primary);
+    padding: .75rem;
     text-align: center;
 }
 
@@ -28,31 +68,34 @@
 }
 
 .sponsor-card img {
+    display: block;
+    height: 70px;
+    width: auto;
     max-width: 100%;
-    max-height: 10rem;
+    max-height: 70px;
     object-fit: contain;
     filter: var(--img-filter, none)
 }
 
 .sponsor-name {
     margin-top: .5rem;
-    color: var(--primary);
-    font-weight: 600;
-    font-size: 2.5rem;
+    color: var(--secondary);
+    font-weight: 500;
+    font-size: 1rem;
 }
 
 .sponsor-links {
     display: flex;
     gap: .5rem;
-    margin-top: 1rem;
+    margin-top: .5rem;
     flex-wrap: wrap;
     justify-content: center
 }
 
 .sponsor-links a {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--secondary);
-    padding: .5rem .5rem;
+    padding: .25rem .25rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -69,3 +112,12 @@
 .sponsor-card img.logo-dark { display: none; }
 .dark .sponsor-card img.logo-light { display: none; }
 .dark .sponsor-card img.logo-dark { display: block; }
+
+/* Keep language switcher + edit link on same line */
+.post-meta .i18n_list {
+    display: inline-flex;
+    padding: 0;
+    margin: 0;
+    gap: 4px;
+    vertical-align: baseline;
+}
