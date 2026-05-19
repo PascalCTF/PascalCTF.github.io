@@ -4,7 +4,7 @@
     <title>Paolo</title>
     <link>https://pascalctf.github.io/en/</link>
     <description>Recent content on Paolo</description>
-    <generator>Hugo -- 0.154.2</generator>
+    <generator>Hugo -- 0.161.1</generator>
     <language>en</language>
     <lastBuildDate>Sun, 09 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://pascalctf.github.io/en/index.xml" rel="self" type="application/rss+xml" />
@@ -46,7 +46,7 @@
     
 
     
-      &lt;h2 class=&#34;sponsor-year-heading&#34;&gt;2025&lt;/h2&gt;
+      &lt;h2 id=&#34;2026&#34; class=&#34;sponsor-year-heading&#34;&gt;2026&lt;/h2&gt;
     
 
     &lt;div class=&#34;sponsor-grid&#34;&gt;
@@ -187,9 +187,9 @@
     
 
     
-      &lt;details class=&#34;sponsor-year&#34;&gt;
+      &lt;details id=&#34;2025&#34; class=&#34;sponsor-year&#34; data-sponsor-year=&#34;2025&#34;&gt;
         &lt;summary class=&#34;sponsor-year-summary&#34;&gt;
-          &lt;span class=&#34;sponsor-year-title&#34;&gt;Sponsors 2024&lt;/span&gt;
+          &lt;span class=&#34;sponsor-year-title&#34;&gt;Sponsors 2025&lt;/span&gt;
         &lt;/summary&gt;
     
 
@@ -241,7 +241,40 @@
     &lt;/div&gt;
 
     
-      &lt;/details&gt;</description>
+      &lt;/details&gt;
+    
+  
+
+  &lt;script&gt;
+    (function () {
+      function openSponsorYearFromHash() {
+        var hash = window.location.hash;
+        if (!hash || hash.length &lt; 2) return;
+
+        var year = decodeURIComponent(hash.slice(1)).trim();
+        if (!/^\d{4}$/.test(year)) return;
+
+        var el = document.getElementById(year);
+        if (!el) return;
+
+        if (el.tagName &amp;&amp; el.tagName.toLowerCase() === &#39;details&#39;) {
+          if (!el.open) el.open = true;
+        }
+
+        
+        if (typeof el.scrollIntoView === &#39;function&#39;) {
+          el.scrollIntoView({ block: &#39;start&#39; });
+        }
+      }
+
+      if (document.readyState === &#39;loading&#39;) {
+        document.addEventListener(&#39;DOMContentLoaded&#39;, openSponsorYearFromHash);
+      } else {
+        openSponsorYearFromHash();
+      }
+      window.addEventListener(&#39;hashchange&#39;, openSponsorYearFromHash);
+    })();
+  &lt;/script&gt;</description>
     </item>
     <item>
       <title>CTF@AC 2025 Quals</title>
@@ -283,7 +316,7 @@
       <link>https://pascalctf.github.io/en/ctf/pascalctf2025/</link>
       <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
       <guid>https://pascalctf.github.io/en/ctf/pascalctf2025/</guid>
-      <description>Some writeups of the pascalCTF Beginner ctf 2025 edition.</description>
+      <description>Some writeups of the PascalCTF Beginner CTF 2025 edition.</description>
     </item>
   </channel>
 </rss>

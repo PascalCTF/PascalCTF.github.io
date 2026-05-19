@@ -33,7 +33,7 @@
     
 
     
-      2025
+      2026
     
 
     
@@ -170,7 +170,7 @@
     
       
         
-          Sponsor 2024
+          Sponsor 2025
         
     
 
@@ -220,10 +220,14 @@
     
 
     
-      ">
+      
+    
+  
+
+  ">
 <meta name="author" content="Paolo">
 <link rel="canonical" href="https://pascalctf.github.io/it/sponsors/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.452594f1822d8db1a730a56c1f02a7c84c6e8b06b9b4ff923ca0d44d7a8bb81c.css" integrity="sha256-RSWU8YItjbGnMKVsHwKnyExuiwa5tP&#43;SPKDUTXqLuBw=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3f7d045084c6cde9f85897aae974d35671d13459c6e43ae206db1bb68124039c.css" integrity="sha256-P30EUITGzen4WJeq6XTTVnHRNFnG5DriBtsbtoEkA5w=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://pascalctf.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://pascalctf.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://pascalctf.github.io/favicon-32x32.png">
@@ -291,7 +295,7 @@
   <meta property="og:site_name" content="Paolo">
   <meta property="og:title" content="Sponsors 🚀">
   <meta property="og:description" content="Paolo è supportato da molte organizzazioni generose, senza le quali non esisteremmo.
-2025 Maggioli VEM Sistemi Flashstart Sponsor 2024 Cyberloop ">
+2026 Maggioli VEM Sistemi Flashstart Sponsor 2025 Cyberloop ">
   <meta property="og:locale" content="it">
   <meta property="og:type" content="article">
     <meta property="article:published_time" content="2025-09-27T00:00:00+00:00">
@@ -331,7 +335,7 @@
     
 
     
-      2025
+      2026
     
 
     
@@ -468,7 +472,7 @@
     
       
         
-          Sponsor 2024
+          Sponsor 2025
         
     
 
@@ -518,7 +522,11 @@
     
 
     
-      ">
+      
+    
+  
+
+  ">
 
 
 <script type="application/ld+json">
@@ -541,11 +549,11 @@
   "@type": "BlogPosting",
   "headline": "Sponsors 🚀",
   "name": "Sponsors 🚀",
-  "description": "Paolo è supportato da molte organizzazioni generose, senza le quali non esisteremmo.\n2025 Maggioli VEM Sistemi Flashstart Sponsor 2024 Cyberloop ",
+  "description": "Paolo è supportato da molte organizzazioni generose, senza le quali non esisteremmo.\n2026 Maggioli VEM Sistemi Flashstart Sponsor 2025 Cyberloop ",
   "keywords": [
     "cybersec", "ctfs", "olicyber", "cyberchallenge", "superiori"
   ],
-  "articleBody": "Paolo è supportato da molte organizzazioni generose, senza le quali non esisteremmo.\n2025 Maggioli VEM Sistemi Flashstart Sponsor 2024 Cyberloop ",
+  "articleBody": "Paolo è supportato da molte organizzazioni generose, senza le quali non esisteremmo.\n2026 Maggioli VEM Sistemi Flashstart Sponsor 2025 Cyberloop ",
   "wordCount" : "20",
   "inLanguage": "it",
   "image":"https://opengraph.githubassets.com/eccdc445364e4f9dcbece7bb7f178f0756be13a48717c78ec94bf78c35861b9a/PascalCTF/PascalCTF.github.io","datePublished": "2025-09-27T00:00:00Z",
@@ -684,7 +692,7 @@
     
 
     
-      <h2 class="sponsor-year-heading">2025</h2>
+      <h2 id="2026" class="sponsor-year-heading">2026<a hidden class="anchor" aria-hidden="true" href="#2026">#</a></h2>
     
 
     <div class="sponsor-grid">
@@ -825,9 +833,9 @@
     
 
     
-      <details class="sponsor-year">
+      <details id="2025" class="sponsor-year" data-sponsor-year="2025">
         <summary class="sponsor-year-summary">
-          <span class="sponsor-year-title">Sponsor 2024</span>
+          <span class="sponsor-year-title">Sponsor 2025</span>
         </summary>
     
 
@@ -882,6 +890,37 @@
       </details>
     
   
+
+  <script>
+    (function () {
+      function openSponsorYearFromHash() {
+        var hash = window.location.hash;
+        if (!hash || hash.length < 2) return;
+
+        var year = decodeURIComponent(hash.slice(1)).trim();
+        if (!/^\d{4}$/.test(year)) return;
+
+        var el = document.getElementById(year);
+        if (!el) return;
+
+        if (el.tagName && el.tagName.toLowerCase() === 'details') {
+          if (!el.open) el.open = true;
+        }
+
+        
+        if (typeof el.scrollIntoView === 'function') {
+          el.scrollIntoView({ block: 'start' });
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', openSponsorYearFromHash);
+      } else {
+        openSponsorYearFromHash();
+      }
+      window.addEventListener('hashchange', openSponsorYearFromHash);
+    })();
+  </script>
 
 
 

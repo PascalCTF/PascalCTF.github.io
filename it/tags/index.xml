@@ -4,29 +4,57 @@
     <title>Tags on Paolo</title>
     <link>https://pascalctf.github.io/it/tags/</link>
     <description>Recent content in Tags on Paolo</description>
-    <generator>Hugo -- 0.154.2</generator>
+    <generator>Hugo -- 0.161.1</generator>
     <language>it</language>
-    <lastBuildDate>Sun, 09 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 31 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://pascalctf.github.io/it/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ai</title>
+      <link>https://pascalctf.github.io/it/tags/ai/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/tags/ai/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Binary</title>
       <link>https://pascalctf.github.io/it/tags/binary/</link>
-      <pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
       <guid>https://pascalctf.github.io/it/tags/binary/</guid>
       <description></description>
     </item>
     <item>
       <title>Crypto</title>
       <link>https://pascalctf.github.io/it/tags/crypto/</link>
-      <pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
       <guid>https://pascalctf.github.io/it/tags/crypto/</guid>
       <description></description>
     </item>
     <item>
       <title>Ctf</title>
       <link>https://pascalctf.github.io/it/tags/ctf/</link>
-      <pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
       <guid>https://pascalctf.github.io/it/tags/ctf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PascalCTF</title>
+      <link>https://pascalctf.github.io/it/tags/pascalctf/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/tags/pascalctf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PascalCTF2026</title>
+      <link>https://pascalctf.github.io/it/tags/pascalctf2026/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/tags/pascalctf2026/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web</title>
+      <link>https://pascalctf.github.io/it/tags/web/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://pascalctf.github.io/it/tags/web/</guid>
       <description></description>
     </item>
     <item>
@@ -41,13 +69,6 @@
       <link>https://pascalctf.github.io/it/tags/ctfatac2025/</link>
       <pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate>
       <guid>https://pascalctf.github.io/it/tags/ctfatac2025/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Web</title>
-      <link>https://pascalctf.github.io/it/tags/web/</link>
-      <pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://pascalctf.github.io/it/tags/web/</guid>
       <description></description>
     </item>
     <item>
@@ -174,13 +195,6 @@
       <link>https://pascalctf.github.io/it/tags/suricata/</link>
       <pubDate>Sat, 26 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://pascalctf.github.io/it/tags/suricata/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>PascalCTF</title>
-      <link>https://pascalctf.github.io/it/tags/pascalctf/</link>
-      <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://pascalctf.github.io/it/tags/pascalctf/</guid>
       <description></description>
     </item>
     <item>

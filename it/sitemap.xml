@@ -2,8 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://pascalctf.github.io/it/tags/ai/</loc>
+    <lastmod>2026-01-31T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://pascalctf.github.io/it/tags/binary/</loc>
-    <lastmod>2025-11-09T00:00:00+00:00</lastmod>
+    <lastmod>2026-01-31T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +19,7 @@
                 />
   </url><url>
     <loc>https://pascalctf.github.io/it/ctf/</loc>
-    <lastmod>2025-11-09T00:00:00+00:00</lastmod>
+    <lastmod>2026-01-31T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -29,7 +32,7 @@
                 />
   </url><url>
     <loc>https://pascalctf.github.io/it/tags/crypto/</loc>
-    <lastmod>2025-11-09T00:00:00+00:00</lastmod>
+    <lastmod>2026-01-31T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -42,7 +45,7 @@
                 />
   </url><url>
     <loc>https://pascalctf.github.io/it/tags/ctf/</loc>
-    <lastmod>2025-11-09T00:00:00+00:00</lastmod>
+    <lastmod>2026-01-31T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -52,6 +55,64 @@
                 rel="alternate"
                 hreflang="it"
                 href="https://pascalctf.github.io/it/tags/ctf/"
+                />
+  </url><url>
+    <loc>https://pascalctf.github.io/it/</loc>
+    <lastmod>2026-01-31T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://pascalctf.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://pascalctf.github.io/it/"
+                />
+  </url><url>
+    <loc>https://pascalctf.github.io/it/ctf/pascalctf2026/</loc>
+    <lastmod>2026-01-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pascalctf.github.io/it/tags/pascalctf/</loc>
+    <lastmod>2026-01-31T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://pascalctf.github.io/en/tags/pascalctf/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://pascalctf.github.io/it/tags/pascalctf/"
+                />
+  </url><url>
+    <loc>https://pascalctf.github.io/it/tags/pascalctf2026/</loc>
+    <lastmod>2026-01-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pascalctf.github.io/it/tags/</loc>
+    <lastmod>2026-01-31T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://pascalctf.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://pascalctf.github.io/it/tags/"
+                />
+  </url><url>
+    <loc>https://pascalctf.github.io/it/tags/web/</loc>
+    <lastmod>2026-01-31T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://pascalctf.github.io/en/tags/web/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://pascalctf.github.io/it/tags/web/"
                 />
   </url><url>
     <loc>https://pascalctf.github.io/it/tags/ctfatac/</loc>
@@ -91,45 +152,6 @@
                 rel="alternate"
                 hreflang="it"
                 href="https://pascalctf.github.io/it/ctf/ctfatac2025_finals/"
-                />
-  </url><url>
-    <loc>https://pascalctf.github.io/it/</loc>
-    <lastmod>2025-11-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://pascalctf.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://pascalctf.github.io/it/"
-                />
-  </url><url>
-    <loc>https://pascalctf.github.io/it/tags/</loc>
-    <lastmod>2025-11-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://pascalctf.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://pascalctf.github.io/it/tags/"
-                />
-  </url><url>
-    <loc>https://pascalctf.github.io/it/tags/web/</loc>
-    <lastmod>2025-11-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://pascalctf.github.io/en/tags/web/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://pascalctf.github.io/it/tags/web/"
                 />
   </url><url>
     <loc>https://pascalctf.github.io/it/tags/ctfs/</loc>
@@ -458,19 +480,6 @@
                 rel="alternate"
                 hreflang="it"
                 href="https://pascalctf.github.io/it/ctf/pascalctf2025/"
-                />
-  </url><url>
-    <loc>https://pascalctf.github.io/it/tags/pascalctf/</loc>
-    <lastmod>2025-03-26T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://pascalctf.github.io/en/tags/pascalctf/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://pascalctf.github.io/it/tags/pascalctf/"
                 />
   </url><url>
     <loc>https://pascalctf.github.io/it/tags/pascalctf2025/</loc>
