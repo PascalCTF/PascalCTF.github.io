@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" dir="auto">
+<html lang="it" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
 <meta name="description" content="Team Paolo&#39;s website.">
 <meta name="author" content="AlBovo, Cryingfreeman74, ZazaMan">
 <link rel="canonical" href="https://pascalctf.github.io/it/tags/binary/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3f7d045084c6cde9f85897aae974d35671d13459c6e43ae206db1bb68124039c.css" integrity="sha256-P30EUITGzen4WJeq6XTTVnHRNFnG5DriBtsbtoEkA5w=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.acc7335c231435381368b2ebbc47f5ffb40584a2a06c4ef811e2d35978f17e50.css" integrity="sha256-rMczXCMUNTgTaLLrvEf1/7QFhKKgbE74EeLTWXjxflA=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://pascalctf.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://pascalctf.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://pascalctf.github.io/favicon-32x32.png">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://pascalctf.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://pascalctf.github.io/it/tags/binary/index.xml">
+<link rel="alternate" type="application/rss+xml" href="https://pascalctf.github.io/it/tags/binary/index.xml" title="rss">
 <link rel="alternate" hreflang="en" href="https://pascalctf.github.io/en/tags/binary/">
 <link rel="alternate" hreflang="it" href="https://pascalctf.github.io/it/tags/binary/">
 <noscript>
@@ -41,23 +41,32 @@
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+            .toc {
+                background: var(--entry);
             }
         }
 
     </style>
 </noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
@@ -81,38 +90,27 @@
   <meta property="og:description" content="Team Paolo&#39;s website.">
   <meta property="og:locale" content="it">
   <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Binary">
-<meta name="twitter:description" content="Team Paolo&#39;s website.">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Binary">
+  <meta name="twitter:description" content="Team Paolo&#39;s website.">
 
 </head>
-
 <body class="list" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
+    <header class="header">
+    <nav class="header-nav">
         <div class="logo">
             <a href="https://pascalctf.github.io/it/" accesskey="h" title="Home (Alt + H)">
                 <img src="https://pascalctf.github.io/favicon.ico" alt="" aria-label="logo"
                     height="35">Home</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -125,16 +123,16 @@
                         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
-                </button>
-                <ul class="lang-switch"><li>|</li>
-                    <li>
-                        <a href="https://pascalctf.github.io/en/" title="🇬🇧 En"
-                            aria-label=":uk: En">🇬🇧 En</a>
-                    </li>
-                </ul>
+                </button><span class="nav-sep">|</span>
+                    <ul class="lang-menu">
+                        <li>
+                            <a href="https://pascalctf.github.io/en/" title="🇬🇧 En"
+                                aria-label=":uk: En">🇬🇧 En</a>
+                        </li>
+                    </ul>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
             <li>
                 <a href="https://pascalctf.github.io/it/projects/" title="📒 Progetti">
                     <span>📒 Progetti</span>
@@ -159,7 +157,18 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://pascalctf.github.io/it/">Home</a>&nbsp;»&nbsp;<a href="https://pascalctf.github.io/it/tags/">Tags</a></div>
+<header class="page-header"><nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/it/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/it/tags/">Tags</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
   <h1>
     Binary
     <a href="/it/tags/binary/index.xml" title="RSS" aria-label="RSS">
@@ -183,7 +192,9 @@
 Buona parte delle challenge è stata creata per l’edizione Beginner tenutasi nello stesso mese presso l’ITT Pascal. Le challenge erano suddivise in diverse categorie, tra cui Web Security, Cryptography, Binary Exploitation, Reverse Engineering, Miscellaneous e Intelligenza Artificiale. Ogni categoria presentava sfide di difficoltà variabile, adatte sia a principianti che a esperti.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-01-31 00:00:00 +0000 UTC'>gennaio 31, 2026</span>&nbsp;·&nbsp;5 minuti&nbsp;·&nbsp;971 parole&nbsp;·&nbsp;Paolo</footer>
+  <footer class="entry-footer">
+
+<span title='2026-01-31 00:00:00 +0000 UTC'>gennaio 31, 2026</span>&nbsp;·&nbsp;<span>5 minuti</span>&nbsp;·&nbsp;<span>971 parole</span>&nbsp;·&nbsp;<span>Paolo</span></footer>
   <a class="entry-link" aria-label="post link to Pascal CTF 2026" href="https://pascalctf.github.io/it/ctf/pascalctf2026/"></a>
 </article>
 
@@ -199,7 +210,9 @@ I componenti del team che hanno partecipato:
 Marco Balducci (@Cryingfreeman74) Alan Davide Bovo (@Hecker404) Enea Maroncelli (@Zazaman) Web 🌐 Silicon Dioxide Analisi Questa challenge forniva il codice sorgente di un’applicazione web Node.js progettata per scrivere e condividere codice JavaScript “sandboxato” per modificare un canvas. C’erano sia un frontend sia un backend che gestivano l’esecuzione del JavaScript.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-11-09 00:00:00 +0000 UTC'>novembre 9, 2025</span>&nbsp;·&nbsp;46 minuti&nbsp;·&nbsp;9794 parole&nbsp;·&nbsp;Paolo</footer>
+  <footer class="entry-footer">
+
+<span title='2025-11-09 00:00:00 +0000 UTC'>novembre 9, 2025</span>&nbsp;·&nbsp;<span>46 minuti</span>&nbsp;·&nbsp;<span>9794 parole</span>&nbsp;·&nbsp;<span>Paolo</span></footer>
   <a class="entry-link" aria-label="post link to Finali CTF@AC 2025" href="https://pascalctf.github.io/it/ctf/ctfatac2025_finals/"></a>
 </article>
 
@@ -214,7 +227,9 @@ Exploit Dopo aver scaricato flag.plugin, notiamo che è cifrato. Il file server.
 KEY = b&#34;SECRET_KEY!123456XXXXXXXXXXXXXXX&#34; def decrypt_file(input_path, output_path, key): with open(input_path, &#34;rb&#34;) as f: data = f.read() iv = data[:16] ciphertext = data[16:] cipher = AES.new(key, AES.MODE_CBC, iv) plaintext = unpad(cipher.decrypt(ciphertext), AES.block_size) with open(output_path, &#34;wb&#34;) as f: f.write(plaintext) Il init.py del flag.plugin decifrato contiene il seguente codice:
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-09-16 00:00:00 +0000 UTC'>settembre 16, 2025</span>&nbsp;·&nbsp;29 minuti&nbsp;·&nbsp;6162 parole&nbsp;·&nbsp;Paolo</footer>
+  <footer class="entry-footer">
+
+<span title='2025-09-16 00:00:00 +0000 UTC'>settembre 16, 2025</span>&nbsp;·&nbsp;<span>29 minuti</span>&nbsp;·&nbsp;<span>6162 parole</span>&nbsp;·&nbsp;<span>Paolo</span></footer>
   <a class="entry-link" aria-label="post link to Qualifiche CTF@AC 2025" href="https://pascalctf.github.io/it/ctf/ctfatac2025_quals/"></a>
 </article>
 
@@ -227,7 +242,9 @@ KEY = b&#34;SECRET_KEY!123456XXXXXXXXXXXXXXX&#34; def decrypt_file(input_path, o
     <p>Pascal CTF Beginner 2025 Web 🌐 Static Fl@g Questa challenge è una delle più semplici nel contesto della sicurezza web, in quanto si basa su un controllo lato client per rivelare la flag. La flag è incorporata nel codice JavaScript della pagina index, codificata in base64, il che la rende facilmente individuabile tramite ispezione del codice. Di conseguenza, non è necessario scrivere uno script per risolvere questa challenge.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-03-26 00:00:00 +0000 UTC'>marzo 26, 2025</span>&nbsp;·&nbsp;10 minuti&nbsp;·&nbsp;2044 parole&nbsp;·&nbsp;Paolo</footer>
+  <footer class="entry-footer">
+
+<span title='2025-03-26 00:00:00 +0000 UTC'>marzo 26, 2025</span>&nbsp;·&nbsp;<span>10 minuti</span>&nbsp;·&nbsp;<span>2044 parole</span>&nbsp;·&nbsp;<span>Paolo</span></footer>
   <a class="entry-link" aria-label="post link to Pascal CTF Beginner 2025" href="https://pascalctf.github.io/it/ctf/pascalctf2025/"></a>
 </article>
     </main>
@@ -235,22 +252,31 @@ KEY = b&#34;SECRET_KEY!123456XXXXXXXXXXXXXXX&#34; def decrypt_file(input_path, o
 <footer class="footer">
         <span>&copy; 2026 <a href="https://pascalctf.github.io/it/">Paolo</a></span> · 
 
+    
+    
     <span>
         Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
     </svg>
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -277,25 +303,25 @@ KEY = b&#34;SECRET_KEY!123456XXXXXXXXXXXXXXX&#34; def decrypt_file(input_path, o
 
 </script>
 <script>
-    var mybutton = document.getElementById("top-link");
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })
