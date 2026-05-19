@@ -11,7 +11,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-description: "Alcune writeups della pascalCTF Beginner ctf 2025."
+description: "Alcune writeup della PascalCTF Beginner CTF 2025."
 canonicalURL: "https://pascalctf.github.io/it/ctf/"
 disableHLJS: false
 disableShare: false
@@ -26,7 +26,7 @@ UseHugoToc: true
 cover:
     image: "https://opengraph.githubassets.com/eccdc445364e4f9dcbece7bb7f178f0756be13a48717c78ec94bf78c35861b9a/PascalCTF/PascalCTF.github.io" # image path/url
     alt: "Pascal CTF Beginner 2025" # alt text
-    caption: "Alcune writeups della pascalCTF Beginner ctf 2025." # display caption under cover
+    caption: "Alcune writeup della PascalCTF Beginner CTF 2025." # display caption under cover
     relative: false # when using page bundles set this to true
     hidden: true # only hide on current single page
 editPost:
@@ -418,3 +418,8 @@ for packet in capture:
 flag = bytes.fromhex(flag).decode('utf-8') # convert hex to ascii
 print(re.findall(regex, flag)[0]) # print the flag
 ```
+
+## Ringraziamenti
+Essendo questa la prima edizione della PascalCTF, vorremmo ringraziare tutti coloro che hanno partecipato, sia come concorrenti che come organizzatori, per aver reso possibile questo evento. 
+
+Un ringraziamento speciale va a tutti gli [**sponsor**](/it/sponsors#2025) per aver reso possibile questo evento.  

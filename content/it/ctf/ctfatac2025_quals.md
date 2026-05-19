@@ -1,5 +1,5 @@
 ---
-title: "CTF@AC 2025 Qualifiche"
+title: "Qualifiche CTF@AC 2025"
 date: 2025-09-16T00:00:00+00:00
 # weight: 1
 # aliases: ["/first"]

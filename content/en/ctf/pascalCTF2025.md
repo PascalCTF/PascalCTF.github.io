@@ -11,7 +11,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-description: "Some writeups of the pascalCTF Beginner ctf 2025 edition."
+description: "Some writeups of the PascalCTF Beginner CTF 2025 edition."
 canonicalURL: "https://pascalctf.github.io/en/ctf/"
 disableHLJS: false
 disableShare: false
@@ -26,7 +26,7 @@ UseHugoToc: true
 cover:
     image: "https://opengraph.githubassets.com/eccdc445364e4f9dcbece7bb7f178f0756be13a48717c78ec94bf78c35861b9a/PascalCTF/PascalCTF.github.io" # image path/url
     alt: "Pascal CTF Beginner 2025" # alt text
-    caption: "Some writeups of the pascalCTF Beginner ctf 2025 edition." # display caption under cover
+    caption: "Some writeups of the PascalCTF Beginner CTF 2025 edition." # display caption under cover
     relative: false # when using page bundles set this to true
     hidden: true # only hide on current single page
 editPost:

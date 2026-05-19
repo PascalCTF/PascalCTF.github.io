@@ -4,7 +4,7 @@ Renders a responsive grid of sponsors grouped by year using data/<lang>/sponsors
 */}}
 
 {{ $lang := .Page.Lang }}
-{{ $data := index site.Data "sponsors" }}
+{{ $data := index hugo.Data "sponsors" }}
 {{ if not $data }}
   <p>No sponsors data found for language {{ $lang }}.</p>
 {{ else }}
@@ -26,9 +26,9 @@ Renders a responsive grid of sponsors grouped by year using data/<lang>/sponsors
     {{ $isLatest := eq (int $year.year) $maxYear }}
 
     {{ if $isLatest }}
-      <h2 class="sponsor-year-heading">{{ $year.year }}</h2>
+      <h2 id="{{ $year.year }}" class="sponsor-year-heading">{{ $year.year }}</h2>
     {{ else }}
-      <details class="sponsor-year">
+      <details id="{{ $year.year }}" class="sponsor-year" data-sponsor-year="{{ $year.year }}">
         <summary class="sponsor-year-summary">
           <span class="sponsor-year-title">{{ $yearLabel }} {{ $year.year }}</span>
         </summary>
@@ -90,4 +90,35 @@ Renders a responsive grid of sponsors grouped by year using data/<lang>/sponsors
       </details>
     {{ end }}
   {{ end }}
+
+  <script>
+    (function () {
+      function openSponsorYearFromHash() {
+        var hash = window.location.hash;
+        if (!hash || hash.length < 2) return;
+
+        var year = decodeURIComponent(hash.slice(1)).trim();
+        if (!/^\d{4}$/.test(year)) return;
+
+        var el = document.getElementById(year);
+        if (!el) return;
+
+        if (el.tagName && el.tagName.toLowerCase() === 'details') {
+          if (!el.open) el.open = true;
+        }
+
+        // Re-align after opening (and also for latest-year headings).
+        if (typeof el.scrollIntoView === 'function') {
+          el.scrollIntoView({ block: 'start' });
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', openSponsorYearFromHash);
+      } else {
+        openSponsorYearFromHash();
+      }
+      window.addEventListener('hashchange', openSponsorYearFromHash);
+    })();
+  </script>
 {{ end }}

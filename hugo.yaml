@@ -25,12 +25,12 @@ staticDir:
 
 languages:
   en:
-    languageName: ":uk: En"
+    label: ":uk: En"
     weight: 1
     contentDir: content/en
 
   it:
-    languageName: ":it: It"
+    label: ":it: It"
     weight: 2
     title: Paolo
     contentDir: content/it
