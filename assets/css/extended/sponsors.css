@@ -110,8 +110,17 @@
 
 /* Light/Dark logo switching */
 .sponsor-card img.logo-dark { display: none; }
-.dark .sponsor-card img.logo-light { display: none; }
-.dark .sponsor-card img.logo-dark { display: block; }
+
+/* Support both the `.dark` class and the `data-theme="dark"` attribute */
+.dark .sponsor-card img.logo-light,
+[data-theme="dark"] .sponsor-card img.logo-light {
+    display: none;
+}
+
+.dark .sponsor-card img.logo-dark,
+[data-theme="dark"] .sponsor-card img.logo-dark {
+    display: block;
+}
 
 /* Keep language switcher + edit link on same line */
 .post-meta .i18n_list {
