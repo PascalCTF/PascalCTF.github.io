@@ -54,6 +54,8 @@ languages:
             url: competitions/
           - name: "\U0001F680 Sponsors"
             url: sponsors/
+          - name: "\U0001F3E0 Wiki"
+            url: https://wiki.pascalctf.it/
     menu:
       main:
         - identifier: progetti
@@ -72,6 +74,10 @@ languages:
           name: "\U0001F680 Sponsors"
           url: sponsors/
           weight: 40
+        - identifier: wiki
+          name: "\U0001F3E0 Wiki"
+          url: https://wiki.pascalctf.it/
+          weight: 50
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
